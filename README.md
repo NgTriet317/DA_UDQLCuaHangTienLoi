@@ -31,22 +31,22 @@ __Thư viện hỗ trợ:__
   Guna UI (Thiết kế giao diện hiện đại)
   Crystal Reports (Xuất báo cáo)
 
+=====================================================================================
 
 __🚀 Hướng dẫn cài đặt__
 Để chạy dự án này trên máy cục bộ, hãy thực hiện các bước sau:
-
 1. Clone repository:
   git clone [https://github.com/username/DA_UDQLCuaHangTienLoi.git](https://github.com/username/DA_UDQLCuaHangTienLoi.git)
 
-2.Cấu hình Cơ sở dữ liệu:
+2. Cấu hình Cơ sở dữ liệu:
   Mở SQL Server Management Studio (SSMS).
   Chạy file QLCHTL.sql & sp.sql trong thư mục Database để tạo bảng và dữ liệu mẫu.
 
-3.Mở Project:
+3. Mở Project:
   Mở file .sln bằng Visual Studio 2022.  
   
-4.Cấu hình kết nối:
+4. Cấu hình kết nối:
   Thay đổi chuỗi kết nối (Connection String) trong file App.config để phù hợp với Server của bạn.
 
-5.Build & Run:
+5. Build & Run:
   Nhấn F5 để trải nghiệm ứng dụng.
