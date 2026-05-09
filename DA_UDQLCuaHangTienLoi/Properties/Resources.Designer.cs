@@ -103,6 +103,26 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap magnifying_glass_solid {
+            get {
+                object obj = ResourceManager.GetObject("magnifying-glass-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap phone_solid {
+            get {
+                object obj = ResourceManager.GetObject("phone-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rotate_solid {
             get {
                 object obj = ResourceManager.GetObject("rotate-solid", resourceCulture);
@@ -113,9 +133,29 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap user_plus_solid {
+            get {
+                object obj = ResourceManager.GetObject("user-plus-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_solid {
             get {
                 object obj = ResourceManager.GetObject("user-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap users_solid {
+            get {
+                object obj = ResourceManager.GetObject("users-solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

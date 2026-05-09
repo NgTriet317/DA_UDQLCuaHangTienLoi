@@ -205,6 +205,12 @@
     <Compile Include="InThongKeNhapHang.Designer.cs">
       <DependentUpon>InThongKeNhapHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhachHang.Designer.cs">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="KhoHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +279,12 @@
     <Compile Include="taoNhapHang.Designer.cs">
       <DependentUpon>taoNhapHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="theKhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="theKhachHang.Designer.cs">
+      <DependentUpon>theKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThemNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,6 +345,9 @@
     <EmbeddedResource Include="InThongKeNhapHang.resx">
       <DependentUpon>InThongKeNhapHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KhachHang.resx">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KhoHang.resx">
       <DependentUpon>KhoHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="taoNhapHang.resx">
       <DependentUpon>taoNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="theKhachHang.resx">
+      <DependentUpon>theKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThemNhanVien.resx">
       <DependentUpon>ThemNhanVien.cs</DependentUpon>
@@ -502,6 +520,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-plus-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone-solid.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

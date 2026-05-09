@@ -148,7 +148,7 @@ namespace DA_UDQLCuaHangTienLoi
         {
             clearColorButton();
             btnKhach.BackColor = Color.MediumBlue;
-            OpenChildForm(new banHang());
+            OpenChildForm(new KhachHang());
         }
 
         private void panel3_Paint_1(object sender, PaintEventArgs e)

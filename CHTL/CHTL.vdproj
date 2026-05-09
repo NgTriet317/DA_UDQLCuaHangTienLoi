@@ -729,6 +729,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8C24300E5088403EBAA8C63FE7A17C9E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8D6993BED4606749BDCDD13E6C60499B"
         "OwnerKey" = "8:_0EEFD92811254A6F9492AAA4CB7BFDFF"
         "MsmSig" = "8:_UNDEFINED"
@@ -845,6 +851,12 @@
         {
         "MsmKey" = "8:_A27F585BE71962C799727E15A4F7F068"
         "OwnerKey" = "8:_0EEFD92811254A6F9492AAA4CB7BFDFF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A2B155480171456EBBE637FE1911463F"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -5150,6 +5162,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C24300E5088403EBAA8C63FE7A17C9E"
+            {
+            "SourcePath" = "8:..\\..\\..\\sp.sql"
+            "TargetName" = "8:sp.sql"
+            "Tag" = "8:"
+            "Folder" = "8:_803A3C0F74F245C1B8AF0893DEF4B348"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8D6993BED4606749BDCDD13E6C60499B"
             {
             "AssemblyRegister" = "3:1"
@@ -5724,6 +5756,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A2B155480171456EBBE637FE1911463F"
+            {
+            "SourcePath" = "8:..\\..\\..\\QLCHTL.sql"
+            "TargetName" = "8:QLCHTL.sql"
+            "Tag" = "8:"
+            "Folder" = "8:_803A3C0F74F245C1B8AF0893DEF4B348"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A407860010B84CE3A4B6B49F4618060E"
@@ -7831,6 +7883,17 @@
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_18D7EEBAB5A34783AA77C7F7354FF8B7"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_803A3C0F74F245C1B8AF0893DEF4B348"
+                    {
+                    "Name" = "8:SQL"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_8987227A03AA4F9889D1446A2D3C8D12"
                         "Folders"
                         {
                         }

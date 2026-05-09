@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ET_CaLam.cs" />
     <Compile Include="ET_HoaDon.cs" />
+    <Compile Include="ET_KHACHHANG.cs" />
     <Compile Include="ET_KHO.cs" />
     <Compile Include="ET_KM.cs" />
     <Compile Include="ET_LichLam.cs" />
