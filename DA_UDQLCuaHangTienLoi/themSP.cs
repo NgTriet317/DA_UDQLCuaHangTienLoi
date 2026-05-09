@@ -25,7 +25,7 @@ namespace DA_UDQLCuaHangTienLoi
         BUS_KM km = new BUS_KM();
         private void btnThem_Click(object sender, EventArgs e)
         {            
-             ET_SP et = new ET_SP(txtMaSP.Text,txtTenSP.Text,txtFileName.Text,dtpNgaySX.Value,dtpHanSD.Value,Convert.ToInt32(txtSL.Text), txtDVT.Text, Convert.ToInt32(txtGiaSP.Text),cboLSP.SelectedValue.ToString(),cboKM.SelectedValue.ToString(),cboNCC.SelectedValue.ToString());
+             ET_SP et = new ET_SP(txtMaSP.Text,txtTenSP.Text,txtFileName.Text,Convert.ToInt32(txtSL.Text), txtDVT.Text, Convert.ToInt32(txtGiaSP.Text),Convert.ToInt32(txtGiaGoc.Text),cboLSP.SelectedValue.ToString(),cboKM.SelectedValue.ToString(),cboNCC.SelectedValue.ToString());
              if (sp.themSP(et))
              {
                  MessageBox.Show("Thêm thành công");

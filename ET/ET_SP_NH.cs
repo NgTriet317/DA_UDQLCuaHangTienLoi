@@ -12,19 +12,25 @@ namespace ET
         private string maSP;
         private int slNhap;
         private int giaNhap;
-        
+        private DateTime ngaySX;
+        private DateTime hanSD;
 
-        public ET_SP_NH(string maNH, string maSP, int slNhap, int giaNhap)
+
+        public ET_SP_NH(string maNH, string maSP, int slNhap, int giaNhap, DateTime ngaySX, DateTime hanSD)
         {
             this.maNH = maNH;
             this.maSP = maSP;
             this.slNhap = slNhap;
-            this.giaNhap = giaNhap;            
+            this.giaNhap = giaNhap;
+            this.ngaySX = ngaySX;
+            this.hanSD = hanSD; 
         }
 
         public string MaNH { get => maNH; set => maNH = value; }
         public string MaSP { get => maSP; set => maSP = value; }
         public int SlNhap { get => slNhap; set => slNhap = value; }
-        public int GiaNhap { get => giaNhap; set => giaNhap = value; }        
+        public int GiaNhap { get => giaNhap; set => giaNhap = value; }
+        public DateTime NgaySX { get => ngaySX; set => ngaySX = value; }
+        public DateTime HanSD { get => hanSD; set => hanSD = value; }
     }
 }

@@ -68,11 +68,12 @@ namespace DA_UDQLCuaHangTienLoi
             int dong = dgvTT.CurrentCell.RowIndex;
             txtMaSP.Text = dgvTT.Rows[dong].Cells[0].Value.ToString();
             txtTenSP.Text = dgvTT.Rows[dong].Cells[1].Value.ToString();
+            txtGiaGoc.Text = dgvTT.Rows[dong].Cells[5].Value.ToString();
             txtLoaiSP.Text = lsp.layTenLoai(dgvTT.Rows[dong].Cells[6].Value.ToString());
             txtNCC.Text = ncc.layTenNCC(dgvTT.Rows[dong].Cells[8].Value.ToString());
             txtSL.Text = dgvTT.Rows[dong].Cells[3].Value.ToString();            
             txtGiaSP.Text = dgvTT.Rows[dong].Cells[4].Value.ToString();
-            txtDVT.Text = dgvTT.Rows[dong].Cells[5].Value.ToString();
+            txtDVT.Text = dgvTT.Rows[dong].Cells[9].Value.ToString();
             txtKM.Text = km.layTen(dgvTT.Rows[dong].Cells[7].Value.ToString());
 
 

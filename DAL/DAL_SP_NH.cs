@@ -72,7 +72,9 @@ namespace DAL
                     new SqlParameter("@MaNH",et.MaNH),
                     new SqlParameter("@MaSP",et.MaSP),
                     new SqlParameter("@SL",et.SlNhap),
-                    new SqlParameter("@GiaNhap",et.GiaNhap)
+                    new SqlParameter("@GiaNhap",et.GiaNhap),
+                    new SqlParameter("@NgaySX",et.NgaySX),
+                    new SqlParameter("@HanSD",et.HanSD)
                 };
                 cmd.Parameters.AddRange(param);
 

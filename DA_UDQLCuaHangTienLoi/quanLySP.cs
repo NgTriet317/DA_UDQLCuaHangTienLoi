@@ -62,8 +62,7 @@ namespace DA_UDQLCuaHangTienLoi
                 cboKM.SelectedValue = dr["MaKM"].ToString();
 
                 txtSL.Text = (dr["SoLuong"].ToString());
-                dtpNgaySX.Value = Convert.ToDateTime(dr["NgaySX"]);
-                dtpHanSD.Value = Convert.ToDateTime(dr["HanSD"]);
+                
                 txtGiaSP.Text = dr["DonGia"].ToString();
                 txtDVT.Text = dr["MaDVT"].ToString();
                 txtFileName.Text = dr["Hinh"].ToString();
@@ -94,7 +93,7 @@ namespace DA_UDQLCuaHangTienLoi
         private void btnSua_Click(object sender, EventArgs e)
         {
             // Tạo đối tượng lấy dữ liệu từ giao diện
-            ET_SP et = new ET_SP(txtMaSP.Text, txtTenSP.Text, txtFileName.Text, dtpNgaySX.Value, dtpHanSD.Value, Convert.ToInt32(txtSL.Text), txtDVT.Text, Convert.ToInt32(txtGiaSP.Text.Split(',')[0]), cboLSP.SelectedValue.ToString(), cboKM.SelectedValue.ToString(), cboNCC.SelectedValue.ToString());
+            ET_SP et = new ET_SP(txtMaSP.Text, txtTenSP.Text, txtFileName.Text, Convert.ToInt32(txtSL.Text), txtDVT.Text, Convert.ToInt32(txtGiaSP.Text.Split(',')[0]), Convert.ToInt32(txtGiaGoc.Text.Split(',')[0]), cboLSP.SelectedValue.ToString(), cboKM.SelectedValue.ToString(), cboNCC.SelectedValue.ToString());
 
             // 1. GỌI LỆNH UPDATE DATABASE TRƯỚC
             if (sp.suaSP(et))

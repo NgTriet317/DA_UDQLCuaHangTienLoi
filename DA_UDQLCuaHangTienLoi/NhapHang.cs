@@ -154,7 +154,7 @@ namespace DA_UDQLCuaHangTienLoi
             int soLuong = Convert.ToInt32(txtSL.Text);
             int donGia = Convert.ToInt32(tachDonGia());
 
-            ET_SP_NH et = new ET_SP_NH(txtMaNH.Text, txtMaSP.Text, soLuong, donGia);
+            ET_SP_NH et = new ET_SP_NH(txtMaNH.Text, txtMaSP.Text, soLuong, donGia, dtpNgaySX.Value, dtpHanSD.Value);
 
             // 2. Đẩy xuống Database
             if (spnh.them(et))

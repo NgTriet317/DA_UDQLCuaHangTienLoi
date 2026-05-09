@@ -70,6 +70,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.dtpNgaySX = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpHanSD = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTTNhapHang)).BeginInit();
             this.panel4.SuspendLayout();
@@ -87,7 +91,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 461);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1146, 223);
+            this.panel1.Size = new System.Drawing.Size(1301, 223);
             this.panel1.TabIndex = 0;
             // 
             // dgvTTNhapHang
@@ -110,7 +114,7 @@
             this.dgvTTNhapHang.RowHeadersWidth = 51;
             this.dgvTTNhapHang.RowTemplate.Height = 24;
             this.dgvTTNhapHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTTNhapHang.Size = new System.Drawing.Size(946, 223);
+            this.dgvTTNhapHang.Size = new System.Drawing.Size(1101, 223);
             this.dgvTTNhapHang.TabIndex = 2;
             this.dgvTTNhapHang.Click += new System.EventHandler(this.dgvTTNhapHang_Click);
             // 
@@ -164,7 +168,7 @@
             this.panel4.Controls.Add(this.btnXoa);
             this.panel4.Controls.Add(this.btnHuy);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(946, 0);
+            this.panel4.Location = new System.Drawing.Point(1101, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 223);
             this.panel4.TabIndex = 1;
@@ -224,7 +228,7 @@
             this.dgvTTChiTiet.RowHeadersWidth = 51;
             this.dgvTTChiTiet.RowTemplate.Height = 24;
             this.dgvTTChiTiet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTTChiTiet.Size = new System.Drawing.Size(786, 198);
+            this.dgvTTChiTiet.Size = new System.Drawing.Size(963, 198);
             this.dgvTTChiTiet.TabIndex = 0;
             // 
             // MaNH
@@ -277,7 +281,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(352, 461);
+            this.panel2.Size = new System.Drawing.Size(330, 461);
             this.panel2.TabIndex = 0;
             // 
             // pnSPS
@@ -287,7 +291,7 @@
             this.pnSPS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnSPS.Location = new System.Drawing.Point(3, 33);
             this.pnSPS.Name = "pnSPS";
-            this.pnSPS.Size = new System.Drawing.Size(345, 458);
+            this.pnSPS.Size = new System.Drawing.Size(321, 458);
             this.pnSPS.TabIndex = 1;
             this.pnSPS.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -304,6 +308,8 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.dtpHanSD);
+            this.panel3.Controls.Add(this.dtpNgaySX);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.btnThem);
             this.panel3.Controls.Add(this.btnLamMoi);
@@ -317,15 +323,17 @@
             this.panel3.Controls.Add(this.txtMaNH);
             this.panel3.Controls.Add(this.txtTenSP);
             this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(358, 0);
+            this.panel3.Location = new System.Drawing.Point(336, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(788, 461);
+            this.panel3.Size = new System.Drawing.Size(965, 461);
             this.panel3.TabIndex = 0;
             // 
             // panel5
@@ -334,7 +342,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 261);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(786, 198);
+            this.panel5.Size = new System.Drawing.Size(963, 198);
             this.panel5.TabIndex = 8;
             // 
             // btnThem
@@ -497,7 +505,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(786, 47);
+            this.panel6.Size = new System.Drawing.Size(963, 47);
             this.panel6.TabIndex = 1;
             // 
             // label1
@@ -511,11 +519,59 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Thông tin";
             // 
+            // dtpNgaySX
+            // 
+            this.dtpNgaySX.Checked = true;
+            this.dtpNgaySX.FillColor = System.Drawing.Color.White;
+            this.dtpNgaySX.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpNgaySX.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgaySX.Location = new System.Drawing.Point(741, 92);
+            this.dtpNgaySX.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpNgaySX.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpNgaySX.Name = "dtpNgaySX";
+            this.dtpNgaySX.Size = new System.Drawing.Size(200, 36);
+            this.dtpNgaySX.TabIndex = 9;
+            this.dtpNgaySX.Value = new System.DateTime(2026, 5, 9, 13, 12, 40, 170);
+            // 
+            // dtpHanSD
+            // 
+            this.dtpHanSD.Checked = true;
+            this.dtpHanSD.FillColor = System.Drawing.Color.White;
+            this.dtpHanSD.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpHanSD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHanSD.Location = new System.Drawing.Point(741, 175);
+            this.dtpHanSD.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpHanSD.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpHanSD.Name = "dtpHanSD";
+            this.dtpHanSD.Size = new System.Drawing.Size(200, 36);
+            this.dtpHanSD.TabIndex = 9;
+            this.dtpHanSD.Value = new System.DateTime(2026, 5, 9, 13, 11, 41, 507);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(736, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 25);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Ngày SX";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(736, 147);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 25);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Hạn SD";
+            // 
             // NhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1146, 684);
+            this.ClientSize = new System.Drawing.Size(1301, 684);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -581,5 +637,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn donGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn thanhTien;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpHanSD;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgaySX;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }

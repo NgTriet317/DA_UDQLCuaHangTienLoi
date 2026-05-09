@@ -33,16 +33,12 @@
             this.picHinh = new System.Windows.Forms.PictureBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.dtpHanSD = new System.Windows.Forms.DateTimePicker();
-            this.dtpNgaySX = new System.Windows.Forms.DateTimePicker();
             this.cboNCC = new System.Windows.Forms.ComboBox();
             this.cboKM = new System.Windows.Forms.ComboBox();
             this.cboLSP = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtSL = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,6 +49,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtGiaSP = new System.Windows.Forms.TextBox();
             this.txtMaSP = new System.Windows.Forms.TextBox();
+            this.txtGiaGoc = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picHinh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,25 +107,6 @@
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // dtpHanSD
-            // 
-            this.dtpHanSD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpHanSD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHanSD.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dtpHanSD.Location = new System.Drawing.Point(852, 140);
-            this.dtpHanSD.Name = "dtpHanSD";
-            this.dtpHanSD.Size = new System.Drawing.Size(321, 22);
-            this.dtpHanSD.TabIndex = 47;
-            // 
-            // dtpNgaySX
-            // 
-            this.dtpNgaySX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpNgaySX.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgaySX.Location = new System.Drawing.Point(852, 50);
-            this.dtpNgaySX.Name = "dtpNgaySX";
-            this.dtpNgaySX.Size = new System.Drawing.Size(321, 22);
-            this.dtpNgaySX.TabIndex = 46;
-            // 
             // cboNCC
             // 
             this.cboNCC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -143,7 +122,7 @@
             this.cboKM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboKM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKM.FormattingEnabled = true;
-            this.cboKM.Location = new System.Drawing.Point(852, 392);
+            this.cboKM.Location = new System.Drawing.Point(835, 308);
             this.cboKM.Name = "cboKM";
             this.cboKM.Size = new System.Drawing.Size(321, 24);
             this.cboKM.TabIndex = 43;
@@ -157,17 +136,6 @@
             this.cboLSP.Name = "cboLSP";
             this.cboLSP.Size = new System.Drawing.Size(309, 24);
             this.cboLSP.TabIndex = 45;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(752, 50);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(74, 20);
-            this.label10.TabIndex = 28;
-            this.label10.Text = "Ngày SX";
             // 
             // txtSL
             // 
@@ -183,7 +151,7 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(730, 392);
+            this.label11.Location = new System.Drawing.Point(723, 311);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(96, 20);
             this.label11.TabIndex = 29;
@@ -199,17 +167,6 @@
             this.label1.Size = new System.Drawing.Size(64, 20);
             this.label1.TabIndex = 30;
             this.label1.Text = "Tên SP";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(757, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 20);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Hạn SD";
             // 
             // label12
             // 
@@ -227,7 +184,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(738, 310);
+            this.label6.Location = new System.Drawing.Point(731, 229);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 20);
             this.label6.TabIndex = 33;
@@ -269,7 +226,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(764, 224);
+            this.label7.Location = new System.Drawing.Point(747, 50);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 20);
             this.label7.TabIndex = 36;
@@ -279,7 +236,7 @@
             // 
             this.txtDVT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDVT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDVT.Location = new System.Drawing.Point(852, 305);
+            this.txtDVT.Location = new System.Drawing.Point(835, 224);
             this.txtDVT.Name = "txtDVT";
             this.txtDVT.Size = new System.Drawing.Size(321, 27);
             this.txtDVT.TabIndex = 38;
@@ -299,7 +256,7 @@
             // 
             this.txtGiaSP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGiaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaSP.Location = new System.Drawing.Point(852, 224);
+            this.txtGiaSP.Location = new System.Drawing.Point(835, 50);
             this.txtGiaSP.Name = "txtGiaSP";
             this.txtGiaSP.Size = new System.Drawing.Size(321, 27);
             this.txtGiaSP.TabIndex = 42;
@@ -314,6 +271,26 @@
             this.txtMaSP.Size = new System.Drawing.Size(309, 27);
             this.txtMaSP.TabIndex = 40;
             // 
+            // txtGiaGoc
+            // 
+            this.txtGiaGoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtGiaGoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaGoc.Location = new System.Drawing.Point(835, 136);
+            this.txtGiaGoc.Name = "txtGiaGoc";
+            this.txtGiaGoc.Size = new System.Drawing.Size(321, 27);
+            this.txtGiaGoc.TabIndex = 42;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(747, 136);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 20);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Giá gốc";
+            // 
             // quanLySP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -324,25 +301,23 @@
             this.Controls.Add(this.picHinh);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.dtpHanSD);
-            this.Controls.Add(this.dtpNgaySX);
             this.Controls.Add(this.cboNCC);
             this.Controls.Add(this.cboKM);
             this.Controls.Add(this.cboLSP);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtSL);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtMaSP);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtTenSP);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtDVT);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtGiaGoc);
             this.Controls.Add(this.txtGiaSP);
             this.Name = "quanLySP";
             this.Text = "quanLySP";
@@ -360,16 +335,12 @@
         private System.Windows.Forms.PictureBox picHinh;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.DateTimePicker dtpHanSD;
-        private System.Windows.Forms.DateTimePicker dtpNgaySX;
         private System.Windows.Forms.ComboBox cboNCC;
         private System.Windows.Forms.ComboBox cboKM;
         private System.Windows.Forms.ComboBox cboLSP;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtSL;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
@@ -380,5 +351,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtGiaSP;
         private System.Windows.Forms.TextBox txtMaSP;
+        private System.Windows.Forms.TextBox txtGiaGoc;
+        private System.Windows.Forms.Label label2;
     }
 }

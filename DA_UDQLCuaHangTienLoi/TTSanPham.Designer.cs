@@ -40,7 +40,6 @@
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtKM = new System.Windows.Forms.TextBox();
             this.txtTenSP = new System.Windows.Forms.TextBox();
@@ -52,6 +51,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtGiaSP = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtGiaGoc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTT)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -121,9 +123,11 @@
             this.panel2.Controls.Add(this.txtNCC);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtLoaiSP);
+            this.panel2.Controls.Add(this.txtGiaGoc);
             this.panel2.Controls.Add(this.txtDVT);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtGiaSP);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(37, 47);
@@ -222,17 +226,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Số lượng";
             // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(912, 155);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(157, 36);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Đơn vị tính";
-            // 
             // label9
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -248,7 +241,7 @@
             // 
             this.txtKM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtKM.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKM.Location = new System.Drawing.Point(1091, 236);
+            this.txtKM.Location = new System.Drawing.Point(1091, 326);
             this.txtKM.Name = "txtKM";
             this.txtKM.ReadOnly = true;
             this.txtKM.Size = new System.Drawing.Size(292, 41);
@@ -311,7 +304,7 @@
             // 
             this.txtDVT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDVT.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDVT.Location = new System.Drawing.Point(1091, 153);
+            this.txtDVT.Location = new System.Drawing.Point(1091, 243);
             this.txtDVT.Name = "txtDVT";
             this.txtDVT.ReadOnly = true;
             this.txtDVT.Size = new System.Drawing.Size(292, 41);
@@ -343,11 +336,43 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(898, 236);
+            this.label11.Location = new System.Drawing.Point(898, 326);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(171, 36);
             this.label11.TabIndex = 0;
             this.label11.Text = "Khuyến mãi";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(912, 245);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(157, 36);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Đơn vị tính";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(951, 162);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 36);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Giá gốc";
+            // 
+            // txtGiaGoc
+            // 
+            this.txtGiaGoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtGiaGoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaGoc.Location = new System.Drawing.Point(1091, 157);
+            this.txtGiaGoc.Name = "txtGiaGoc";
+            this.txtGiaGoc.ReadOnly = true;
+            this.txtGiaGoc.Size = new System.Drawing.Size(292, 41);
+            this.txtGiaGoc.TabIndex = 1;
             // 
             // TTSanPham
             // 
@@ -396,5 +421,7 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnQuanLy;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.TextBox txtGiaGoc;
+        private System.Windows.Forms.Label label2;
     }
 }
