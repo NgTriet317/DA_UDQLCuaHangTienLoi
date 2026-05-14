@@ -130,6 +130,9 @@
   <data name="clock-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clock-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="qrcode-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\qrcode-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="avt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\avt.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,13 +142,19 @@
   <data name="users-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="phone-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\phone-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="magnifying-glass-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\magnifying-glass-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rotate-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rotate-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="phone-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\phone-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="check-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\check-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="qrcode-solid1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\qrcode-solid1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

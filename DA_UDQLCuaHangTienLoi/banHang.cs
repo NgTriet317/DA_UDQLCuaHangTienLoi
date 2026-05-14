@@ -1,5 +1,6 @@
-﻿using ET;
+﻿using AForge.Video.DirectShow;
 using BUS;
+using ET;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,9 @@ namespace DA_UDQLCuaHangTienLoi
 {
     public partial class banHang : Form
     {
+
+        public static string maKH;
+        public static int trcGiam;
         public banHang()
         {
             InitializeComponent();
@@ -29,35 +33,42 @@ namespace DA_UDQLCuaHangTienLoi
                 System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic,
                 null, control, new object[] { true });
         }
-        private Form current_form_child;
 
 
         BUS_SP sp = new BUS_SP();
         BUS_LSP lsp = new BUS_LSP();
-        private void banHang_Load(object sender, EventArgs e)
+        BUS_KHACHHANG Kh = new BUS_KHACHHANG();
+        private async void banHang_Load(object sender, EventArgs e)
         {
             //Hien thi thong tin khi app vua bat
-            LoadDanhSachSanPham();
+            await LoadDanhSachSanPham();
+
+            trcGiam = Convert.ToInt32(lblMoney.Text);
+
             cbLSP.DataSource = lsp.layDSLSP();
             cbLSP.DisplayMember = "TenLoaiSP";
             cbLSP.ValueMember = "MaLoaiSP";
             cbLSP.SelectedIndex = -1;
 
         }
-        private void LoadDanhSachSanPham()
+        private async Task LoadDanhSachSanPham()
         {
             // Xóa các thẻ cũ nếu có để load lại từ đầu
             flowLayoutPanelSP.Controls.Clear();
+            flowLayoutPanelSP.SuspendLayout();
             try
             {
                 BUS_SP sp = new BUS_SP();
 
-                DataTable dt = sp.layDSSP();
+                DataTable dt = await Task.Run(() => sp.layDSSP());
 
 
                 // Duyệt qua từng dòng dữ liệu trong CSDL
                 foreach (DataRow row in dt.Rows)
                 {
+
+                    await Task.Delay(1);
+
                     string maSP = row["MaSP"].ToString();
                     string tenSP = row["TenSP"].ToString();
                     decimal gia = Convert.ToDecimal(row["DonGia"]);
@@ -87,6 +98,7 @@ namespace DA_UDQLCuaHangTienLoi
                     // 2. Thêm thẻ vào FlowLayoutPanel
                     flowLayoutPanelSP.Controls.Add(card);
                 }
+                flowLayoutPanelSP.ResumeLayout();
 
             }
             catch (Exception ex)
@@ -97,7 +109,7 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -278,6 +290,23 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            int diemDaDung = Convert.ToInt32(lblDiemDaDung.Text) + Convert.ToInt32(txtNhapDiem.Text);
+            int diemHienTai = Convert.ToInt32(lblDiemHienTai.Text) - Convert.ToInt32(txtNhapDiem.Text);
+
+            if (diemHienTai < 0)
+            {
+                MessageBox.Show("Bạn không dủ điểm!", "Thông báo");
+            }
+            else
+            {
+
+                ET_KHACHHANG et = new ET_KHACHHANG(maKH, Convert.ToInt32(lblDiemDaTich.Text), diemDaDung, diemHienTai);
+
+                if (Kh.capNhatDiem(et))
+                {
+                    lblMoney.Text = (trcGiam - Convert.ToInt32(txtNhapDiem.Text)).ToString();
+                }
+            }
             if (dgvHoaDon.Rows.Count < 0)
             {
                 MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn");
@@ -396,29 +425,230 @@ namespace DA_UDQLCuaHangTienLoi
             }
         }
 
-        
+
         private void txtTraTien_TextChanged(object sender, EventArgs e)
         {
-            try
+            TinhTienThua();
+            //try
+            //{
+            //    //Kiểm tra giá trị nếu không rỗng
+            //    if (txtTraTien.Text != string.Empty)
+            //    {
+            //        int tienThua = Convert.ToInt32(txtTraTien.Text.ToString()) - Convert.ToInt32(lblMoney.Text.ToString());
+            //        if (tienThua < 0) //Nếu tiền thừa < 0 thì cho text = 0
+            //        {
+            //            txtTienThua.Text = "0";
+            //        }
+            //        else //còn ko thì cho text = tienThua
+            //        {
+            //            txtTienThua.Text = tienThua.ToString();
+            //        }
+            //    }
+            //}
+            ////Bắt lỗi
+            //catch
+            //{
+            //    MessageBox.Show("Chỉ được nhập số");
+            //}
+        }
+
+        private void lblRank_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkDungDiem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkDungDiem.Checked)
             {
-                //Kiểm tra giá trị nếu không rỗng
-                if (txtTraTien.Text != string.Empty)
+                txtNhapDiem.Visible = true;
+                lblNhapDiem.Visible = true;
+            }
+            else
+            {
+                txtNhapDiem.Visible = false;
+                lblNhapDiem.Visible = false;
+                // Xóa text để lần sau bật lên không bị lưu số cũ (tùy chọn)
+                txtNhapDiem.Clear();
+            }
+
+            // GỌI HÀM CẬP NHẬT TỔNG TIỀN
+            CapNhatTongTien();
+        }
+
+        private void CheckTichDiem_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSdt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (txtSdt.Text == "")
                 {
-                    int tienThua = Convert.ToInt32(txtTraTien.Text.ToString()) - Convert.ToInt32(lblMoney.Text.ToString());
-                    if (tienThua < 0) //Nếu tiền thừa < 0 thì cho text = 0
+                    MessageBox.Show("Vui lòng nhập số điện thoại khách hàng");
+                    pnTTKH.Visible = false;
+                    return;
+                }
+                pnTTKH.Visible = true;
+
+                DataTable dt = Kh.GetKhachHangBySDT(txtSdt.Text);
+
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    maKH = dr["MaKH"].ToString();
+                    lblName.Text = dr["HoTenKH"].ToString();
+                    lblDiemDaTich.Text = dr["SoDiemDaTich"].ToString();
+                    lblDiemHienTai.Text = dr["SoDiemHienTai"].ToString();
+                    lblRank.Text = Kh.GetRankByMaRank(dr["MaRank"].ToString());
+                    lblDiemDaDung.Text = dr["SoDiemDaDung"].ToString();
+                }
+
+                // Ngăn tiếng beep mặc định
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtNhapDiem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNhapDiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Chỉ cần gọi hàm này, nó sẽ tự động lấy số tiền gốc trừ đi số trong txtNhapDiem
+                CapNhatTongTien();
+
+                // Ngăn tiếng beep
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        // 1. Hàm chỉ làm nhiệm vụ tính tổng tiền gốc của các sản phẩm trong DataGridView
+        private int TinhTongTienGoc()
+        {
+            int tongTien = 0;
+            foreach (DataGridViewRow row in dgvHoaDon.Rows)
+            {
+                if (row.Cells["colTong"].Value != null)
+                {
+                    tongTien += Convert.ToInt32(row.Cells["colTong"].Value);
+                }
+            }
+            return tongTien;
+        }
+
+        // 2. Hàm TÍNH TỔNG CHÍNH - xử lý cả tiền gốc và điểm giảm giá
+        private void CapNhatTongTien()
+        {
+            // Lấy tổng tiền gốc từ giỏ hàng
+            int tongTienGoc = TinhTongTienGoc();
+            int soTienGiam = 0;
+
+            // Kiểm tra xem khách có check vào ô "Dùng điểm" không
+            if (checkDungDiem.Checked && !string.IsNullOrWhiteSpace(txtNhapDiem.Text))
+            {
+                // Kiểm tra xem dữ liệu nhập vào có phải là số hợp lệ không
+                if (int.TryParse(txtNhapDiem.Text, out int diemNhap))
+                {
+                    soTienGiam = diemNhap; // Giả sử 1 điểm = 1 VNĐ
+                }
+            }
+
+            // Tính tổng tiền cuối cùng
+            int tongTienCuoiCung = tongTienGoc - soTienGiam;
+
+            // Đảm bảo tổng tiền không bị âm (nếu điểm nhập lớn hơn hoặc bằng tổng tiền)
+            if (tongTienCuoiCung < 0)
+            {
+                tongTienCuoiCung = 0;
+            }
+
+            // Cập nhật lên Label hiển thị
+            lblMoney.Text = tongTienCuoiCung.ToString();
+
+            // Gọi luôn hàm tính tiền thừa để cập nhật ô Tiền thừa nếu khách đã nhập tiền trả
+            TinhTienThua();
+        }
+
+        // 3. Hàm tính tiền thừa tách riêng cho gọn và an toàn
+        private void TinhTienThua()
+        {
+            if (!string.IsNullOrWhiteSpace(txtTraTien.Text) && int.TryParse(txtTraTien.Text, out int tienKhachDua))
+            {
+                int tongTienPhaiTra = Convert.ToInt32(lblMoney.Text);
+                int tienThua = tienKhachDua - tongTienPhaiTra;
+
+                txtTienThua.Text = tienThua < 0 ? "0" : tienThua.ToString();
+            }
+            else
+            {
+                txtTienThua.Text = "0";
+            }
+        }
+
+
+        private void btnQuetMa_Click(object sender, EventArgs e)
+        {
+            // Mở form quét mã dưới dạng Popup
+            using (quetMa frm = new quetMa())
+            {
+                // Nếu quét thành công (form kia trả về DialogResult.OK)
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    string maSP = frm.MaSPQuetDuoc;
+
+                    // --- BẮT ĐẦU TÌM TRONG SQL ---
+                    // Gọi xuống tầng BUS để tìm sản phẩm theo Mã. 
+                    // (Lưu ý: Nếu BUS_SP của bạn chưa có hàm findSPByMaSP, hãy tạo nó nhé. Hàm này trả về DataTable chứa 1 dòng SP)
+                    BUS_SP sp = new BUS_SP();
+                    DataTable dt = sp.findSPMa(maSP);
+
+                    if (dt != null && dt.Rows.Count > 0)
                     {
-                        txtTienThua.Text = "0";
+                        // Lấy dữ liệu từ CSDL
+                        DataRow row = dt.Rows[0];
+                        string ma = row["MaSP"].ToString();
+                        string ten = row["TenSP"].ToString();
+                        decimal gia = Convert.ToDecimal(row["DonGia"]);
+
+                        // Thêm vào DataGridView hóa đơn (logic giống hệt lúc bạn click tay vào thẻ SP)
+                        ThemVaoGioHang(ma, ten, gia);
+
+                        // Cập nhật lại tổng tiền theo logic chuẩn mình đã bàn ở trên
+                        CapNhatTongTien();
                     }
-                    else //còn ko thì cho text = tienThua
+                    else
                     {
-                        txtTienThua.Text = tienThua.ToString();
+                        MessageBox.Show("Mã sản phẩm (" + maSP + ") không có trong CSDL!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
-            //Bắt lỗi
-            catch
+        }
+        private void ThemVaoGioHang(string ma, string ten, decimal gia)
+        {
+            bool daCo = false;
+            foreach (DataGridViewRow r in dgvHoaDon.Rows)
             {
-                MessageBox.Show("Chỉ được nhập số");
+                if (r.IsNewRow) continue;
+                if (r.Cells["colMaSP"].Value?.ToString() == ma)
+                {
+                    int slMoi = Convert.ToInt32(r.Cells["colSL"].Value) + 1;
+                    r.Cells["colSL"].Value = slMoi;
+                    r.Cells["colTong"].Value = slMoi * gia;
+                    daCo = true;
+                    break;
+                }
+            }
+
+            if (!daCo)
+            {
+                // Thêm dòng mới: Tên, Đơn Giá, Khuyến Mãi (0), Số lượng (1), Tổng tiền, Mã SP
+                dgvHoaDon.Rows.Add(ten, gia, 0, 1, gia, ma);
             }
         }
     }

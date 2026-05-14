@@ -83,6 +83,16 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap check_solid {
+            get {
+                object obj = ResourceManager.GetObject("check-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clock_regular {
             get {
                 object obj = ResourceManager.GetObject("clock-regular", resourceCulture);
@@ -116,6 +126,26 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         internal static System.Drawing.Bitmap phone_solid {
             get {
                 object obj = ResourceManager.GetObject("phone-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap qrcode_solid {
+            get {
+                object obj = ResourceManager.GetObject("qrcode-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap qrcode_solid1 {
+            get {
+                object obj = ResourceManager.GetObject("qrcode-solid1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

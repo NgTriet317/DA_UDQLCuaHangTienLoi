@@ -119,5 +119,82 @@ namespace DAL
             }
             return dt;
         }
+
+        //lay khach hang theo sdt
+        public DataTable GetKhachHangBySDT(string sdt)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_layKhachHangTheoSDT", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter parameter = new SqlParameter("@sdt", sdt);
+                cmd.Parameters.Add(parameter);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        //tim rank theo ma rank 
+        public string layRank(string ma)
+        {
+            string rank = "";
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_timRankTheoMa", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter parameter = new SqlParameter("@MaRank", ma);
+                cmd.Parameters.Add(parameter);
+                rank = (string)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return rank;
+        }
+
+        //cap nhat diem khach hang
+        public bool capNhatDiem(ET_KHACHHANG et) 
+        {            
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_CapNhatDiem", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter[] paras = {
+                    new SqlParameter("@MaKH", et.MaKH),
+                    new SqlParameter("@NewTich", et.DiemTichLuy),
+                    new SqlParameter("@NewDaDung", et.DiemDaDung),
+                    new SqlParameter("@NewHienTai", et.DiemHienTai)
+                };
+                cmd.Parameters.AddRange(paras);
+
+                return cmd.ExecuteNonQuery() > 0;
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }
