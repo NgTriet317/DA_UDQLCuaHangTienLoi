@@ -285,6 +285,10 @@ namespace DA_UDQLCuaHangTienLoi
 			txtTraTien.Clear();
 			lblMoney.Text = "0đ";
 			txtTienThua.Clear();
+			lblNhapDiem.Text = null;
+			checkDungDiem.Checked = false;
+			txtSdt.Clear();
+			pnTTKH.Visible = false;
 		}
 
 		private void btnThanhToan_Click(object sender, EventArgs e)
