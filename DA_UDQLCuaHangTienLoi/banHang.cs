@@ -290,8 +290,15 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            int diemDaDung = Convert.ToInt32(lblDiemDaDung.Text) + Convert.ToInt32(txtNhapDiem.Text);
-            int diemHienTai = Convert.ToInt32(lblDiemHienTai.Text) - Convert.ToInt32(txtNhapDiem.Text);
+            int diemDaDung = 0, nhapDiem = 0;
+            if (!int.TryParse(lblDiemDaDung.Text, out diemDaDung) || !int.TryParse(txtNhapDiem.Text, out nhapDiem))
+            {
+                MessageBox.Show("Vui lòng nhập số hợp lệ cho điểm!", "Lỗi");
+                return;
+            }
+            diemDaDung += nhapDiem;
+
+            int diemHienTai = Convert.ToInt32(lblDiemHienTai.Text) - nhapDiem;
 
             if (diemHienTai < 0)
             {
