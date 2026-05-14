@@ -17,7 +17,6 @@ namespace DA_UDQLCuaHangTienLoi
 {
     public partial class banHang : Form
     {
-        //Hello Triết
         public static string maKH;
         public static int trcGiam;
         public banHang()
