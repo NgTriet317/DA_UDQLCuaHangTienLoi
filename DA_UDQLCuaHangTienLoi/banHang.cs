@@ -307,7 +307,7 @@ namespace DA_UDQLCuaHangTienLoi
             {
 
                 ET_KHACHHANG et = new ET_KHACHHANG(maKH, Convert.ToInt32(lblDiemDaTich.Text), diemDaDung, diemHienTai);
-
+                //Cập nhật điểm
                 Kh.capNhatDiem(et);                
             }
             if (dgvHoaDon.Rows.Count < 0)
