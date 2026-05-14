@@ -18,14 +18,26 @@ namespace BUS
             return hd.ThemHoaDon(et);
         }
 
-        //Lay full thong tin hoa don
-        public DataTable layFullHoaDon(string ma)
+        //Thêm hóa đơn dùng điểm
+        public bool ThemHoaDonDungDiem(ET_HoaDon et)
+        {
+            return hd.ThemHoaDonDungDiem(et);
+		}
+
+		//Lay full thong tin hoa don
+		public DataTable layFullHoaDon(string ma)
         {
             return hd.LayTTHoaDon(ma);
         }
 
-        //lay hoa don moi nhat
-        public string LayMaHoaDonMoiNhat()
+		//Lấy thông tin chi tiết hóa đơn dùng điểm
+        public DataTable layFullHoaDonDungDiem(string ma, int diemDung)
+		{
+			return hd.LayTTHoaDonDungDiem(ma, diemDung);
+		}
+
+		//lay hoa don moi nhat
+		public string LayMaHoaDonMoiNhat()
         {
             return hd.LayMaHoaDonMoiNhat();
         }

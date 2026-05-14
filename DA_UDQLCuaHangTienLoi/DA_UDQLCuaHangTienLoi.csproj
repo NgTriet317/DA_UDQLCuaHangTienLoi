@@ -235,6 +235,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDoanhThuThangDB.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsHoaDonDungDiem.cs">
+      <DependentUpon>dsHoaDonDungDiem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsHoaDonDungDiem.Designer.cs">
+      <DependentUpon>dsHoaDonDungDiem.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="dsHoaDon.cs">
       <DependentUpon>dsHoaDon.xsd</DependentUpon>
     </Compile>
@@ -283,6 +291,12 @@
     </Compile>
     <Compile Include="InHoaDon.Designer.cs">
       <DependentUpon>InHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InHoaDonDungDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InHoaDonDungDiem.Designer.cs">
+      <DependentUpon>InHoaDonDungDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="InThongKeNhapHang.cs">
       <SubType>Form</SubType>
@@ -351,6 +365,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptThongKeNhapHang.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptXuatHoaDonDungDiem.cs">
+      <DependentUpon>rptXuatHoaDonDungDiem.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="rptXuatHoaDon.cs">
       <AutoGen>True</AutoGen>
@@ -433,6 +453,9 @@
     <EmbeddedResource Include="InHoaDon.resx">
       <DependentUpon>InHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InHoaDonDungDiem.resx">
+      <DependentUpon>InHoaDonDungDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InThongKeNhapHang.resx">
       <DependentUpon>InThongKeNhapHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -478,6 +501,10 @@
     <EmbeddedResource Include="rptThongKeNhapHang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptThongKeNhapHang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptXuatHoaDonDungDiem.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptXuatHoaDonDungDiem.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptXuatHoaDon.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -528,6 +555,17 @@
     </None>
     <None Include="dsDoanhThuThangDB.xss">
       <DependentUpon>dsDoanhThuThangDB.xsd</DependentUpon>
+    </None>
+    <None Include="dsHoaDonDungDiem.xsc">
+      <DependentUpon>dsHoaDonDungDiem.xsd</DependentUpon>
+    </None>
+    <None Include="dsHoaDonDungDiem.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoaDonDungDiem.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsHoaDonDungDiem.xss">
+      <DependentUpon>dsHoaDonDungDiem.xsd</DependentUpon>
     </None>
     <None Include="dsHoaDon.xsc">
       <DependentUpon>dsHoaDon.xsd</DependentUpon>

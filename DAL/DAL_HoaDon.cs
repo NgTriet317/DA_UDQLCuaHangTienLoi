@@ -11,7 +11,8 @@ namespace DAL
 {
     public class DAL_HoaDon : DBConnect
     {
-        public bool ThemHoaDon(ET_HoaDon hd)
+		//Thêm hóa đơn không dùng điểm
+		public bool ThemHoaDon(ET_HoaDon hd)
         {
             bool kt = false;
             try
@@ -51,8 +52,50 @@ namespace DAL
             return kt;
         }
 
-        //Lấy TT hóa đơn
-        public DataTable LayTTHoaDon(string ma)
+		//Thêm hóa đơn dùng điểm
+		public bool ThemHoaDonDungDiem(ET_HoaDon hd)
+		{
+			bool kt = false;
+			try
+			{
+				conn.Open(); //mở connection
+
+				//Đưa lệnh cho sql
+				SqlCommand cmd = new SqlCommand("sp_ThemHoaDonDungDiem", conn);
+				cmd.CommandType = CommandType.StoredProcedure;
+
+				//Truyền tham số
+				SqlParameter[] param = new SqlParameter[] {
+					new SqlParameter("@NgayLap", hd.NgayLap),
+					new SqlParameter("@ThanhTien", hd.ThanhTien),
+					new SqlParameter("@ThanhToan", hd.ThanhToan),
+					new SqlParameter("@TienKHTra", hd.TienKhachTra),
+					new SqlParameter("@TienThua", hd.TienThua),
+                    new SqlParameter("@MaKH", hd.MaKH),
+					new SqlParameter("@MaNV", hd.MaNV)
+				};
+				cmd.Parameters.AddRange(param);
+
+				if (cmd.ExecuteNonQuery() > 0)
+				{
+					kt = true;
+				}
+
+			}
+			//catch lỗi
+			catch (Exception ex)
+			{
+				throw;
+			}
+			finally
+			{
+				conn.Close();//đóng kết nối
+			}
+			return kt;
+		}
+
+		//Lấy TT hóa đơn
+		public DataTable LayTTHoaDon(string ma)
         {
             DataTable dt = new DataTable();
             try
@@ -79,11 +122,43 @@ namespace DAL
             return dt;
         }
 
-        /// <summary>
-        /// Lấy mã hóa đơn
-        /// </summary>
-        /// <returns> String </returns>
-        public string LayMaHoaDonMoiNhat()
+		//Lấy TT hóa đơn dùng điểm
+		public DataTable LayTTHoaDonDungDiem(string ma, int diemDung)
+		{
+			DataTable dt = new DataTable();
+			try
+			{
+				conn.Open();//mở kết nối
+
+				//Đưa lệnh cho sql
+				SqlCommand cmd = new SqlCommand("sp_XuatHoaDonDungDiem", conn);
+				cmd.CommandType = CommandType.StoredProcedure;
+
+				//Truyền tham số
+				SqlParameter[] param = new SqlParameter[]
+                {
+                    new SqlParameter("@MaHD", ma),
+					new SqlParameter("@DiemDung", diemDung)
+				};
+				cmd.Parameters.AddRange(param);
+
+				//fill vào datatable
+				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+				adapter.Fill(dt);
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+			finally { conn.Close(); }
+			return dt;
+		}
+
+		/// <summary>
+		/// Lấy mã hóa đơn
+		/// </summary>
+		/// <returns> String </returns>
+		public string LayMaHoaDonMoiNhat()
         {
             string ma = "";
             try
@@ -222,5 +297,5 @@ namespace DAL
             }
             return dt;
         }
-    }
+	}
 }
