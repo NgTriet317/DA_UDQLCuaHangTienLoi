@@ -308,10 +308,7 @@ namespace DA_UDQLCuaHangTienLoi
 
                 ET_KHACHHANG et = new ET_KHACHHANG(maKH, Convert.ToInt32(lblDiemDaTich.Text), diemDaDung, diemHienTai);
 
-                if (Kh.capNhatDiem(et))
-                {
-                    lblMoney.Text = (trcGiam - Convert.ToInt32(txtNhapDiem.Text)).ToString();
-                }
+                Kh.capNhatDiem(et);                
             }
             if (dgvHoaDon.Rows.Count < 0)
             {
