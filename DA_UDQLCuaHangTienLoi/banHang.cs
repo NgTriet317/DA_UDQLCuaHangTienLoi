@@ -338,7 +338,7 @@ namespace DA_UDQLCuaHangTienLoi
                         InHoa1Don(maHDVuaTao);
                     }
                     dgvHoaDon.Rows.Clear();
-                    txtNhapDiem.Clear(); 
+                    txtNhapDiem.Clear();
                 }
                 catch (Exception ex)
                 {
