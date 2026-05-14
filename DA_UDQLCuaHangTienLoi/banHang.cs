@@ -197,11 +197,11 @@ namespace DA_UDQLCuaHangTienLoi
 
                 string tenFileAnh = row["Hinh"].ToString();
 
-                string duongDanDayDu = Path.Combine(Application.StartupPath, "AnhSanPham", tenFileAnh);
+                //string duongDanDayDu = Path.Combine(Application.StartupPath, "AnhSanPham", tenFileAnh);
                 // Xử lý hình ảnh từ CSDL (Giả sử bạn lưu dạng mảng byte - varbinary)
-                //string thuMucChuaAnh = @"D:\DA_UDQLCuaHangTienLoi\AnhSanPham\";
+                string thuMucChuaAnh = @"D:\Hoc Tap\TrienKhaiHeThong\SD003_DoAn_Nhom1_UngDungQLCHTL_Sprint5\DA_UDQLCuaHangTienLoi\AnhSanPham";
 
-                //string duongDanDayDu = Path.Combine(thuMucChuaAnh, tenFileAnh);
+                string duongDanDayDu = Path.Combine(thuMucChuaAnh, tenFileAnh);
 
                 if (File.Exists(duongDanDayDu))
                 {
@@ -250,11 +250,11 @@ namespace DA_UDQLCuaHangTienLoi
                 string tenFileAnh = row["Hinh"].ToString();
 
                 // Xử lý hình ảnh từ CSDL (Giả sử bạn lưu dạng mảng byte - varbinary)
-                string duongDanDayDu = Path.Combine(Application.StartupPath, "AnhSanPham", tenFileAnh);
+                //string duongDanDayDu = Path.Combine(Application.StartupPath, "AnhSanPham", tenFileAnh);
 
-                //string thuMucChuaAnh = @"D:\DA_UDQLCuaHangTienLoi\AnhSanPham\";
+                string thuMucChuaAnh = @"D:\Hoc Tap\TrienKhaiHeThong\SD003_DoAn_Nhom1_UngDungQLCHTL_Sprint5\DA_UDQLCuaHangTienLoi\AnhSanPham";
 
-                //string duongDanDayDu = Path.Combine(thuMucChuaAnh, tenFileAnh);
+                string duongDanDayDu = Path.Combine(thuMucChuaAnh, tenFileAnh);
 
                 if (File.Exists(duongDanDayDu))
                 {
