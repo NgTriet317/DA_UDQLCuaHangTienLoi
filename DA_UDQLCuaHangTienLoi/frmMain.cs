@@ -82,8 +82,12 @@ namespace DA_UDQLCuaHangTienLoi
         {
             //thoát app và đặt active = 0
             inActive = "0";
-            Application.Restart();            
-        }
+			// 1. Yêu cầu Windows mở một phiên bản mới của chính phần mềm này
+			System.Diagnostics.Process.Start(Application.ExecutablePath);
+
+			// 2. Ép tắt ngay lập tức phiên bản hiện tại để giải phóng toàn bộ bộ nhớ (Tránh lỗi mảng)
+			Environment.Exit(0);
+		}
 
         public static string maNV = "";
 
