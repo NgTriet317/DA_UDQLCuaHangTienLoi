@@ -282,7 +282,7 @@ namespace DA_UDQLCuaHangTienLoi
 		{
 			dgvHoaDon.Rows.Clear();
 			txtTraTien.Clear();
-			lblMoney.Text = "0đ";
+			lblMoney.Text = "0";
 			txtTienThua.Clear();
 			lblNhapDiem.Text = null;
 			checkDungDiem.Checked = false;
