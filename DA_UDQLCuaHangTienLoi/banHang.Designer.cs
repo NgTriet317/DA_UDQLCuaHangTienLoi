@@ -753,6 +753,7 @@
 			// 
 			// CheckTichDiem
 			// 
+			this.CheckTichDiem.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.CheckTichDiem.AutoSize = true;
 			this.CheckTichDiem.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
 			this.CheckTichDiem.CheckedState.BorderRadius = 0;
@@ -773,6 +774,7 @@
 			// 
 			// checkDungDiem
 			// 
+			this.checkDungDiem.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.checkDungDiem.AutoSize = true;
 			this.checkDungDiem.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
 			this.checkDungDiem.CheckedState.BorderRadius = 0;
