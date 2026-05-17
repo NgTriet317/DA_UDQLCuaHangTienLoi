@@ -324,7 +324,7 @@ namespace DA_UDQLCuaHangTienLoi
 					}
 					catch (Exception ex)
 					{
-						MessageBox.Show("Lỗi thanh toán: " + ex.Message);
+						MessageBox.Show("Lỗi thanh toán: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
 				}
 			}	
@@ -351,6 +351,7 @@ namespace DA_UDQLCuaHangTienLoi
 					ET_KHACHHANG et = new ET_KHACHHANG(maKH, Convert.ToInt32(lblDiemDaTich.Text), diemDaDung, diemHienTai);
 					//Cập nhật điểm
 					Kh.capNhatDiem(et);
+
 					//Xuất hóa đơn dùng điểm
 					if (dgvHoaDon.Rows.Count < 0)
 					{
@@ -378,7 +379,7 @@ namespace DA_UDQLCuaHangTienLoi
 						}
 						catch (Exception ex)
 						{
-							MessageBox.Show("Lỗi thanh toán: " + ex.Message);
+							MessageBox.Show("Lỗi thanh toán: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 						}
 					}
 				}
