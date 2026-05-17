@@ -46,6 +46,7 @@ namespace DAL
                     new SqlParameter("@TenKH", khachHang.TenKH),
                     new SqlParameter("@SDT", khachHang.Sdt),
                     new SqlParameter("@SoDiemDaTich", khachHang.DiemTichLuy),
+                    new SqlParameter("@SoDiemDaDung", khachHang.DiemDaDung),
                     new SqlParameter("@SoDiemHienTai", khachHang.DiemHienTai)
                 };
                 cmd.Parameters.AddRange(parameters);
@@ -74,9 +75,7 @@ namespace DAL
                 SqlParameter[] parameters = {
                     new SqlParameter("@MaKH", khachHang.MaKH),
                     new SqlParameter("@TenKH", khachHang.TenKH),
-                    new SqlParameter("@SDT", khachHang.Sdt),
-                    new SqlParameter("@SoDiemDaTich", khachHang.DiemTichLuy),
-                    new SqlParameter("@SoDiemHienTai", khachHang.DiemHienTai)
+                    new SqlParameter("@SDT", khachHang.Sdt)                    
                 };
                 cmd.Parameters.AddRange(parameters);
 

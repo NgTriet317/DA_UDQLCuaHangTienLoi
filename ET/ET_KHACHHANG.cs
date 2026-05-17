@@ -15,7 +15,13 @@ namespace ET
         private int diemDaDung;
         private int diemHienTai;
 
-
+        
+        public ET_KHACHHANG(string maKH,string tenKH, string sdt)
+        {
+            this.maKH = maKH;
+            this.tenKH = tenKH;
+            this.sdt = sdt;            
+        }
         public ET_KHACHHANG(string tenKH, string sdt, int diemTichLuy,int diemDaDung ,int diemHienTai)
         {
             this.tenKH = tenKH;

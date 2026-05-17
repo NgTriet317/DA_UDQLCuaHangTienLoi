@@ -125,7 +125,7 @@ namespace DA_UDQLCuaHangTienLoi
             else
             {
                 // Cập nhật khách hàng
-                ET_KHACHHANG et = new ET_KHACHHANG(maKH, txtName.Text, txtSDT.Text,0 , 0,0);   
+                ET_KHACHHANG et = new ET_KHACHHANG(maKH, txtName.Text, txtSDT.Text);
                 bool success = kh.UpdateKhachHang(et);
                 if (success)
                 {
