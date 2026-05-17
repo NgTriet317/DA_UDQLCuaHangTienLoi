@@ -351,35 +351,35 @@ namespace DA_UDQLCuaHangTienLoi
 					ET_KHACHHANG et = new ET_KHACHHANG(maKH, Convert.ToInt32(lblDiemDaTich.Text), diemDaDung, diemHienTai);
 					//Cập nhật điểm
 					Kh.capNhatDiem(et);
-				}
-				//Xuất hóa đơn dùng điểm
-				if (dgvHoaDon.Rows.Count < 0)
-				{
-					MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn");
-				}
-				else
-				{
-					try
+					//Xuất hóa đơn dùng điểm
+					if (dgvHoaDon.Rows.Count < 0)
 					{
-						ET_HoaDon et = new ET_HoaDon(DateTime.Now, trcGiam, Convert.ToInt32(lblMoney.Text), Convert.ToInt32(txtTraTien.Text), Convert.ToInt32(txtTienThua.Text), banHang.maKH, frmMain.maNV);
-
-						BUS_HoaDon hd = new BUS_HoaDon();
-						if (hd.ThemHoaDonDungDiem(et))
-						{
-							string maHDVuaTao = hd.LayMaHoaDonMoiNhat();
-							foreach (DataGridViewRow row in dgvHoaDon.Rows)
-							{
-								if (row.IsNewRow) continue;
-								ET_SPHD etSphd = new ET_SPHD(maHDVuaTao, row.Cells["colMaSP"].Value.ToString(), Convert.ToInt32(row.Cells["colSL"].Value), Convert.ToInt32(row.Cells["colDonGia"].Value));
-								BUS_SPHD sphd = new BUS_SPHD();
-								sphd.ThemChiTietHoaDon(etSphd);
-							}
-							InHoaDonDungDiem(maHDVuaTao, nhapDiem);
-						}
+						MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn");
 					}
-					catch (Exception ex)
+					else
 					{
-						MessageBox.Show("Lỗi thanh toán: " + ex.Message);
+						try
+						{
+							ET_HoaDon eT = new ET_HoaDon(DateTime.Now, trcGiam, Convert.ToInt32(lblMoney.Text), Convert.ToInt32(txtTraTien.Text), Convert.ToInt32(txtTienThua.Text), banHang.maKH, frmMain.maNV);
+
+							BUS_HoaDon hd = new BUS_HoaDon();
+							if (hd.ThemHoaDonDungDiem(eT))
+							{
+								string maHDVuaTao = hd.LayMaHoaDonMoiNhat();
+								foreach (DataGridViewRow row in dgvHoaDon.Rows)
+								{
+									if (row.IsNewRow) continue;
+									ET_SPHD etSphd = new ET_SPHD(maHDVuaTao, row.Cells["colMaSP"].Value.ToString(), Convert.ToInt32(row.Cells["colSL"].Value), Convert.ToInt32(row.Cells["colDonGia"].Value));
+									BUS_SPHD sphd = new BUS_SPHD();
+									sphd.ThemChiTietHoaDon(etSphd);
+								}
+								InHoaDonDungDiem(maHDVuaTao, nhapDiem);
+							}
+						}
+						catch (Exception ex)
+						{
+							MessageBox.Show("Lỗi thanh toán: " + ex.Message);
+						}
 					}
 				}
 			}
