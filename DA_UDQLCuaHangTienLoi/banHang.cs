@@ -280,6 +280,11 @@ namespace DA_UDQLCuaHangTienLoi
 
 		private void btnHuy_Click(object sender, EventArgs e)
 		{
+			ClearALl();
+		}
+
+		private void ClearALl()
+		{
 			dgvHoaDon.Rows.Clear();
 			txtTraTien.Clear();
 			lblMoney.Text = "0";
@@ -318,8 +323,7 @@ namespace DA_UDQLCuaHangTienLoi
 							}
 							InHoaDonKhongDungDiem(maHDVuaTao);
 						}
-						dgvHoaDon.Rows.Clear();
-						txtNhapDiem.Clear();
+						ClearALl();
 					}
 					catch (Exception ex)
 					{
@@ -374,6 +378,7 @@ namespace DA_UDQLCuaHangTienLoi
 								}
 								InHoaDonDungDiem(maHDVuaTao, nhapDiem);
 							}
+							ClearALl();
 						}
 						catch (Exception ex)
 						{
