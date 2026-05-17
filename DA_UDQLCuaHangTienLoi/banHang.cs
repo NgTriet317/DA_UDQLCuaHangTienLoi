@@ -226,7 +226,6 @@ namespace DA_UDQLCuaHangTienLoi
 			LoadDanhSachSanPham();
 			cbLSP.SelectedIndex = -1;
 			txtNameSP.Clear();
-
 		}
 
 		private void cbLSP_SelectedIndexChanged(object sender, EventArgs e)
@@ -296,9 +295,9 @@ namespace DA_UDQLCuaHangTienLoi
 			if(lblNhapDiem.Visible == false)
 			{
 				//Xuất hóa đơn không dùng điểm
-				if (dgvHoaDon.Rows.Count < 0)
+				if (dgvHoaDon.Rows.Count < 1)
 				{
-					MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn");
+					MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn","Thông báo");
 				}
 				else
 				{
@@ -353,9 +352,9 @@ namespace DA_UDQLCuaHangTienLoi
 					Kh.capNhatDiem(et);
 
 					//Xuất hóa đơn dùng điểm
-					if (dgvHoaDon.Rows.Count < 0)
+					if (dgvHoaDon.Rows.Count < 1)
 					{
-						MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn");
+						MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn", "Thông báo");
 					}
 					else
 					{
