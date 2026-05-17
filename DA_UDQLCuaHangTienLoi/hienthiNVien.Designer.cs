@@ -33,6 +33,7 @@
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnKhoiPhuc = new Guna.UI2.WinForms.Guna2Button();
             this.picHinh = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNgaySinh = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.btnKhoiPhuc = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
@@ -88,12 +88,12 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel1.BorderRadius = 15;
             this.guna2Panel1.BorderThickness = 2;
             this.guna2Panel1.Controls.Add(this.guna2Panel6);
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -127,9 +127,7 @@
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel2.BorderRadius = 15;
@@ -152,6 +150,25 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1628, 307);
             this.guna2Panel2.TabIndex = 5;
             // 
+            // btnKhoiPhuc
+            // 
+            this.btnKhoiPhuc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnKhoiPhuc.BorderRadius = 15;
+            this.btnKhoiPhuc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnKhoiPhuc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnKhoiPhuc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnKhoiPhuc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKhoiPhuc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnKhoiPhuc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnKhoiPhuc.ForeColor = System.Drawing.Color.White;
+            this.btnKhoiPhuc.Location = new System.Drawing.Point(1310, 194);
+            this.btnKhoiPhuc.Name = "btnKhoiPhuc";
+            this.btnKhoiPhuc.Size = new System.Drawing.Size(207, 91);
+            this.btnKhoiPhuc.TabIndex = 5;
+            this.btnKhoiPhuc.Text = "Khôi phục nhân viên";
+            this.btnKhoiPhuc.Visible = false;
+            this.btnKhoiPhuc.Click += new System.EventHandler(this.btnKhoiPhuc_Click);
+            // 
             // picHinh
             // 
             this.picHinh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -169,6 +186,7 @@
             // 
             // lblEmail
             // 
+            this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.Location = new System.Drawing.Point(887, 182);
@@ -179,6 +197,7 @@
             // 
             // lblNgaySinh
             // 
+            this.lblNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNgaySinh.AutoSize = true;
             this.lblNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNgaySinh.Location = new System.Drawing.Point(450, 182);
@@ -189,6 +208,7 @@
             // 
             // lblThamNien
             // 
+            this.lblThamNien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblThamNien.AutoSize = true;
             this.lblThamNien.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblThamNien.Location = new System.Drawing.Point(1308, 103);
@@ -199,6 +219,7 @@
             // 
             // lblChucVu
             // 
+            this.lblChucVu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblChucVu.AutoSize = true;
             this.lblChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChucVu.Location = new System.Drawing.Point(887, 103);
@@ -209,6 +230,7 @@
             // 
             // lblHoTen
             // 
+            this.lblHoTen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblHoTen.AutoSize = true;
             this.lblHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHoTen.Location = new System.Drawing.Point(450, 103);
@@ -219,6 +241,7 @@
             // 
             // lblDiaChi
             // 
+            this.lblDiaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDiaChi.AutoSize = true;
             this.lblDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiaChi.Location = new System.Drawing.Point(887, 253);
@@ -229,6 +252,7 @@
             // 
             // lblGioiTinh
             // 
+            this.lblGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblGioiTinh.AutoSize = true;
             this.lblGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGioiTinh.Location = new System.Drawing.Point(450, 253);
@@ -239,6 +263,7 @@
             // 
             // lblNgayVaoLam
             // 
+            this.lblNgayVaoLam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNgayVaoLam.AutoSize = true;
             this.lblNgayVaoLam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNgayVaoLam.Location = new System.Drawing.Point(1308, 26);
@@ -249,6 +274,7 @@
             // 
             // lblSDT
             // 
+            this.lblSDT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSDT.AutoSize = true;
             this.lblSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSDT.Location = new System.Drawing.Point(887, 26);
@@ -259,6 +285,7 @@
             // 
             // lblMaNV
             // 
+            this.lblMaNV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMaNV.AutoSize = true;
             this.lblMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaNV.Location = new System.Drawing.Point(450, 26);
@@ -269,6 +296,7 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel3.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel3.BorderRadius = 15;
             this.guna2Panel3.BorderThickness = 2;
@@ -280,7 +308,6 @@
             this.guna2Panel3.Controls.Add(this.txtTimKiem);
             this.guna2Panel3.Controls.Add(this.guna2Button1);
             this.guna2Panel3.Controls.Add(this.guna2Panel4);
-            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.Location = new System.Drawing.Point(3, 433);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(1731, 425);
@@ -288,7 +315,9 @@
             // 
             // cboTrangThai
             // 
-            this.cboTrangThai.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboTrangThai.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboTrangThai.BackColor = System.Drawing.Color.Transparent;
             this.cboTrangThai.BorderColor = System.Drawing.Color.Black;
             this.cboTrangThai.BorderRadius = 15;
@@ -313,7 +342,9 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Control;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -325,6 +356,9 @@
             // 
             // guna2Panel5
             // 
+            this.guna2Panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel5.BackColor = System.Drawing.SystemColors.ControlDark;
             this.guna2Panel5.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel5.BorderThickness = 1;
@@ -395,7 +429,9 @@
             // 
             // cboChucVu
             // 
-            this.cboChucVu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboChucVu.BackColor = System.Drawing.Color.Transparent;
             this.cboChucVu.BorderColor = System.Drawing.Color.Black;
             this.cboChucVu.BorderRadius = 15;
@@ -416,6 +452,7 @@
             // 
             // flpDSNV
             // 
+            this.flpDSNV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flpDSNV.AutoScroll = true;
             this.flpDSNV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpDSNV.Location = new System.Drawing.Point(455, 137);
@@ -425,7 +462,9 @@
             // 
             // txtTimKiem
             // 
-            this.txtTimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTimKiem.BorderColor = System.Drawing.Color.Black;
             this.txtTimKiem.BorderRadius = 15;
             this.txtTimKiem.BorderThickness = 2;
@@ -450,7 +489,9 @@
             // 
             // guna2Button1
             // 
-            this.guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Button1.BorderColor = System.Drawing.Color.SeaGreen;
             this.guna2Button1.BorderRadius = 15;
             this.guna2Button1.BorderThickness = 2;
@@ -494,24 +535,6 @@
             this.label14.TabIndex = 4;
             this.label14.Text = "Danh sách nhân viên";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnKhoiPhuc
-            // 
-            this.btnKhoiPhuc.BorderRadius = 15;
-            this.btnKhoiPhuc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnKhoiPhuc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnKhoiPhuc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnKhoiPhuc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnKhoiPhuc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnKhoiPhuc.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnKhoiPhuc.ForeColor = System.Drawing.Color.White;
-            this.btnKhoiPhuc.Location = new System.Drawing.Point(1310, 194);
-            this.btnKhoiPhuc.Name = "btnKhoiPhuc";
-            this.btnKhoiPhuc.Size = new System.Drawing.Size(207, 91);
-            this.btnKhoiPhuc.TabIndex = 5;
-            this.btnKhoiPhuc.Text = "Khôi phục nhân viên";
-            this.btnKhoiPhuc.Visible = false;
-            this.btnKhoiPhuc.Click += new System.EventHandler(this.btnKhoiPhuc_Click);
             // 
             // hienthiNVien
             // 

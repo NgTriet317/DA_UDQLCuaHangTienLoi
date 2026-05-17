@@ -208,9 +208,9 @@
             this.flpDSKhachHang.AutoScroll = true;
             this.flpDSKhachHang.BackColor = System.Drawing.Color.White;
             this.flpDSKhachHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpDSKhachHang.Location = new System.Drawing.Point(40, 443);
+            this.flpDSKhachHang.Location = new System.Drawing.Point(40, 457);
             this.flpDSKhachHang.Name = "flpDSKhachHang";
-            this.flpDSKhachHang.Size = new System.Drawing.Size(1698, 506);
+            this.flpDSKhachHang.Size = new System.Drawing.Size(1698, 455);
             this.flpDSKhachHang.TabIndex = 1;
             // 
             // label1
