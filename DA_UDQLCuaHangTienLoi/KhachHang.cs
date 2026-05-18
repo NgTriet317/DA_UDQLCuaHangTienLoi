@@ -84,11 +84,13 @@ namespace DA_UDQLCuaHangTienLoi
             maKH = ma;
         }
 
+        //load ds khi chạy form
         private void KhachHang_Load(object sender, EventArgs e)
         {
             LoadDanhSachKhachHang();
         }
 
+        //làm mới lại form
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             txtName.Clear();
@@ -96,6 +98,13 @@ namespace DA_UDQLCuaHangTienLoi
             LoadDanhSachKhachHang();
         }
 
+        /*
+         * chức năng nút lưu thông tin
+         * KHi chưa có khách hàng
+         * -->Thêm mới
+         * Khi đã có khách hàng
+         * -->Cập nhật lại thông tin
+         */
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtSDT.Text))
@@ -142,6 +151,7 @@ namespace DA_UDQLCuaHangTienLoi
             }
         }
 
+        //Tìm kiếm khách hàng theo Tên
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             DataTable dt = kh.SearchKhachHang(txtSearch.Text);

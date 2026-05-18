@@ -11,6 +11,7 @@ namespace DAL
 {
     public class DAL_KHACHHANG : DBConnect
     {
+        //Lấy toàn bộ khách hàng
         public DataTable GetAllKhachHang()
         {
             DataTable dt = new DataTable();
@@ -34,6 +35,7 @@ namespace DAL
             return dt;
         }
 
+        //Thêm mới khách hàng
         public bool AddKhachHang(ET_KHACHHANG khachHang)
         {
             try
@@ -64,6 +66,7 @@ namespace DAL
             }
         }
 
+        //cập nhật thông tin khách hàng
         public bool UpdateKhachHang(ET_KHACHHANG khachHang)
         {
             try
@@ -92,7 +95,7 @@ namespace DAL
             }
         }
 
-
+        //tìm kiếm khách hàng
         public DataTable SearchKhachHang(string keyword)
         {
             DataTable dt = new DataTable();

@@ -568,6 +568,7 @@ namespace DA_UDQLCuaHangTienLoi
 
 		}
 
+		//Tìm khách hàng theo SDT (Nhấn enter để xác nhận)
 		private void txtSdt_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
@@ -716,6 +717,7 @@ namespace DA_UDQLCuaHangTienLoi
 				}
 			}
 		}
+		//Thêm sảng phẩm vào giỏ hàng
 		private void ThemVaoGioHang(string ma, string ten, decimal gia)
 		{
 			bool daCo = false;

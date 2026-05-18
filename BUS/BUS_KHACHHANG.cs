@@ -12,20 +12,26 @@ namespace BUS
     public class BUS_KHACHHANG
     {
         DAL_KHACHHANG kh = new DAL_KHACHHANG();
+
+        //lấy toàn bộ khách hàng
         public DataTable GetAllKhachHang()
         {
             return kh.GetAllKhachHang();
         }
 
+        //thêm mới khách hàng
         public bool AddKhachHang(ET_KHACHHANG khachHang)
         {
             return kh.AddKhachHang(khachHang);
         }
 
+        //cập nhật thông tin khách hàng
         public bool UpdateKhachHang(ET_KHACHHANG khachHang)
         {
             return kh.UpdateKhachHang(khachHang);
         }
+
+        //Tìm kiếm khách hàng
         public DataTable SearchKhachHang(string keyword)
         {
             return kh.SearchKhachHang(keyword);
