@@ -63,9 +63,59 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap address_card_regular {
+            get {
+                object obj = ResourceManager.GetObject("address-card-regular", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_trend_up_solid {
+            get {
+                object obj = ResourceManager.GetObject("arrow-trend-up-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap avt {
             get {
                 object obj = ResourceManager.GetObject("avt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap box_open_solid {
+            get {
+                object obj = ResourceManager.GetObject("box-open-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap box_open_solid__1_ {
+            get {
+                object obj = ResourceManager.GetObject("box-open-solid (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boxes_stacked_solid {
+            get {
+                object obj = ResourceManager.GetObject("boxes-stacked-solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +146,16 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         internal static System.Drawing.Bitmap clock_regular {
             get {
                 object obj = ResourceManager.GetObject("clock-regular", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap coins_solid {
+            get {
+                object obj = ResourceManager.GetObject("coins-solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,6 +223,16 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sellcast_brands_solid {
+            get {
+                object obj = ResourceManager.GetObject("sellcast-brands-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_plus_solid {
             get {
                 object obj = ResourceManager.GetObject("user-plus-solid", resourceCulture);
@@ -186,6 +256,16 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         internal static System.Drawing.Bitmap users_solid {
             get {
                 object obj = ResourceManager.GetObject("users-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap users_solid__1_ {
+            get {
+                object obj = ResourceManager.GetObject("users-solid (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

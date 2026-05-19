@@ -32,12 +32,12 @@ namespace DA_UDQLCuaHangTienLoi
         }
         public void clearColorButton()
         {
-            btnBanHang.BackColor = SystemColors.MenuHighlight;
-            btnSP.BackColor = SystemColors.MenuHighlight;
-            btnThongKe.BackColor = SystemColors.MenuHighlight;
-            btnKhoHang.BackColor = SystemColors.MenuHighlight;
-            btnNV.BackColor = SystemColors.MenuHighlight;
-            btnKhach.BackColor = SystemColors.MenuHighlight;
+            btnBanHang.FillColor = SystemColors.MenuHighlight;
+            btnSP.FillColor = SystemColors.MenuHighlight;
+            btnThongKe.FillColor = SystemColors.MenuHighlight;
+            btnKhoHang.FillColor = SystemColors.MenuHighlight;
+            btnNV.FillColor = SystemColors.MenuHighlight;
+            btnKhach.FillColor = SystemColors.MenuHighlight;
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -74,7 +74,7 @@ namespace DA_UDQLCuaHangTienLoi
         {
             //Xóa màu button để đè màu mới và hiện form tương ứng
             clearColorButton();
-            btnBanHang.BackColor = Color.MediumBlue;
+            btnBanHang.FillColor = Color.MediumBlue;
             OpenChildForm(new banHang());
         }
 
@@ -130,28 +130,28 @@ namespace DA_UDQLCuaHangTienLoi
         private void btnSP_Click(object sender, EventArgs e)
         {
             clearColorButton();
-            btnSP.BackColor = Color.MediumBlue;
+            btnSP.FillColor = Color.MediumBlue;
             OpenChildForm(new TTSanPham());
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             clearColorButton();
-            btnThongKe.BackColor = Color.MediumBlue;
+            btnThongKe.FillColor = Color.MediumBlue;
             OpenChildForm(new ThongKe());
         }
 
         private void btnNV_Click(object sender, EventArgs e)
         {
             clearColorButton();
-            btnNV.BackColor = Color.MediumBlue;
+            btnNV.FillColor = Color.MediumBlue;
             OpenChildForm(new NhanVien());
         }
 
         private void btnKhach_Click(object sender, EventArgs e)
         {
             clearColorButton();
-            btnKhach.BackColor = Color.MediumBlue;
+            btnKhach.FillColor = Color.MediumBlue;
             OpenChildForm(new KhachHang());
         }
 
@@ -169,7 +169,7 @@ namespace DA_UDQLCuaHangTienLoi
         {
             KhoHang.maNV = maNV;
             clearColorButton();
-            btnKhoHang.BackColor = Color.MediumBlue;
+            btnKhoHang.FillColor = Color.MediumBlue;
             OpenChildForm(new KhoHang());
         }
     }
