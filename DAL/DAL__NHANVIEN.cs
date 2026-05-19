@@ -1,4 +1,4 @@
-﻿using ET;
+﻿    using ET;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -170,7 +170,7 @@ namespace DAL
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"INSERT INTO TAIKHOAN(Email,MatKhau,VaiTro) values ('{email}',1,'{vaiTro}')", conn);
+                SqlCommand cmd = new SqlCommand($"INSERT INTO TAIKHOAN(TaiKhoan,MatKhau,VaiTro) values ('{email}',1,'{vaiTro}')", conn);
                 cmd.CommandType = CommandType.Text;
 
                 if (cmd.ExecuteNonQuery() > 0)
