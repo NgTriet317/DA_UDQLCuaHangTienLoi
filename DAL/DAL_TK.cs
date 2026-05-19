@@ -20,7 +20,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand("sp_checkTK", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter param = new SqlParameter("@TaiKhoan", email);
+                SqlParameter param = new SqlParameter("@TenTK", email);
                 cmd.Parameters.Add(param);
 
                 // Dùng object thay vì ép kiểu string trực tiếp để tránh lỗi NullReferenceException
@@ -51,7 +51,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand("sp_checkROLE", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter param = new SqlParameter("@TaiKhoan", email);
+                SqlParameter param = new SqlParameter("@TenTK", email);
                 cmd.Parameters.Add(param);
 
                 // Dùng object thay vì ép kiểu string trực tiếp để tránh lỗi NullReferenceException
@@ -108,7 +108,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand("sp_TimNVHoatDong", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter param = new SqlParameter("@TaiKhoan", mail);
+                SqlParameter param = new SqlParameter("@TenTK", mail);
                 cmd.Parameters.Add(param);
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);

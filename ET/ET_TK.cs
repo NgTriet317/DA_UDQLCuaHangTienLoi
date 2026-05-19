@@ -8,20 +8,20 @@ namespace ET
 {
     public class ET_TK
     {
-        private string taiKhoan;
+        private string tenTK;
         private string matKhau;
         private string vaiTro;
         private string hoatDong;        
 
-        public ET_TK(string taiKhoan , string matKhau, string vaiTro, string hoatDong)
+        public ET_TK(string tenTK , string matKhau, string vaiTro, string hoatDong)
         {
-            this.taiKhoan = taiKhoan;
+            this.tenTK = tenTK;
             this.matKhau = matKhau;
             this.vaiTro = vaiTro;
             this.hoatDong = hoatDong;
         }
 
-        public string TaiKhoan { get => taiKhoan; set => taiKhoan = value; }
+        public string TaiKhoan { get => tenTK; set => tenTK = value; }
         public string MatKhau { get => matKhau; set => matKhau = value; }
         public string VaiTro { get => vaiTro; set => vaiTro = value; }
         public string HoatDong { get => hoatDong; set => hoatDong = value; }

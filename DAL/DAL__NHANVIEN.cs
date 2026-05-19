@@ -170,7 +170,7 @@ namespace DAL
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"INSERT INTO TAIKHOAN(TaiKhoan,MatKhau,VaiTro) values ('{email}',1,'{vaiTro}')", conn);
+                SqlCommand cmd = new SqlCommand($"INSERT INTO TAIKHOAN(TenTK,MatKhau,VaiTro) values ('{email}',1,'{vaiTro}')", conn);
                 cmd.CommandType = CommandType.Text;
 
                 if (cmd.ExecuteNonQuery() > 0)
