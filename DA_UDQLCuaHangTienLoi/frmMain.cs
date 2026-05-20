@@ -21,7 +21,7 @@ namespace DA_UDQLCuaHangTienLoi
         public frmMain()
         {
             InitializeComponent();            
-            SetDoubleBuffered(panel_body);
+            SetDoubleBuffered(panelNen);
         }
         public static void SetDoubleBuffered(Control control)
         {
@@ -171,6 +171,11 @@ namespace DA_UDQLCuaHangTienLoi
             clearColorButton();
             btnKhoHang.FillColor = Color.MediumBlue;
             OpenChildForm(new KhoHang());
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

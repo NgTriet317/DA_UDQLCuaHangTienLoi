@@ -117,7 +117,7 @@ namespace DA_UDQLCuaHangTienLoi
                 SP.Name = dr["MaSP"].ToString();
                 SP.Text = dr["TenSP"].ToString();
 
-                SP.Width = 300;
+                SP.Width = 280;
 
                 SP.Location = new Point(0, toaDoY);
 

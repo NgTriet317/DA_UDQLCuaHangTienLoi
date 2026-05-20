@@ -116,7 +116,7 @@ namespace DA_UDQLCuaHangTienLoi
 
                         lblMaNV.Text = fnvr["MaNV"].ToString();
                         lblHoTen.Text = fnvr["HoTenNV"].ToString();
-                        lblNgaySinh.Text = fnvr["NgaySinh"].ToString();
+                        lblNgaySinh.Text = fnvr["NgaySinh"].ToString().Split(' ')[0];
                         lblGioiTinh.Text = fnvr["GioiTinh"].ToString();
                         lblDiaChi.Text = fnvr["DiaChi"].ToString();
                         lblSDT.Text = fnvr["SDT"].ToString();
@@ -225,6 +225,11 @@ namespace DA_UDQLCuaHangTienLoi
                 refresh();
                 HienThiDanhSachNhanVien(nv.timKiemNhanVienKoTuKhoa(cboTrangThai.Text, cboChucVu.SelectedValue.ToString()));
             }
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
