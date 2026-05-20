@@ -28,75 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cboChoNgayNhap = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.crystalReportViewer3 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.rptThongKeNhapHang1 = new DA_UDQLCuaHangTienLoi.rptThongKeNhapHang();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.cboChoNgayNhap);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 101);
-            this.panel1.TabIndex = 0;
-            // 
-            // cboChoNgayNhap
-            // 
-            this.cboChoNgayNhap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboChoNgayNhap.FormattingEnabled = true;
-            this.cboChoNgayNhap.Location = new System.Drawing.Point(319, 41);
-            this.cboChoNgayNhap.Margin = new System.Windows.Forms.Padding(4);
-            this.cboChoNgayNhap.Name = "cboChoNgayNhap";
-            this.cboChoNgayNhap.Size = new System.Drawing.Size(267, 24);
-            this.cboChoNgayNhap.TabIndex = 1;
-            this.cboChoNgayNhap.SelectedIndexChanged += new System.EventHandler(this.cboChoNgayNhap_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(212, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Chọn ngày:";
-            // 
-            // crystalReportViewer3
-            // 
-            this.crystalReportViewer3.ActiveViewIndex = 0;
-            this.crystalReportViewer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer3.Location = new System.Drawing.Point(0, 101);
-            this.crystalReportViewer3.Margin = new System.Windows.Forms.Padding(4);
-            this.crystalReportViewer3.Name = "crystalReportViewer3";
-            this.crystalReportViewer3.ReportSource = this.rptThongKeNhapHang1;
-            this.crystalReportViewer3.Size = new System.Drawing.Size(873, 372);
-            this.crystalReportViewer3.TabIndex = 1;
-            this.crystalReportViewer3.ToolPanelWidth = 267;
-            // 
-            // InThongKeNhapHang
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 473);
-            this.Controls.Add(this.crystalReportViewer3);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "InThongKeNhapHang";
-            this.Text = "InThongKeNhapHang";
-            this.Load += new System.EventHandler(this.InThongKeNhapHang_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.cboChoNgayNhap = new System.Windows.Forms.ComboBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.crystalReportViewer3 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+			this.rptThongKeNhapHang1 = new DA_UDQLCuaHangTienLoi.rptThongKeNhapHang();
+			this.panel1.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.cboChoNgayNhap);
+			this.panel1.Controls.Add(this.label1);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel1.Location = new System.Drawing.Point(0, 0);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(655, 82);
+			this.panel1.TabIndex = 0;
+			// 
+			// cboChoNgayNhap
+			// 
+			this.cboChoNgayNhap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cboChoNgayNhap.FormattingEnabled = true;
+			this.cboChoNgayNhap.Location = new System.Drawing.Point(239, 33);
+			this.cboChoNgayNhap.Name = "cboChoNgayNhap";
+			this.cboChoNgayNhap.Size = new System.Drawing.Size(201, 21);
+			this.cboChoNgayNhap.TabIndex = 1;
+			this.cboChoNgayNhap.SelectedIndexChanged += new System.EventHandler(this.cboChoNgayNhap_SelectedIndexChanged);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(159, 34);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(74, 16);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Chọn ngày:";
+			// 
+			// crystalReportViewer3
+			// 
+			this.crystalReportViewer3.ActiveViewIndex = 0;
+			this.crystalReportViewer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.crystalReportViewer3.Cursor = System.Windows.Forms.Cursors.Default;
+			this.crystalReportViewer3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.crystalReportViewer3.Location = new System.Drawing.Point(0, 82);
+			this.crystalReportViewer3.Name = "crystalReportViewer3";
+			this.crystalReportViewer3.ReportSource = this.rptThongKeNhapHang1;
+			this.crystalReportViewer3.Size = new System.Drawing.Size(655, 302);
+			this.crystalReportViewer3.TabIndex = 1;
+			// 
+			// rptThongKeNhapHang1
+			// 
+			this.rptThongKeNhapHang1.FileName = "rassdk://C:\\Users\\PCPV\\AppData\\Local\\Temp\\temp_2f9a4d21-c8bf-4710-9c37-be47ffa67e" +
+    "02.rpt";
+			// 
+			// InThongKeNhapHang
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(655, 384);
+			this.Controls.Add(this.crystalReportViewer3);
+			this.Controls.Add(this.panel1);
+			this.Name = "InThongKeNhapHang";
+			this.Text = "InThongKeNhapHang";
+			this.Load += new System.EventHandler(this.InThongKeNhapHang_Load);
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
+			this.ResumeLayout(false);
 
         }
 

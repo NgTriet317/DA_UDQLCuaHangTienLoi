@@ -138,7 +138,7 @@ namespace DA_UDQLCuaHangTienLoi
         {
             clearColorButton();
             btnThongKe.FillColor = Color.MediumBlue;
-            OpenChildForm(new ThongKe());
+            OpenChildForm(new ThongKeTongQuat());
         }
 
         private void btnNV_Click(object sender, EventArgs e)

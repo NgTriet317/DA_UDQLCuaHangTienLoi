@@ -2,7 +2,7 @@
 {
 
 
-    public partial class dsHoaDon
-    {
-    }
+	public partial class dsHoaDon
+	{
+	}
 }
