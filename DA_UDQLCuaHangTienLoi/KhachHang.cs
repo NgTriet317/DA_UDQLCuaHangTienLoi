@@ -50,7 +50,7 @@ namespace DA_UDQLCuaHangTienLoi
                     theKhachHang card = new theKhachHang(maKH, tenKH, sdt, diemTichLuy);
 
                     // Thêm viền (tùy chọn cho giống ảnh)                    
-                    card.Margin = new Padding(20); // Tạo khoảng cách giữa các thẻ
+                    card.Margin = new Padding(5); // Tạo khoảng cách giữa các thẻ
 
                     card.SanPhamClicked += Card_Clicked;
                     // 2. Thêm thẻ vào FlowLayoutPanel

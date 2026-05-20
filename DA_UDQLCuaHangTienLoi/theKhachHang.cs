@@ -84,5 +84,10 @@ namespace DA_UDQLCuaHangTienLoi
         {
             guna2Panel1.FillColor = SystemColors.Control;            
         }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

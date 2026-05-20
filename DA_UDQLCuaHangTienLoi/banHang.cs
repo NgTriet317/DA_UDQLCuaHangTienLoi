@@ -90,7 +90,7 @@ namespace DA_UDQLCuaHangTienLoi
 
 					// Thêm viền (tùy chọn cho giống ảnh)
 					card.BorderStyle = BorderStyle.FixedSingle;
-					card.Margin = new Padding(10); // Tạo khoảng cách giữa các thẻ
+					card.Margin = new Padding(5); // Tạo khoảng cách giữa các thẻ
 
 					card.SanPhamClicked += Card_Clicked;
 					// 2. Thêm thẻ vào FlowLayoutPanel
@@ -213,7 +213,7 @@ namespace DA_UDQLCuaHangTienLoi
 
 				// Thêm viền (tùy chọn cho giống ảnh)
 				card.BorderStyle = BorderStyle.FixedSingle;
-				card.Margin = new Padding(10); // Tạo khoảng cách giữa các thẻ
+				card.Margin = new Padding(5); // Tạo khoảng cách giữa các thẻ
 
 				card.SanPhamClicked += Card_Clicked;
 				// 2. Thêm thẻ vào FlowLayoutPanel
@@ -265,7 +265,7 @@ namespace DA_UDQLCuaHangTienLoi
 
 				// Thêm viền (tùy chọn cho giống ảnh)
 				card.BorderStyle = BorderStyle.FixedSingle;
-				card.Margin = new Padding(10); // Tạo khoảng cách giữa các thẻ
+				card.Margin = new Padding(5); // Tạo khoảng cách giữa các thẻ
 
 				card.SanPhamClicked += Card_Clicked;
 				// 2. Thêm thẻ vào FlowLayoutPanel

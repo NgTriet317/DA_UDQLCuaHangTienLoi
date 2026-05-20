@@ -41,40 +41,40 @@
             // lblMaNV
             // 
             this.lblMaNV.AutoSize = true;
-            this.lblMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaNV.Location = new System.Drawing.Point(65, 23);
+            this.lblMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaNV.Location = new System.Drawing.Point(23, 15);
             this.lblMaNV.Name = "lblMaNV";
-            this.lblMaNV.Size = new System.Drawing.Size(58, 22);
+            this.lblMaNV.Size = new System.Drawing.Size(53, 20);
             this.lblMaNV.TabIndex = 0;
             this.lblMaNV.Text = "label1";
             // 
             // lblTenNV
             // 
             this.lblTenNV.AutoSize = true;
-            this.lblTenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenNV.Location = new System.Drawing.Point(246, 23);
+            this.lblTenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenNV.Location = new System.Drawing.Point(242, 15);
             this.lblTenNV.Name = "lblTenNV";
-            this.lblTenNV.Size = new System.Drawing.Size(58, 22);
+            this.lblTenNV.Size = new System.Drawing.Size(53, 20);
             this.lblTenNV.TabIndex = 1;
             this.lblTenNV.Text = "label2";
             // 
             // lblGioiTinh
             // 
             this.lblGioiTinh.AutoSize = true;
-            this.lblGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGioiTinh.Location = new System.Drawing.Point(547, 23);
+            this.lblGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGioiTinh.Location = new System.Drawing.Point(542, 15);
             this.lblGioiTinh.Name = "lblGioiTinh";
-            this.lblGioiTinh.Size = new System.Drawing.Size(58, 22);
+            this.lblGioiTinh.Size = new System.Drawing.Size(53, 20);
             this.lblGioiTinh.TabIndex = 2;
             this.lblGioiTinh.Text = "label3";
             // 
             // lblChucVu
             // 
             this.lblChucVu.AutoSize = true;
-            this.lblChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChucVu.Location = new System.Drawing.Point(758, 23);
+            this.lblChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChucVu.Location = new System.Drawing.Point(745, 15);
             this.lblChucVu.Name = "lblChucVu";
-            this.lblChucVu.Size = new System.Drawing.Size(58, 22);
+            this.lblChucVu.Size = new System.Drawing.Size(53, 20);
             this.lblChucVu.TabIndex = 3;
             this.lblChucVu.Text = "label4";
             // 
@@ -88,9 +88,9 @@
             this.btnXoa.FillColor = System.Drawing.Color.Red;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(949, 12);
+            this.btnXoa.Location = new System.Drawing.Point(928, 10);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(91, 45);
+            this.btnXoa.Size = new System.Drawing.Size(68, 32);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "X";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -105,9 +105,9 @@
             this.btnChiTiet.FillColor = System.Drawing.Color.Lime;
             this.btnChiTiet.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnChiTiet.ForeColor = System.Drawing.Color.Black;
-            this.btnChiTiet.Location = new System.Drawing.Point(1093, 12);
+            this.btnChiTiet.Location = new System.Drawing.Point(1016, 10);
             this.btnChiTiet.Name = "btnChiTiet";
-            this.btnChiTiet.Size = new System.Drawing.Size(80, 45);
+            this.btnChiTiet.Size = new System.Drawing.Size(56, 32);
             this.btnChiTiet.TabIndex = 5;
             this.btnChiTiet.Text = ">";
             this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
@@ -126,7 +126,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1224, 77);
+            this.guna2Panel1.Size = new System.Drawing.Size(1106, 50);
             this.guna2Panel1.TabIndex = 6;
             this.guna2Panel1.Click += new System.EventHandler(this.guna2Panel1_Click);
             // 
@@ -136,7 +136,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2Panel1);
             this.Name = "dgvFakeNhanVien";
-            this.Size = new System.Drawing.Size(1224, 77);
+            this.Size = new System.Drawing.Size(1106, 50);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.ResumeLayout(false);
