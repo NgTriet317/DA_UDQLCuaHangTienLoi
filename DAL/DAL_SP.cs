@@ -12,6 +12,8 @@ namespace DAL
 {
     public class DAL_SP : DBConnect
     {
+
+        //lay dssp
         public DataTable layDSSP()
         {
             DataTable dt = new DataTable();
@@ -36,6 +38,8 @@ namespace DAL
             }
             return dt;
         }
+
+        //them sp
         public bool themSP(ET_SP sp)
         {
             bool kq = false;
@@ -49,7 +53,7 @@ namespace DAL
                 SqlParameter[] param = {
                     new SqlParameter("@MaSP", sp.MaSP),
                     new SqlParameter("@TenSP", sp.TenSP),
-                    new SqlParameter("@Hinh", sp.Hinh),                    
+                    new SqlParameter("@Hinh", sp.Hinh),
                     new SqlParameter("@SoLuong",sp.SoLuong),
                     new SqlParameter("@MaDVT",sp.DonViTinh),
                     new SqlParameter("@DonGia",sp.DonGia),
@@ -57,7 +61,7 @@ namespace DAL
                     new SqlParameter("@MaLoaiSP",sp.MaLoaiSP),
                     new SqlParameter("@MaKM",sp.MaKM),
                     new SqlParameter("@MaNCC", sp.MaNCC)
-                };                
+                };
 
                 cmd.Parameters.AddRange(param);
 
@@ -77,6 +81,8 @@ namespace DAL
             }
             return kq;
         }
+
+        //sua sp
         public bool suaSP(ET_SP sp)
         {
             bool kq = false;
@@ -119,6 +125,7 @@ namespace DAL
             return kq;
         }
 
+        //Xoa sp theo ma sp
         public bool xoaSP(string ma)
         {
             bool kq = false;
@@ -129,7 +136,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand("sp_xoaSP", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter param = new SqlParameter("@MaSP", ma);                    
+                SqlParameter param = new SqlParameter("@MaSP", ma);
 
                 cmd.Parameters.Add(param);
 
@@ -149,6 +156,7 @@ namespace DAL
             }
             return kq;
         }
+        //search sp theo ten sp
         public DataTable findSP(string name)
         {
             DataTable dt = new DataTable();
@@ -176,6 +184,7 @@ namespace DAL
             return dt;
         }
 
+        //search sp theo ma sp
         public DataTable findSPMa(string ma)
         {
             DataTable dt = new DataTable();
@@ -203,6 +212,7 @@ namespace DAL
             return dt;
         }
 
+        //capnhat sl sp theo masp
         public bool updateSLSP(string ma, int soLuongSp)
         {
             bool kq = false;
@@ -224,10 +234,12 @@ namespace DAL
             }
             finally
             {
-                conn.Close( );
+                conn.Close();
             }
             return kq;
         }
+
+        //search sp theo ma loai sp
         public DataTable findSPMaLoai(string ma)
         {
             DataTable dt = new DataTable();
@@ -254,5 +266,37 @@ namespace DAL
             }
             return dt;
         }
-    }
+
+
+        //Tim han su dung sp theo ma sp
+        public DateTime timHanSD(string ma)
+        {
+            DateTime hanSD = DateTime.MinValue;
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand($"sp_CheckHSD", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param = new SqlParameter("@MaSP", ma);
+                cmd.Parameters.Add(param);
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    hanSD = Convert.ToDateTime(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return hanSD;
+        }
+    } 
 }

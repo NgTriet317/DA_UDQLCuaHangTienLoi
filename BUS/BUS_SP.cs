@@ -91,5 +91,10 @@ namespace BUS
         {
             return sp.findSPMaLoai(ma);
         }
+        //lay han sd
+        public DateTime layHanSD(string ma)
+        {
+            return sp.timHanSD(ma);
+        }
     }
 }

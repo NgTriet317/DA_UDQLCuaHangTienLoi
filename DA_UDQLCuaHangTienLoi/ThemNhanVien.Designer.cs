@@ -34,7 +34,6 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.cboChucVu = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnHoanThanh = new Guna.UI2.WinForms.Guna2Button();
             this.checkTTk = new Guna.UI2.WinForms.Guna2CheckBox();
             this.cboGioiTinh = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dtpNgaySinh = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -52,6 +51,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.picHinh = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnHoanThanh = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -111,6 +111,7 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel3.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel3.BorderRadius = 15;
             this.guna2Panel3.BorderThickness = 1;
@@ -155,22 +156,6 @@
             this.cboChucVu.Name = "cboChucVu";
             this.cboChucVu.Size = new System.Drawing.Size(282, 36);
             this.cboChucVu.TabIndex = 6;
-            // 
-            // btnHoanThanh
-            // 
-            this.btnHoanThanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHoanThanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHoanThanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHoanThanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHoanThanh.FillColor = System.Drawing.Color.Lime;
-            this.btnHoanThanh.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnHoanThanh.ForeColor = System.Drawing.Color.Black;
-            this.btnHoanThanh.Location = new System.Drawing.Point(467, 279);
-            this.btnHoanThanh.Name = "btnHoanThanh";
-            this.btnHoanThanh.Size = new System.Drawing.Size(175, 45);
-            this.btnHoanThanh.TabIndex = 5;
-            this.btnHoanThanh.Text = "Hoàn thành";
-            this.btnHoanThanh.Click += new System.EventHandler(this.btnHoanThanh_Click);
             // 
             // checkTTk
             // 
@@ -430,6 +415,23 @@
             this.picHinh.TabIndex = 0;
             this.picHinh.TabStop = false;
             // 
+            // btnHoanThanh
+            // 
+            this.btnHoanThanh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnHoanThanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHoanThanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHoanThanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHoanThanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHoanThanh.FillColor = System.Drawing.Color.Lime;
+            this.btnHoanThanh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnHoanThanh.ForeColor = System.Drawing.Color.Black;
+            this.btnHoanThanh.Location = new System.Drawing.Point(467, 279);
+            this.btnHoanThanh.Name = "btnHoanThanh";
+            this.btnHoanThanh.Size = new System.Drawing.Size(175, 45);
+            this.btnHoanThanh.TabIndex = 5;
+            this.btnHoanThanh.Text = "Hoàn thành";
+            this.btnHoanThanh.Click += new System.EventHandler(this.btnHoanThanh_Click);
+            // 
             // ThemNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -474,8 +476,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txtDiaChi;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2CheckBox checkTTk;
-        private Guna.UI2.WinForms.Guna2Button btnHoanThanh;
         private Guna.UI2.WinForms.Guna2ComboBox cboChucVu;
         private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2Button btnHoanThanh;
     }
 }
