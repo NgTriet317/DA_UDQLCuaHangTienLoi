@@ -203,6 +203,16 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eye_solid {
+            get {
+                object obj = ResourceManager.GetObject("eye-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap file_export_solid {
             get {
                 object obj = ResourceManager.GetObject("file-export-solid", resourceCulture);
@@ -263,6 +273,16 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pen_to_square_regular {
+            get {
+                object obj = ResourceManager.GetObject("pen-to-square-regular", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap phone_solid {
             get {
                 object obj = ResourceManager.GetObject("phone-solid", resourceCulture);
@@ -316,6 +336,16 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         internal static System.Drawing.Bitmap sellcast_brands_solid {
             get {
                 object obj = ResourceManager.GetObject("sellcast-brands-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash_can_solid {
+            get {
+                object obj = ResourceManager.GetObject("trash-can-solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

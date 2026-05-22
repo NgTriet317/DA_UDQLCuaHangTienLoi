@@ -259,6 +259,12 @@
     <Compile Include="dgvFakeNhanVien.Designer.cs">
       <DependentUpon>dgvFakeNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="dgvFakeTTSP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="dgvFakeTTSP.Designer.cs">
+      <DependentUpon>dgvFakeTTSP.cs</DependentUpon>
+    </Compile>
     <Compile Include="dsDoanhThuDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -466,6 +472,12 @@
     <Compile Include="TTSanPham.Designer.cs">
       <DependentUpon>TTSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="TTSPNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TTSPNew.Designer.cs">
+      <DependentUpon>TTSPNew.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="banHang.resx">
       <DependentUpon>banHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -474,6 +486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dgvFakeNhanVien.resx">
       <DependentUpon>dgvFakeNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dgvFakeTTSP.resx">
+      <DependentUpon>dgvFakeTTSP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -576,6 +591,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TTSanPham.resx">
       <DependentUpon>TTSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TTSPNew.resx">
+      <DependentUpon>TTSPNew.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dsDoanhThuDB.xsc">
       <DependentUpon>dsDoanhThuDB.xsd</DependentUpon>
@@ -765,6 +783,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rotate-solid2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen-to-square-regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash-can-solid.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bag-shopping-solid.png" />
