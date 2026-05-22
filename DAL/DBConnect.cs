@@ -10,7 +10,7 @@ namespace DAL
     public class DBConnect
     {
         // 1. Biến tĩnh duy nhất để chứa chuỗi kết nối cho toàn bộ DAL
-        public static string ChuoiKetNoi = "";
+        public static string ChuoiKetNoi = "Data Source=DESKTOP-C9VCE8A;Initial Catalog=QLCHTL;Integrated Security=True;";
 
         // 2. Biến conn dùng từ khóa 'protected' để các class con có thể xài ké
         protected SqlConnection conn;

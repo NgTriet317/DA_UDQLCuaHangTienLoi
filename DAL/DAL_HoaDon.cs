@@ -297,5 +297,111 @@ namespace DAL
             }
             return dt;
         }
+
+        public DataTable LayDuLieuChoBieuDoDoanhThuVaHoaDon(DateTime tuNgay, DateTime denNgay)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+				SqlCommand cmd = new SqlCommand("sp_ThongKeDoanhThuVaHoaDon", conn);
+				cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter[] para = new SqlParameter[]
+				{
+					new SqlParameter("@TuNgay", tuNgay),
+					new SqlParameter("@DenNgay", denNgay)
+				};
+				cmd.Parameters.AddRange(para);
+				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+				adapter.Fill(dt);
+			}
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+				conn.Close();
+			}
+			return dt;
+		}
+
+        public DataTable LayDuLieuBieuDoLoaiBanDuoc(DateTime tuNgay, DateTime denNgay)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+				SqlCommand cmd = new SqlCommand("sp_ThongKeTheoLoaiSP", conn);
+				cmd.CommandType = CommandType.StoredProcedure;
+				SqlParameter[] para = new SqlParameter[]
+				{
+					new SqlParameter("@TuNgay", tuNgay),
+					new SqlParameter("@DenNgay", denNgay)
+				};
+				cmd.Parameters.AddRange(para);
+				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+				adapter.Fill(dt);
+			}
+            catch
+            {
+                throw;
+            }
+			finally
+			{
+                conn.Close();
+			}
+            return dt;
+		}
+
+        public DataTable LayThongTinHoaDon()
+        {
+			DataTable dt = new DataTable();
+			try
+			{
+				conn.Open();
+				SqlCommand cmd = new SqlCommand("sp_ThongTinHoaDon", conn);
+				cmd.CommandType = CommandType.StoredProcedure;
+				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+				adapter.Fill(dt);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				conn.Close();
+			}
+			return dt;
+		}
+
+        public DataTable LayDSHoaDonTuNgayDenNgay(DateTime tuNgay, DateTime denNgay)
+        {
+			DataTable dt = new DataTable();
+			try
+			{
+				conn.Open();
+				SqlCommand cmd = new SqlCommand("sp_DanhSachHoaDonTheoNgay", conn);
+				cmd.CommandType = CommandType.StoredProcedure;
+				SqlParameter[] para = new SqlParameter[]
+				{
+					new SqlParameter("@TuNgay", tuNgay),
+					new SqlParameter("@DenNgay", denNgay)
+				};
+				cmd.Parameters.AddRange(para);
+				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+				adapter.Fill(dt);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				conn.Close();
+			}
+			return dt;
+		}
 	}
 }

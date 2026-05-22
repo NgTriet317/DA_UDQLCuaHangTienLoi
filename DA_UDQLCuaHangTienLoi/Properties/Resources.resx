@@ -157,8 +157,14 @@
   <data name="phone-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\phone-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bag-shopping-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bag-shopping-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="box-open-solid (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\box-open-solid (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rotate-solid2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rotate-solid2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow-trend-up-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-trend-up-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,7 +208,7 @@
   <data name="dolly-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dolly-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rotate-solid2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rotate-solid2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="filter-solid2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filter-solid2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

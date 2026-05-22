@@ -93,6 +93,16 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bag_shopping_solid {
+            get {
+                object obj = ResourceManager.GetObject("bag-shopping-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap box_open_solid {
             get {
                 object obj = ResourceManager.GetObject("box-open-solid", resourceCulture);
@@ -226,6 +236,16 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         internal static System.Drawing.Bitmap filter_solid {
             get {
                 object obj = ResourceManager.GetObject("filter-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filter_solid2 {
+            get {
+                object obj = ResourceManager.GetObject("filter-solid2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
