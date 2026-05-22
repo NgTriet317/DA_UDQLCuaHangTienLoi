@@ -65,5 +65,25 @@ namespace BUS
         {
             return hd.LayDSHoaDonTheoThang(thang, nam);
         }
-    }
+
+		//Lấy dữ liệu cho biểu đồ doanh thu
+		public DataTable LayDuLieuChoBieuDoDoanhThuVaHoaDon(DateTime tuNgay, DateTime denNgay)
+        {
+            return hd.LayDuLieuChoBieuDoDoanhThuVaHoaDon(tuNgay, denNgay);
+		}
+
+		public DataTable LayDuLieuBieuDoLoaiBanDuoc(DateTime tuNgay, DateTime denNgay)
+        {
+            return hd.LayDuLieuBieuDoLoaiBanDuoc(tuNgay, denNgay);
+		}
+
+		public DataTable LayThongTinHoaDon()
+        {
+            return hd.LayThongTinHoaDon();
+		}
+		public DataTable LayDSHoaDonTuNgayDenNgay(DateTime tuNgay, DateTime denNgay)
+        {
+            return hd.LayDSHoaDonTuNgayDenNgay(tuNgay, denNgay);
+		}
+	}
 }

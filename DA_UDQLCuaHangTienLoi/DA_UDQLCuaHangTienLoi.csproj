@@ -793,6 +793,12 @@
   <ItemGroup>
     <None Include="Resources\trash-can-solid.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bag-shopping-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter-solid2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SkiaSharp.NativeAssets.macOS.3.119.2\build\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.macOS.3.119.2\build\net462\SkiaSharp.NativeAssets.macOS.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
