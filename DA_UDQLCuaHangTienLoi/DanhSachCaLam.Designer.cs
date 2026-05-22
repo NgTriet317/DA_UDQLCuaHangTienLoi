@@ -310,7 +310,7 @@
 			this.guna2Panel3.Controls.Add(this.dgvThongTin);
 			this.guna2Panel3.Location = new System.Drawing.Point(27, 103);
 			this.guna2Panel3.Name = "guna2Panel3";
-			this.guna2Panel3.Size = new System.Drawing.Size(782, 557);
+			this.guna2Panel3.Size = new System.Drawing.Size(599, 557);
 			this.guna2Panel3.TabIndex = 9;
 			// 
 			// dgvThongTin
@@ -352,7 +352,7 @@
 			this.dgvThongTin.ReadOnly = true;
 			this.dgvThongTin.RowHeadersVisible = false;
 			this.dgvThongTin.RowHeadersWidth = 51;
-			this.dgvThongTin.Size = new System.Drawing.Size(782, 557);
+			this.dgvThongTin.Size = new System.Drawing.Size(599, 557);
 			this.dgvThongTin.TabIndex = 0;
 			this.dgvThongTin.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
 			this.dgvThongTin.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -451,7 +451,7 @@
 			this.guna2Panel4.Controls.Add(this.guna2HtmlLabel6);
 			this.guna2Panel4.Controls.Add(this.guna2HtmlLabel5);
 			this.guna2Panel4.Controls.Add(this.guna2Panel5);
-			this.guna2Panel4.Location = new System.Drawing.Point(856, 103);
+			this.guna2Panel4.Location = new System.Drawing.Point(657, 103);
 			this.guna2Panel4.Name = "guna2Panel4";
 			this.guna2Panel4.Size = new System.Drawing.Size(425, 557);
 			this.guna2Panel4.TabIndex = 10;
@@ -769,7 +769,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-			this.ClientSize = new System.Drawing.Size(1314, 763);
+			this.ClientSize = new System.Drawing.Size(1114, 862);
 			this.Controls.Add(this.guna2PictureBox4);
 			this.Controls.Add(this.guna2PictureBox3);
 			this.Controls.Add(this.guna2Panel4);
