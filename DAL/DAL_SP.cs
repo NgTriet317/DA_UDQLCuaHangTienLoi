@@ -298,5 +298,88 @@ namespace DAL
             }
             return hanSD;
         }
-    } 
+
+        //Tim ngay sx sp theo ma sp
+        public DateTime timNgaySX(string ma)
+        {
+            DateTime ngaySX = DateTime.MinValue;
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_CheckNSX", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param = new SqlParameter("@MaSP", ma);
+                cmd.Parameters.Add(param);
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    ngaySX = Convert.ToDateTime(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return ngaySX;
+        }
+
+        //tim don vi tinh sp theo ma dvt
+        public string timDVT(string ma)
+        {
+            string dvt = "";
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_LayDVT", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter param = new SqlParameter("@MaDVT", ma);
+                cmd.Parameters.Add(param);
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    dvt = result.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return dvt;
+        }
+        //lay toan bo dvt
+        public DataTable layAllDVT()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_layAllDVT", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return dt;
+        }
+    }
 }

@@ -96,5 +96,22 @@ namespace BUS
         {
             return sp.timHanSD(ma);
         }
+        //lay nsx
+        public DateTime layNgaySX(string ma)
+        {
+            return sp.timNgaySX(ma);
+        }
+
+        //lay dvt
+        public string layDVT(string ma)
+        {
+            return sp.timDVT(ma);
+        }
+        //lay all dvt
+        public DataTable layAllDVT()
+        {
+            return sp.layAllDVT();
+        }
+
     }
 }

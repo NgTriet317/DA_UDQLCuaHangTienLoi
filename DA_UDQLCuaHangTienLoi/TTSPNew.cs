@@ -95,7 +95,9 @@ namespace DA_UDQLCuaHangTienLoi
 
                 item.OnViewClicked += (sender, e) =>
                 {
-
+                    ViewSanPham viewForm = new ViewSanPham();
+                    ViewSanPham.ma = item.MaSP_Data;
+                    viewForm.ShowDialog();
                 };
 
                 item.OnXoaClicked += (sender, e) =>
@@ -114,8 +116,8 @@ namespace DA_UDQLCuaHangTienLoi
 
                 item.OnUpdateClicked += (sender, e) =>
                 {
-                    quanLySP quanLySPForm = new quanLySP();
-                    quanLySP.ma = item.MaSP_Data;
+                    SuaSanPhamNew quanLySPForm = new SuaSanPhamNew();
+                    SuaSanPhamNew.ma = item.MaSP_Data;
                     quanLySPForm.ShowDialog();
                     HienThiDanhSachSP(sp.layDSSP());
                 };
@@ -156,7 +158,7 @@ namespace DA_UDQLCuaHangTienLoi
         private void btnThem_Click(object sender, EventArgs e)
         {
 
-            themSP themSPForm = new themSP();
+            ThemSanPhamNew themSPForm = new ThemSanPhamNew();
             themSPForm.ShowDialog();
             HienThiDanhSachSP(sp.layDSSP());
         }
