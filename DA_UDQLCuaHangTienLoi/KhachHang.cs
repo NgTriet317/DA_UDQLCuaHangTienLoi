@@ -189,5 +189,10 @@ namespace DA_UDQLCuaHangTienLoi
         {
 
         }
+
+        private void btnLamMoi_Click_1(object sender, EventArgs e)
+        {
+            LoadDanhSachKhachHang();
+        }
     }
 }

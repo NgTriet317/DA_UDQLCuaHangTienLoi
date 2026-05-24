@@ -41,7 +41,7 @@ namespace DA_UDQLCuaHangTienLoi
         {
             //Hien thi thong tin khi app vua bat
             await LoadDanhSachSanPham();
-
+            txtTraTien.Text = "0";
 
             cboKM.DataSource = km.LayDSKM();
             cboKM.DisplayMember = "TenKM";
@@ -62,9 +62,7 @@ namespace DA_UDQLCuaHangTienLoi
             try
             {
                 BUS_SP sp = new BUS_SP();
-
                 DataTable dt = await Task.Run(() => sp.layDSSP());
-
 
                 // Duyệt qua từng dòng dữ liệu trong CSDL
                 foreach (DataRow row in dt.Rows)
@@ -113,14 +111,6 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Số tiền quá lớn! Vui lòng nhập số tiền hợp lệ.", "Lỗi");
-            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -141,6 +131,21 @@ namespace DA_UDQLCuaHangTienLoi
 
             bool daCoTrongHoaDon = false;
 
+            switch (khuyenMai)
+            {
+                case "KM01":
+                    gia = gia * 0.9m;
+                    break;
+                case "KM02":
+                    gia = gia * 0.8m;
+                    break;
+                case "KM03":
+                    gia = gia * 0.7m;
+                    break;                
+                default:
+                    break;
+            }
+
             // 1. Kiểm tra xem sản phẩm này đã có trong hóa đơn chưa
             foreach (DataGridViewRow row in dgvHoaDon.Rows)
             {
@@ -149,9 +154,21 @@ namespace DA_UDQLCuaHangTienLoi
                 // Nếu mã sản phẩm đã tồn tại trong DataGridView
                 if (row.Cells["colMaSP"].Value?.ToString() == ma)
                 {
+
+                    int soLuongHienTai;
+                    int soLuongMoi;
                     // Tăng số lượng lên 1
-                    int soLuongHienTai = Convert.ToInt32(row.Cells["colSL"].Value);
-                    int soLuongMoi = soLuongHienTai + 1;
+                    if (khuyenMai == "KM04")
+                    {
+                        soLuongHienTai = Convert.ToInt32(row.Cells["colSL"].Value);
+                        soLuongMoi = soLuongHienTai + 2;
+                    }
+                    else
+                    {
+                        soLuongHienTai = Convert.ToInt32(row.Cells["colSL"].Value);
+                        soLuongMoi = soLuongHienTai + 1;
+                    }
+                    
 
                     row.Cells["colSL"].Value = soLuongMoi;
 
@@ -166,9 +183,17 @@ namespace DA_UDQLCuaHangTienLoi
             // 2. Nếu sản phẩm chưa có trong hóa đơn, thêm dòng mới
             if (!daCoTrongHoaDon)
             {
-                // Thứ tự truyền vào phải khớp với thứ tự các cột trong DataGridView của bạn
-                // Ví dụ: Tên, Đơn Giá, Khuyến Mãi (0), Số lượng (1), Tổng tiền, Mã SP (ẩn)
-                dgvHoaDon.Rows.Add(ten, gia, khuyenMai, 1, gia, ma);
+
+                if (khuyenMai == "KM04")
+                {
+                    dgvHoaDon.Rows.Add(ten, gia, khuyenMai, 2, gia, ma);
+                }
+                else
+                {
+                    dgvHoaDon.Rows.Add(ten, gia, khuyenMai, 1, gia, ma);
+                }
+                // Thứ tự truyền vào phải khớp với thứ tự các cột trong DataGridView của bạn                
+                
             }
 
             // 3. Cập nhật dòng chữ "Tổng hóa đơn: xxx đ" ở dưới cùng
@@ -370,91 +395,39 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            //Kiểm tra nếu txtTraTien rỗng hoặc không phải là số
-            if (!txtTraTien.Text.All(char.IsDigit))
+            try
             {
-                MessageBox.Show("Vui lòng nhập số tiền hợp lệ!", "Lỗi");
-                return;
-            }
+                //Kiểm tra nếu txtTraTien rỗng hoặc không phải là số
+                if (!txtTraTien.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("Vui lòng nhập số tiền hợp lệ!", "Lỗi");
+                    return;
+                }
 
-            //Khong co don hang
-            if (dgvHoaDon.Rows.Count < 1)
-            {
-                MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn", "Thông báo");
-                return;
-            }
-
-            //tien tra < tong tien
-            if (Convert.ToInt32(txtTraTien.Text) < Convert.ToInt32(lblMoney.Text))
-            {
-                MessageBox.Show("Số tiền trả không đủ để thanh toán!", "Thông báo");
-                return;
-            }
-
-            if (CheckTichDiem.Checked == true)
-            {
-                int diemTichLuy = Convert.ToInt32(lblMoney.Text) / 10;
-                int diemHienTai = Convert.ToInt32(lblDiemHienTai.Text) + diemTichLuy;
-                int diemDaTich = Convert.ToInt32(lblDiemDaTich.Text) + diemTichLuy;
-                ET_KHACHHANG et = new ET_KHACHHANG(maKH, diemDaTich, Convert.ToInt32(lblDiemDaDung.Text), diemHienTai);
-                //Cập nhật điểm
-                Kh.capNhatDiem(et);
-
+                //Khong co don hang
                 if (dgvHoaDon.Rows.Count < 1)
                 {
                     MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn", "Thông báo");
-                }
-                else
-                {
-                    try
-                    {
-                        ET_HoaDon ethd = new ET_HoaDon(DateTime.Now, Convert.ToInt32(lblMoney.Text), Convert.ToInt32(lblMoney.Text), Convert.ToInt32(txtTraTien.Text), Convert.ToInt32(txtTienThua.Text), frmMain.maNV);
-
-                        BUS_HoaDon hd = new BUS_HoaDon();
-                        if (hd.ThemHoaDon(ethd))
-                        {
-                            string maHDVuaTao = hd.LayMaHoaDonMoiNhat();
-                            foreach (DataGridViewRow row in dgvHoaDon.Rows)
-                            {
-                                sp.capNhatSLSP(row.Cells["colMaSP"].Value.ToString(), Convert.ToInt32(row.Cells["colSL"].Value));
-                                if (row.IsNewRow) continue;
-                                ET_SPHD etSphd = new ET_SPHD(maHDVuaTao, row.Cells["colMaSP"].Value.ToString(), Convert.ToInt32(row.Cells["colSL"].Value), Convert.ToInt32(row.Cells["colDonGia"].Value));
-                                BUS_SPHD sphd = new BUS_SPHD();
-                                sphd.ThemChiTietHoaDon(etSphd);
-                            }
-                            InHoaDonKhongDungDiem(maHDVuaTao);
-                        }
-                        ClearALl();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi thanh toán: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            else
-            {
-
-                BUS_SP sp = new BUS_SP();
-                foreach (DataGridViewRow row in dgvHoaDon.Rows)
-                {
-                    if (row.IsNewRow) continue;
-
-                    string maSP = row.Cells["colMaSP"].Value.ToString();
-                    int slBan = Convert.ToInt32(row.Cells["colSL"].Value);
-                    int slTrongKho = sp.laySoLuongSP(maSP);
-
-                    if (slBan > slTrongKho)
-                    {
-                        // Nếu phát hiện 1 món hết hàng, CHẶN ĐỨNG TOÀN BỘ, không tạo hóa đơn.
-                        MessageBox.Show($"Sản phẩm mã {maSP} không đủ hàng! (Kho chỉ còn: {slTrongKho})", "Lỗi Kho", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    return;
                 }
 
-                if (lblNhapDiem.Visible == false)
+                //tien tra < tong tien
+                if (Convert.ToInt32(txtTraTien.Text) < Convert.ToInt32(lblMoney.Text))
                 {
-                    //Xuất hóa đơn không dùng điểm
+                    MessageBox.Show("Số tiền trả không đủ để thanh toán!", "Thông báo");
+                    return;
+                }
+
+                if (CheckTichDiem.Checked == true)
+                {
+
+                    int diemTichLuy = Convert.ToInt32(lblMoney.Text) / 10;
+                    int diemHienTai = Convert.ToInt32(lblDiemHienTai.Text) + diemTichLuy;
+                    int diemDaTich = Convert.ToInt32(lblDiemDaTich.Text) + diemTichLuy;
+                    ET_KHACHHANG et = new ET_KHACHHANG(maKH, diemDaTich, Convert.ToInt32(lblDiemDaDung.Text), diemHienTai);
+                    //Cập nhật điểm
+                    Kh.capNhatDiem(et);
+
                     if (dgvHoaDon.Rows.Count < 1)
                     {
                         MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn", "Thông báo");
@@ -463,10 +436,10 @@ namespace DA_UDQLCuaHangTienLoi
                     {
                         try
                         {
-                            ET_HoaDon et = new ET_HoaDon(DateTime.Now, Convert.ToInt32(lblMoney.Text), Convert.ToInt32(lblMoney.Text), Convert.ToInt32(txtTraTien.Text), Convert.ToInt32(txtTienThua.Text), frmMain.maNV);
+                            ET_HoaDon ethd = new ET_HoaDon(DateTime.Now, Convert.ToInt32(lblMoney.Text), Convert.ToInt32(lblMoney.Text), Convert.ToInt32(txtTraTien.Text), Convert.ToInt32(txtTienThua.Text), frmMain.maNV);
 
                             BUS_HoaDon hd = new BUS_HoaDon();
-                            if (hd.ThemHoaDon(et))
+                            if (hd.ThemHoaDon(ethd))
                             {
                                 string maHDVuaTao = hd.LayMaHoaDonMoiNhat();
                                 foreach (DataGridViewRow row in dgvHoaDon.Rows)
@@ -488,28 +461,28 @@ namespace DA_UDQLCuaHangTienLoi
                     }
                 }
                 else
-                {                    
-                    //Xử lý điểm tích lũy và điểm đã dùng
-                    int diemDaDung = 0, nhapDiem = 0;
-                    if (!int.TryParse(lblDiemDaDung.Text, out diemDaDung) || !int.TryParse(txtNhapDiem.Text, out nhapDiem))
+                {
+
+                    BUS_SP sp = new BUS_SP();
+                    foreach (DataGridViewRow row in dgvHoaDon.Rows)
                     {
-                        MessageBox.Show("Vui lòng nhập số hợp lệ cho điểm!", "Lỗi");
-                        return;
+                        if (row.IsNewRow) continue;
+
+                        string maSP = row.Cells["colMaSP"].Value.ToString();
+                        int slBan = Convert.ToInt32(row.Cells["colSL"].Value);
+                        int slTrongKho = sp.laySoLuongSP(maSP);
+
+                        if (slBan > slTrongKho)
+                        {
+                            // Nếu phát hiện 1 món hết hàng, CHẶN ĐỨNG TOÀN BỘ, không tạo hóa đơn.
+                            MessageBox.Show($"Sản phẩm mã {maSP} không đủ hàng! (Kho chỉ còn: {slTrongKho})", "Lỗi Kho", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
-                    diemDaDung += nhapDiem;
 
-                    int diemHienTai = Convert.ToInt32(lblDiemHienTai.Text) - nhapDiem;
-
-                    if (diemHienTai < 0)
+                    if (lblNhapDiem.Visible == false)
                     {
-                        MessageBox.Show("Bạn không dủ điểm!", "Thông báo");
-                    }
-                    else
-                    {
-
-                        ET_KHACHHANG et = new ET_KHACHHANG(maKH, Convert.ToInt32(lblDiemDaTich.Text), diemDaDung, diemHienTai);
-                       
-                        //Xuất hóa đơn dùng điểm
+                        //Xuất hóa đơn không dùng điểm
                         if (dgvHoaDon.Rows.Count < 1)
                         {
                             MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn", "Thông báo");
@@ -518,12 +491,11 @@ namespace DA_UDQLCuaHangTienLoi
                         {
                             try
                             {
-                                ET_HoaDon eT = new ET_HoaDon(DateTime.Now, trcGiam, Convert.ToInt32(lblMoney.Text), Convert.ToInt32(txtTraTien.Text), Convert.ToInt32(txtTienThua.Text), banHang.maKH, frmMain.maNV);
+                                ET_HoaDon et = new ET_HoaDon(DateTime.Now, Convert.ToInt32(lblMoney.Text), Convert.ToInt32(lblMoney.Text), Convert.ToInt32(txtTraTien.Text), Convert.ToInt32(txtTienThua.Text), frmMain.maNV);
 
                                 BUS_HoaDon hd = new BUS_HoaDon();
-                                if (hd.ThemHoaDonDungDiem(eT))
+                                if (hd.ThemHoaDon(et))
                                 {
-
                                     string maHDVuaTao = hd.LayMaHoaDonMoiNhat();
                                     foreach (DataGridViewRow row in dgvHoaDon.Rows)
                                     {
@@ -533,7 +505,7 @@ namespace DA_UDQLCuaHangTienLoi
                                         BUS_SPHD sphd = new BUS_SPHD();
                                         sphd.ThemChiTietHoaDon(etSphd);
                                     }
-                                    InHoaDonDungDiem(maHDVuaTao, nhapDiem);
+                                    InHoaDonKhongDungDiem(maHDVuaTao);
                                 }
                                 ClearALl();
                             }
@@ -542,10 +514,85 @@ namespace DA_UDQLCuaHangTienLoi
                                 MessageBox.Show("Lỗi thanh toán: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-						//Cập nhật điểm
-						Kh.capNhatDiem(et);
-					}
+                    }
+                    else
+                    {
+                        //Xử lý điểm tích lũy và điểm đã dùng
+                        int diemDaDung = 0, nhapDiem = 0;
+                        if (!int.TryParse(lblDiemDaDung.Text, out diemDaDung) || !int.TryParse(txtNhapDiem.Text, out nhapDiem))
+                        {
+                            MessageBox.Show("Vui lòng nhập số hợp lệ cho điểm!", "Lỗi");
+                            return;
+                        }
+
+                        //KHU VỰC CỨU CÁNH: CHỐNG NHẬP DƯ ĐIỂM                        
+                        int giaTriCuaMotDiem = 1;
+
+                        // Tính số điểm tối đa cần để hóa đơn này về 0đ
+                        int diemToiDaCanDung = (int)Math.Ceiling((double)trcGiam / giaTriCuaMotDiem);
+
+                        // Nếu khách gõ 100 điểm mà hóa đơn chỉ cần 50 điểm là đủ, thì ép về 50 điểm
+                        if (nhapDiem > diemToiDaCanDung)
+                        {
+                            nhapDiem = diemToiDaCanDung;
+                        }
+                        // =========================================================================
+
+                        diemDaDung += nhapDiem;
+                        int diemHienTai = Convert.ToInt32(lblDiemHienTai.Text) - nhapDiem;
+
+                        if (diemHienTai < 0)
+                        {
+                            MessageBox.Show("Bạn không đủ điểm!", "Thông báo");
+                        }
+                        else
+                        {
+                            ET_KHACHHANG et = new ET_KHACHHANG(maKH, Convert.ToInt32(lblDiemDaTich.Text), diemDaDung, diemHienTai);
+
+                            //Xuất hóa đơn dùng điểm
+                            if (dgvHoaDon.Rows.Count < 1)
+                            {
+                                MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn", "Thông báo");
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    // Lúc này lblMoney.Text truyền vào sẽ tự động là 0 (hoặc số tiền còn lại sau khi trừ tối đa)
+                                    ET_HoaDon eT = new ET_HoaDon(DateTime.Now, trcGiam, Convert.ToInt32(lblMoney.Text), Convert.ToInt32(txtTraTien.Text), Convert.ToInt32(txtTienThua.Text), banHang.maKH, frmMain.maNV);
+
+                                    BUS_HoaDon hd = new BUS_HoaDon();
+                                    if (hd.ThemHoaDonDungDiem(eT))
+                                    {
+                                        string maHDVuaTao = hd.LayMaHoaDonMoiNhat();
+                                        foreach (DataGridViewRow row in dgvHoaDon.Rows)
+                                        {
+                                            if (row.IsNewRow) continue;
+                                            sp.capNhatSLSP(row.Cells["colMaSP"].Value.ToString(), Convert.ToInt32(row.Cells["colSL"].Value));
+                                            ET_SPHD etSphd = new ET_SPHD(maHDVuaTao, row.Cells["colMaSP"].Value.ToString(), Convert.ToInt32(row.Cells["colSL"].Value), Convert.ToInt32(row.Cells["colDonGia"].Value));
+                                            BUS_SPHD sphd = new BUS_SPHD();
+                                            sphd.ThemChiTietHoaDon(etSphd);
+                                        }
+
+                                        // Hàm in hóa đơn sẽ nhận số điểm ĐÃ ĐƯỢC GIỚI HẠN VỪA ĐỦ để hiển thị chính xác
+                                        InHoaDonDungDiem(maHDVuaTao, nhapDiem);
+                                    }
+                                    ClearALl();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Lỗi thanh toán: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            //Cập nhật điểm xuống DB
+                            Kh.capNhatDiem(et);
+                        }
+                    }
                 }
+            }
+            catch
+            {
+                MessageBox.Show("Cần phải tìm khách hàng trước khi dùng điểm/tích điểm");
             }
 
         }
@@ -786,9 +833,9 @@ namespace DA_UDQLCuaHangTienLoi
         }
 
         private void txtNhapDiem_KeyDown(object sender, KeyEventArgs e)
-        {
+        {            
             if (e.KeyCode == Keys.Enter)
-            {
+            {         
                 // Chỉ cần gọi hàm này, nó sẽ tự động lấy số tiền gốc trừ đi số trong txtNhapDiem
                 CapNhatTongTien();
 
@@ -829,8 +876,7 @@ namespace DA_UDQLCuaHangTienLoi
             }
 
             // Tính tổng tiền cuối cùng
-            int tongTienCuoiCung = tongTienGoc - soTienGiam;
-
+            int tongTienCuoiCung = tongTienGoc - soTienGiam;            
             // Đảm bảo tổng tiền không bị âm (nếu điểm nhập lớn hơn hoặc bằng tổng tiền)
             if (tongTienCuoiCung < 0)
             {

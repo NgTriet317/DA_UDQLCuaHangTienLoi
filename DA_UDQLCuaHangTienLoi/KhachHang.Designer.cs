@@ -190,6 +190,7 @@
             this.btnLamMoi.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnLamMoi.Size = new System.Drawing.Size(48, 52);
             this.btnLamMoi.TabIndex = 21;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click_1);
             // 
             // guna2PictureBox1
             // 

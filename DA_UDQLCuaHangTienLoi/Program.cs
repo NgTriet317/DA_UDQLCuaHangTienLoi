@@ -41,9 +41,9 @@ namespace DA_UDQLCuaHangTienLoi
             }
 
             //Đọc chuỗi kết nối từ cấu hình App.config
-            //string chuoiConfig = ConfigurationManager.ConnectionStrings["MyDbConnection"].ConnectionString;
+            string chuoiConfig = ConfigurationManager.ConnectionStrings["MyDbConnection"].ConnectionString;
 
-            string chuoiConfig = "Data Source=DESKTOP-C9VCE8A;Initial Catalog=QLCHTL;Integrated Security=True;";
+            //string chuoiConfig = "Data Source=MSI;Initial Catalog=QLCHTL;Integrated Security=True;";
 
             // TRUYỀN CHO THẰNG CHA ĐÚNG 1 LẦN DUY NHẤT!
             DAL.DBConnect.ChuoiKetNoi = chuoiConfig;
@@ -66,8 +66,8 @@ namespace DA_UDQLCuaHangTienLoi
             try
             {
                 // Lấy connection string từ App.config
-                //string connString = ConfigurationManager.ConnectionStrings["MyDbConnection"].ConnectionString;
-                string connString = "Data Source=DESKTOP-C9VCE8A;Initial Catalog=QLCHTL;Integrated Security=True;";
+                string connString = ConfigurationManager.ConnectionStrings["MyDbConnection"].ConnectionString;
+                //string connString = "Data Source=MSI;Initial Catalog=QLCHTL;Integrated Security=True;";
 
                 if (string.IsNullOrEmpty(connString)) return false;
 

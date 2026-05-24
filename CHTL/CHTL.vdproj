@@ -441,12 +441,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3F0C1374F5624B0EA4C108D9A4FE22E8"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_40C97418B8E6483A5BAC5132ABB1BEFF"
         "OwnerKey" = "8:_69661D95ACB247BA8A984B9EF63AA0BB"
         "MsmSig" = "8:_UNDEFINED"
@@ -574,6 +568,12 @@
         "Entry"
         {
         "MsmKey" = "8:_57279092E5114EEFA27BA68AFEE75D6B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5803A32703174EABB57D6AF74D150131"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -731,12 +731,6 @@
         {
         "MsmKey" = "8:_6B635D29C2F1F4D2515FB951486FBAF4"
         "OwnerKey" = "8:_69661D95ACB247BA8A984B9EF63AA0BB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6B767DBC17074A569E6447466E73A14B"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1492,6 +1486,12 @@
         "Entry"
         {
         "MsmKey" = "8:_D7D30A461B374EBCAFC6EB7DB6074E0B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DA2F38834BC2475B9622AFD62253B6D6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -4290,7 +4290,7 @@
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_9BF296FB2EA744E0AB95F222055F4496"
+            "Folder" = "8:_1F45AD562FD84FF7AE5EAF632749F93B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4382,26 +4382,6 @@
             "TargetName" = "8:nabati.png"
             "Tag" = "8:"
             "Folder" = "8:_6A2E04DA05484AF1B126740FFE68CB05"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3F0C1374F5624B0EA4C108D9A4FE22E8"
-            {
-            "SourcePath" = "8:..\\..\\sp.sql"
-            "TargetName" = "8:sp.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_803A3C0F74F245C1B8AF0893DEF4B348"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4895,6 +4875,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5803A32703174EABB57D6AF74D150131"
+            {
+            "SourcePath" = "8:..\\..\\sp.sql"
+            "TargetName" = "8:sp.sql"
+            "Tag" = "8:"
+            "Folder" = "8:_803A3C0F74F245C1B8AF0893DEF4B348"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5A1CFF4FABBFAD04095DF11637CF3570"
             {
             "AssemblyRegister" = "3:1"
@@ -5219,7 +5219,7 @@
             "SourcePath" = "8:LiveCharts.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_9BF296FB2EA744E0AB95F222055F4496"
+            "Folder" = "8:_1F45AD562FD84FF7AE5EAF632749F93B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5489,26 +5489,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B767DBC17074A569E6447466E73A14B"
-            {
-            "SourcePath" = "8:..\\..\\QLCHTL.sql"
-            "TargetName" = "8:QLCHTL.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_803A3C0F74F245C1B8AF0893DEF4B348"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6B7E6F64D2F13572440658843A0FD60F"
@@ -6232,7 +6212,7 @@
             "SourcePath" = "8:LiveCharts.WinForms.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_9BF296FB2EA744E0AB95F222055F4496"
+            "Folder" = "8:_1F45AD562FD84FF7AE5EAF632749F93B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -7360,7 +7340,7 @@
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_9BF296FB2EA744E0AB95F222055F4496"
+            "Folder" = "8:_1F45AD562FD84FF7AE5EAF632749F93B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -7626,7 +7606,7 @@
             "SourcePath" = "8:LiveCharts.Wpf.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_9BF296FB2EA744E0AB95F222055F4496"
+            "Folder" = "8:_1F45AD562FD84FF7AE5EAF632749F93B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -8224,6 +8204,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DA2F38834BC2475B9622AFD62253B6D6"
+            {
+            "SourcePath" = "8:..\\..\\QLCHTL.sql"
+            "TargetName" = "8:QLCHTL.sql"
+            "Tag" = "8:"
+            "Folder" = "8:_803A3C0F74F245C1B8AF0893DEF4B348"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DA5B757ED9214BA5A44390EB45A20011"
             {
             "SourcePath" = "8:..\\AnhSanPham\\nhomaudon.png"
@@ -8770,7 +8770,7 @@
             "SourcePath" = "8:System.IO.Pipelines.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_9BF296FB2EA744E0AB95F222055F4496"
+            "Folder" = "8:_1F45AD562FD84FF7AE5EAF632749F93B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"

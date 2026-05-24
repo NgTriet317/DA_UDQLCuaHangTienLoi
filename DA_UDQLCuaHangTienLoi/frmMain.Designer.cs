@@ -371,7 +371,7 @@
             this.btnBanHang.BorderThickness = 2;
             this.btnBanHang.Controls.Add(this.label4);
             this.btnBanHang.Controls.Add(this.guna2PictureBox1);
-            this.btnBanHang.FillColor = System.Drawing.Color.Blue;
+            this.btnBanHang.FillColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnBanHang.Location = new System.Drawing.Point(3, 99);
             this.btnBanHang.Margin = new System.Windows.Forms.Padding(2);
             this.btnBanHang.Name = "btnBanHang";
