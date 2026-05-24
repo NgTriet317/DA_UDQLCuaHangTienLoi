@@ -24,10 +24,35 @@ namespace DA_UDQLCuaHangTienLoi
 		private void ThongKeTongQuat_Load(object sender, EventArgs e)
 		{
 			LoadDataGridView();
+			LoadThongKeTongQuat();
 			LoadThongTinHoaDon();
 			LoadMockData();
 		}
 		BUS_HoaDon hd = new BUS_HoaDon();
+
+		private void LoadThongKeTongQuat()
+		{
+			DataTable dt = hd.ThongKeTongQuat();
+			if(dt.Rows.Count > 0)
+
+	{
+				DataRow r = dt.Rows[0];
+
+				// 1. Hiển thị Tổng doanh thu (Định dạng tiền tệ VNĐ)
+				double doanhThu = Convert.ToDouble(r["TongDoanhThu"]);
+				lblTongDoanhThu.Text = doanhThu.ToString("N0") + " đ";
+
+				// 2. Hiển thị Tổng hóa đơn
+				lblTongHoaDon.Text = r["TongHoaDon"].ToString();
+
+				// 3. Hiển thị Tổng số lượng hàng bán
+				lblTongSoLuong.Text = r["TongSL"].ToString();
+
+				// 4. Hiển thị Khách hàng mới
+				lblKhachHangMoi.Text = r["KhachHangMoi"].ToString();
+			}
+		}
+
 		private void LoadDataGridView()
 		{
 			//Thiết lập giao diện cho DataGridView
@@ -429,6 +454,7 @@ namespace DA_UDQLCuaHangTienLoi
 
 		private void btnTaiLai_Click(object sender, EventArgs e)
 		{
+			LoadThongKeTongQuat();
 			LoadThongTinHoaDon();
 			LoadMockData();
 		}

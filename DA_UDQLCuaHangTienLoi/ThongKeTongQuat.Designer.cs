@@ -48,11 +48,11 @@
 			this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
 			this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
 			this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-			this.lblTongHangNhap = new Guna.UI2.WinForms.Guna2HtmlLabel();
+			this.lblTongSoLuong = new Guna.UI2.WinForms.Guna2HtmlLabel();
 			this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
 			this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
 			this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
-			this.lblKhachHangDangKy = new Guna.UI2.WinForms.Guna2HtmlLabel();
+			this.lblKhachHangMoi = new Guna.UI2.WinForms.Guna2HtmlLabel();
 			this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
 			this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
 			this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -305,9 +305,9 @@
 			this.lblTongHoaDon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblTongHoaDon.Location = new System.Drawing.Point(56, 32);
 			this.lblTongHoaDon.Name = "lblTongHoaDon";
-			this.lblTongHoaDon.Size = new System.Drawing.Size(110, 27);
+			this.lblTongHoaDon.Size = new System.Drawing.Size(13, 27);
 			this.lblTongHoaDon.TabIndex = 1;
-			this.lblTongHoaDon.Text = "#Số hóa đơn";
+			this.lblTongHoaDon.Text = "0";
 			this.lblTongHoaDon.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// guna2HtmlLabel6
@@ -326,7 +326,7 @@
 			this.guna2Panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.guna2Panel4.BackColor = System.Drawing.Color.White;
 			this.guna2Panel4.Controls.Add(this.guna2PictureBox3);
-			this.guna2Panel4.Controls.Add(this.lblTongHangNhap);
+			this.guna2Panel4.Controls.Add(this.lblTongSoLuong);
 			this.guna2Panel4.Controls.Add(this.guna2HtmlLabel8);
 			this.guna2Panel4.Location = new System.Drawing.Point(547, 24);
 			this.guna2Panel4.Name = "guna2Panel4";
@@ -345,16 +345,16 @@
 			this.guna2PictureBox3.TabIndex = 2;
 			this.guna2PictureBox3.TabStop = false;
 			// 
-			// lblTongHangNhap
+			// lblTongSoLuong
 			// 
-			this.lblTongHangNhap.BackColor = System.Drawing.Color.Transparent;
-			this.lblTongHangNhap.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblTongHangNhap.Location = new System.Drawing.Point(56, 32);
-			this.lblTongHangNhap.Name = "lblTongHangNhap";
-			this.lblTongHangNhap.Size = new System.Drawing.Size(120, 27);
-			this.lblTongHangNhap.TabIndex = 1;
-			this.lblTongHangNhap.Text = "#Số hàng bán";
-			this.lblTongHangNhap.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lblTongSoLuong.BackColor = System.Drawing.Color.Transparent;
+			this.lblTongSoLuong.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTongSoLuong.Location = new System.Drawing.Point(56, 32);
+			this.lblTongSoLuong.Name = "lblTongSoLuong";
+			this.lblTongSoLuong.Size = new System.Drawing.Size(13, 27);
+			this.lblTongSoLuong.TabIndex = 1;
+			this.lblTongSoLuong.Text = "0";
+			this.lblTongSoLuong.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// guna2HtmlLabel8
 			// 
@@ -372,7 +372,7 @@
 			this.guna2Panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.guna2Panel5.BackColor = System.Drawing.Color.White;
 			this.guna2Panel5.Controls.Add(this.guna2PictureBox4);
-			this.guna2Panel5.Controls.Add(this.lblKhachHangDangKy);
+			this.guna2Panel5.Controls.Add(this.lblKhachHangMoi);
 			this.guna2Panel5.Controls.Add(this.guna2HtmlLabel10);
 			this.guna2Panel5.Location = new System.Drawing.Point(837, 24);
 			this.guna2Panel5.Name = "guna2Panel5";
@@ -391,16 +391,16 @@
 			this.guna2PictureBox4.TabIndex = 2;
 			this.guna2PictureBox4.TabStop = false;
 			// 
-			// lblKhachHangDangKy
+			// lblKhachHangMoi
 			// 
-			this.lblKhachHangDangKy.BackColor = System.Drawing.Color.Transparent;
-			this.lblKhachHangDangKy.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblKhachHangDangKy.Location = new System.Drawing.Point(56, 32);
-			this.lblKhachHangDangKy.Name = "lblKhachHangDangKy";
-			this.lblKhachHangDangKy.Size = new System.Drawing.Size(138, 27);
-			this.lblKhachHangDangKy.TabIndex = 1;
-			this.lblKhachHangDangKy.Text = "#Số khách hàng";
-			this.lblKhachHangDangKy.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lblKhachHangMoi.BackColor = System.Drawing.Color.Transparent;
+			this.lblKhachHangMoi.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblKhachHangMoi.Location = new System.Drawing.Point(56, 32);
+			this.lblKhachHangMoi.Name = "lblKhachHangMoi";
+			this.lblKhachHangMoi.Size = new System.Drawing.Size(13, 27);
+			this.lblKhachHangMoi.TabIndex = 1;
+			this.lblKhachHangMoi.Text = "0";
+			this.lblKhachHangMoi.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// guna2HtmlLabel10
 			// 
@@ -443,9 +443,9 @@
 			this.lblTongDoanhThu.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblTongDoanhThu.Location = new System.Drawing.Point(56, 32);
 			this.lblTongDoanhThu.Name = "lblTongDoanhThu";
-			this.lblTongDoanhThu.Size = new System.Drawing.Size(50, 27);
+			this.lblTongDoanhThu.Size = new System.Drawing.Size(13, 27);
 			this.lblTongDoanhThu.TabIndex = 1;
-			this.lblTongDoanhThu.Text = "#Tiền";
+			this.lblTongDoanhThu.Text = "0";
 			this.lblTongDoanhThu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// guna2HtmlLabel4
@@ -865,11 +865,11 @@
 		private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
 		private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
-		private Guna.UI2.WinForms.Guna2HtmlLabel lblTongHangNhap;
+		private Guna.UI2.WinForms.Guna2HtmlLabel lblTongSoLuong;
 		private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
 		private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
-		private Guna.UI2.WinForms.Guna2HtmlLabel lblKhachHangDangKy;
+		private Guna.UI2.WinForms.Guna2HtmlLabel lblKhachHangMoi;
 		private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

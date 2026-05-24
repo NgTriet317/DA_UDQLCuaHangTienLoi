@@ -11,8 +11,8 @@ namespace DAL
 {
     public class DAL_HoaDon : DBConnect
     {
-		//Thêm hóa đơn không dùng điểm
-		public bool ThemHoaDon(ET_HoaDon hd)
+        //Thêm hóa đơn không dùng điểm
+        public bool ThemHoaDon(ET_HoaDon hd)
         {
             bool kt = false;
             try
@@ -52,50 +52,50 @@ namespace DAL
             return kt;
         }
 
-		//Thêm hóa đơn dùng điểm
-		public bool ThemHoaDonDungDiem(ET_HoaDon hd)
-		{
-			bool kt = false;
-			try
-			{
-				conn.Open(); //mở connection
+        //Thêm hóa đơn dùng điểm
+        public bool ThemHoaDonDungDiem(ET_HoaDon hd)
+        {
+            bool kt = false;
+            try
+            {
+                conn.Open(); //mở connection
 
-				//Đưa lệnh cho sql
-				SqlCommand cmd = new SqlCommand("sp_ThemHoaDonDungDiem", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
+                //Đưa lệnh cho sql
+                SqlCommand cmd = new SqlCommand("sp_ThemHoaDonDungDiem", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-				//Truyền tham số
-				SqlParameter[] param = new SqlParameter[] {
-					new SqlParameter("@NgayLap", hd.NgayLap),
-					new SqlParameter("@ThanhTien", hd.ThanhTien),
-					new SqlParameter("@ThanhToan", hd.ThanhToan),
-					new SqlParameter("@TienKHTra", hd.TienKhachTra),
-					new SqlParameter("@TienThua", hd.TienThua),
+                //Truyền tham số
+                SqlParameter[] param = new SqlParameter[] {
+                    new SqlParameter("@NgayLap", hd.NgayLap),
+                    new SqlParameter("@ThanhTien", hd.ThanhTien),
+                    new SqlParameter("@ThanhToan", hd.ThanhToan),
+                    new SqlParameter("@TienKHTra", hd.TienKhachTra),
+                    new SqlParameter("@TienThua", hd.TienThua),
                     new SqlParameter("@MaKH", hd.MaKH),
-					new SqlParameter("@MaNV", hd.MaNV)
-				};
-				cmd.Parameters.AddRange(param);
+                    new SqlParameter("@MaNV", hd.MaNV)
+                };
+                cmd.Parameters.AddRange(param);
 
-				if (cmd.ExecuteNonQuery() > 0)
-				{
-					kt = true;
-				}
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    kt = true;
+                }
 
-			}
-			//catch lỗi
-			catch (Exception ex)
-			{
-				throw;
-			}
-			finally
-			{
-				conn.Close();//đóng kết nối
-			}
-			return kt;
-		}
+            }
+            //catch lỗi
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();//đóng kết nối
+            }
+            return kt;
+        }
 
-		//Lấy TT hóa đơn
-		public DataTable LayTTHoaDon(string ma)
+        //Lấy TT hóa đơn
+        public DataTable LayTTHoaDon(string ma)
         {
             DataTable dt = new DataTable();
             try
@@ -107,7 +107,7 @@ namespace DAL
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Truyền tham số
-                SqlParameter param = new SqlParameter("@MaHD",ma);
+                SqlParameter param = new SqlParameter("@MaHD", ma);
                 cmd.Parameters.Add(param);
 
                 //fill vào datatable
@@ -122,43 +122,43 @@ namespace DAL
             return dt;
         }
 
-		//Lấy TT hóa đơn dùng điểm
-		public DataTable LayTTHoaDonDungDiem(string ma, int diemDung)
-		{
-			DataTable dt = new DataTable();
-			try
-			{
-				conn.Open();//mở kết nối
+        //Lấy TT hóa đơn dùng điểm
+        public DataTable LayTTHoaDonDungDiem(string ma, int diemDung)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();//mở kết nối
 
-				//Đưa lệnh cho sql
-				SqlCommand cmd = new SqlCommand("sp_XuatHoaDonDungDiem", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
+                //Đưa lệnh cho sql
+                SqlCommand cmd = new SqlCommand("sp_XuatHoaDonDungDiem", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-				//Truyền tham số
-				SqlParameter[] param = new SqlParameter[]
+                //Truyền tham số
+                SqlParameter[] param = new SqlParameter[]
                 {
                     new SqlParameter("@MaHD", ma),
-					new SqlParameter("@DiemDung", diemDung)
-				};
-				cmd.Parameters.AddRange(param);
+                    new SqlParameter("@DiemDung", diemDung)
+                };
+                cmd.Parameters.AddRange(param);
 
-				//fill vào datatable
-				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-				adapter.Fill(dt);
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-			finally { conn.Close(); }
-			return dt;
-		}
+                //fill vào datatable
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return dt;
+        }
 
-		/// <summary>
-		/// Lấy mã hóa đơn
-		/// </summary>
-		/// <returns> String </returns>
-		public string LayMaHoaDonMoiNhat()
+        /// <summary>
+        /// Lấy mã hóa đơn
+        /// </summary>
+        /// <returns> String </returns>
+        public string LayMaHoaDonMoiNhat()
         {
             string ma = "";
             try
@@ -304,27 +304,27 @@ namespace DAL
             try
             {
                 conn.Open();
-				SqlCommand cmd = new SqlCommand("sp_ThongKeDoanhThuVaHoaDon", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("sp_ThongKeDoanhThuVaHoaDon", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 SqlParameter[] para = new SqlParameter[]
-				{
-					new SqlParameter("@TuNgay", tuNgay),
-					new SqlParameter("@DenNgay", denNgay)
-				};
-				cmd.Parameters.AddRange(para);
-				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-				adapter.Fill(dt);
-			}
+                {
+                    new SqlParameter("@TuNgay", tuNgay),
+                    new SqlParameter("@DenNgay", denNgay)
+                };
+                cmd.Parameters.AddRange(para);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
             catch
             {
                 throw;
             }
             finally
             {
-				conn.Close();
-			}
-			return dt;
-		}
+                conn.Close();
+            }
+            return dt;
+        }
 
         public DataTable LayDuLieuBieuDoLoaiBanDuoc(DateTime tuNgay, DateTime denNgay)
         {
@@ -332,76 +332,98 @@ namespace DAL
             try
             {
                 conn.Open();
-				SqlCommand cmd = new SqlCommand("sp_ThongKeTheoLoaiSP", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
-				SqlParameter[] para = new SqlParameter[]
-				{
-					new SqlParameter("@TuNgay", tuNgay),
-					new SqlParameter("@DenNgay", denNgay)
-				};
-				cmd.Parameters.AddRange(para);
-				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-				adapter.Fill(dt);
-			}
+                SqlCommand cmd = new SqlCommand("sp_ThongKeTheoLoaiSP", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter[] para = new SqlParameter[]
+                {
+                    new SqlParameter("@TuNgay", tuNgay),
+                    new SqlParameter("@DenNgay", denNgay)
+                };
+                cmd.Parameters.AddRange(para);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
             catch
             {
                 throw;
             }
-			finally
-			{
+            finally
+            {
                 conn.Close();
-			}
+            }
             return dt;
-		}
+        }
 
         public DataTable LayThongTinHoaDon()
         {
-			DataTable dt = new DataTable();
-			try
-			{
-				conn.Open();
-				SqlCommand cmd = new SqlCommand("sp_ThongTinHoaDon", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
-				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-				adapter.Fill(dt);
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				conn.Close();
-			}
-			return dt;
-		}
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_ThongTinHoaDon", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
 
         public DataTable LayDSHoaDonTuNgayDenNgay(DateTime tuNgay, DateTime denNgay)
         {
-			DataTable dt = new DataTable();
-			try
-			{
-				conn.Open();
-				SqlCommand cmd = new SqlCommand("sp_DanhSachHoaDonTheoNgay", conn);
-				cmd.CommandType = CommandType.StoredProcedure;
-				SqlParameter[] para = new SqlParameter[]
-				{
-					new SqlParameter("@TuNgay", tuNgay),
-					new SqlParameter("@DenNgay", denNgay)
-				};
-				cmd.Parameters.AddRange(para);
-				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-				adapter.Fill(dt);
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				conn.Close();
-			}
-			return dt;
-		}
-	}
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_DanhSachHoaDonTheoNgay", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter[] para = new SqlParameter[]
+                {
+                    new SqlParameter("@TuNgay", tuNgay),
+                    new SqlParameter("@DenNgay", denNgay)
+                };
+                cmd.Parameters.AddRange(para);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public DataTable ThongKeTongQuat()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_ThongKeTongQuat", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+    }
 }

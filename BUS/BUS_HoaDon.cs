@@ -85,5 +85,10 @@ namespace BUS
         {
             return hd.LayDSHoaDonTuNgayDenNgay(tuNgay, denNgay);
 		}
+
+		public DataTable ThongKeTongQuat()
+        {
+			return hd.ThongKeTongQuat();
+		}
 	}
 }
