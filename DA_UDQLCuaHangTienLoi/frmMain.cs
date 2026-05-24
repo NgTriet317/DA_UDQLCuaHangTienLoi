@@ -38,6 +38,7 @@ namespace DA_UDQLCuaHangTienLoi
             btnSP.FillColor = SystemColors.MenuHighlight;
             btnThongKe.FillColor = SystemColors.MenuHighlight;
             btnKhoHang.FillColor = SystemColors.MenuHighlight;
+            btnBaoCao.FillColor = SystemColors.MenuHighlight;
             btnNV.FillColor = SystemColors.MenuHighlight;
             btnKhach.FillColor = SystemColors.MenuHighlight;
         }
@@ -238,15 +239,18 @@ namespace DA_UDQLCuaHangTienLoi
         private void btnBaoCao_Click(object sender, EventArgs e)
         {
             clearColorButton();
-            btnKhoHang.FillColor = Color.MediumBlue;
-
-            // Giữ nguyên logic truyền maNV của bạn
-            KhoHang.maNV = maNV;
+            btnBaoCao.FillColor = Color.MediumBlue;
+            
 
             if (frmBaoCao == null || frmBaoCao.IsDisposed)
                 frmBaoCao = new ThongKe();
 
             OpenChildForm(frmBaoCao);
+        }
+
+        private void btnBaoCao_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

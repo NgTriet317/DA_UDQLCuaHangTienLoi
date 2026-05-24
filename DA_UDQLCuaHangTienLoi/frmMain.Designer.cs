@@ -510,6 +510,7 @@
             this.btnBaoCao.Size = new System.Drawing.Size(130, 45);
             this.btnBaoCao.TabIndex = 9;
             this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
+            this.btnBaoCao.Paint += new System.Windows.Forms.PaintEventHandler(this.btnBaoCao_Paint);
             // 
             // label1
             // 
@@ -522,7 +523,7 @@
             this.label1.Size = new System.Drawing.Size(64, 18);
             this.label1.TabIndex = 5;
             this.label1.Text = "Báo cáo";
-            this.label1.Click += new System.EventHandler(this.btnThongKe_Click);
+            this.label1.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // guna2PictureBox6
             // 
@@ -567,7 +568,7 @@
             this.guna2PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox7.TabIndex = 4;
             this.guna2PictureBox7.TabStop = false;
-            this.guna2PictureBox7.Click += new System.EventHandler(this.btnThongKe_Click);
+            this.guna2PictureBox7.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // guna2PictureBox2
             // 
