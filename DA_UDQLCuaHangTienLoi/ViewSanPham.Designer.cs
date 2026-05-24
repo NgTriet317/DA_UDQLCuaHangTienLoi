@@ -594,6 +594,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(179, 25);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "Sửa thông tin";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // ViewSanPham
             // 

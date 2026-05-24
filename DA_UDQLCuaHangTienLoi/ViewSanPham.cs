@@ -30,7 +30,7 @@ namespace DA_UDQLCuaHangTienLoi
         BUS_KM km = new BUS_KM();
         BUS_NCC ncc = new BUS_NCC();
 
-        private void ViewSanPham_Load(object sender, EventArgs e)
+        private void loadSP()
         {
             DataTable dt = sp.findSPMa(ma);
 
@@ -51,7 +51,7 @@ namespace DA_UDQLCuaHangTienLoi
                 lblMaSP.Text = dr["MaSP"].ToString();
                 txtName.Text = dr["TenSP"].ToString();
                 lblGiaBan.Text = dr["DonGia"].ToString();
-                lblDVT.Text = sp.layDVT( dr["MaDVT"].ToString());
+                lblDVT.Text = sp.layDVT(dr["MaDVT"].ToString());
                 lblGiaGoc.Text = dr["GiaGoc"].ToString();
                 lblSoLuong.Text = dr["SoLuong"].ToString();
 
@@ -68,6 +68,19 @@ namespace DA_UDQLCuaHangTienLoi
                 lblHSD.Text = sp.layHanSD(dr["MaSP"].ToString()).ToString().Split(' ')[0];
 
             }
+        }
+            
+        private void ViewSanPham_Load(object sender, EventArgs e)
+        {
+            loadSP();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            SuaSanPhamNew quanLySPForm = new SuaSanPhamNew();
+            SuaSanPhamNew.ma = ma;
+            quanLySPForm.ShowDialog(); 
+            loadSP();
         }
     }
 }
