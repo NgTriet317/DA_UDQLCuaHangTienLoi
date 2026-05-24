@@ -156,7 +156,7 @@ namespace DA_UDQLCuaHangTienLoi
 				return;
             }
 
-                try
+            try
 			{
 				string maNV = cboTenNV.SelectedValue == null ? "" : cboTenNV.SelectedValue.ToString();
 				string maCa = cboMaCa.SelectedValue == null ? "" : cboMaCa.SelectedValue.ToString();
@@ -165,21 +165,22 @@ namespace DA_UDQLCuaHangTienLoi
 				{
 					if (lichLam.ThemLichLam(new ET_LichLam(maNV, maCa, ngayLamViec)))
 					{
-						MessageBox.Show("Thêm thành công", "Thông báo");
+						MessageBox.Show("Thêm ca làm thành công", "Thông báo");
 					}
 					else
 					{
-						MessageBox.Show("Thêm không thành công", "Thông báo");
+						MessageBox.Show("Thêm ca làm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
 					LoadTT();
 				}
 				else
 				{
-					MessageBox.Show("Thêm không thành công", "Thông báo");
+					MessageBox.Show("Thêm ca làm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 			catch
 			{
+				MessageBox.Show("Nhân viên này đã đăng ký ca làm rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 		}
