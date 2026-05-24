@@ -55,8 +55,30 @@ namespace DA_UDQLCuaHangTienLoi
 
         }
 
+        public bool kiemTraInput()
+        {
+            if (string.IsNullOrEmpty(txtMaSP.Text) ||
+                string.IsNullOrEmpty(txtTenSP.Text) ||
+                string.IsNullOrEmpty(txtSL.Text) ||
+                string.IsNullOrEmpty(txtGiaBan.Text) ||
+                string.IsNullOrEmpty(txtGiaGoc.Text) ||
+                string.IsNullOrEmpty(txtFileName.Text))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!int.TryParse(txtSL.Text, out _) || !int.TryParse(txtGiaBan.Text, out _) || !int.TryParse(txtGiaGoc.Text, out _))
+            {
+                MessageBox.Show("Số lượng và giá phải là số nguyên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!kiemTraInput()) return;
+
             ET_SP et = new ET_SP(
                 txtMaSP.Text,
                 txtTenSP.Text,

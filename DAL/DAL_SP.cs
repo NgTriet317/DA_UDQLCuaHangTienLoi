@@ -183,6 +183,35 @@ namespace DAL
             }
             return dt;
         }
+        //search sp theo ten va loai
+        public DataTable findSPTheoTenVaLoai(string ten, string maLoai)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_TimKiem2Tang", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter param1 = new SqlParameter("@TenSP", "%" + ten + "%");
+                SqlParameter param2 = new SqlParameter("@MaLSP", maLoai);
+                cmd.Parameters.Add(param1);
+                cmd.Parameters.Add(param2);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return dt;
+        }
 
         //search sp theo ma sp
         public DataTable findSPMa(string ma)
@@ -380,6 +409,60 @@ namespace DAL
                     conn.Close();
             }
             return dt;
+        }
+
+        //cap nhat so luong sp sau khi ban hang
+        public bool capNhatSLSP(string ma, int soLuongBan)
+        {
+            bool kq = false;
+            try
+            {
+                conn.Open();
+                SqlCommand sqlCommand = new SqlCommand($"UPDATE SANPHAM SET SoLuong = SoLuong - {soLuongBan} WHERE MaSP = '{ma}'", conn);
+                sqlCommand.CommandType = CommandType.Text;
+                if (sqlCommand.ExecuteNonQuery() > 0)
+                {
+                    kq = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return kq;
+        }
+
+        //lay so luong sp theo ma sp
+        public int laySoLuongSP(string ma)
+        {
+            int soLuong = 0;
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_LaySLSanPham", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter param = new SqlParameter("@MaSP", ma);
+                cmd.Parameters.Add(param);
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    soLuong = Convert.ToInt32(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return soLuong;
         }
     }
 }

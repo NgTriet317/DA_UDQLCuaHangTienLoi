@@ -99,7 +99,7 @@ namespace DA_UDQLCuaHangTienLoi
             }
         }
 
-        
+
         private void cboLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             //tìm và lưu data sp theo mã
@@ -150,60 +150,86 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            // 1. Lấy dữ liệu thêm vào DB (SQL tự động lo cột Thành Tiền)
-            int soLuong = Convert.ToInt32(txtSL.Text);
-            int donGia = Convert.ToInt32(tachDonGia());
-
-            ET_SP_NH et = new ET_SP_NH(txtMaNH.Text, txtMaSP.Text, soLuong, donGia, dtpNgaySX.Value, dtpHanSD.Value);
-
-            // 2. Đẩy xuống Database
-            if (spnh.them(et))
+            try
             {
-                MessageBox.Show("Thành công");
-
-                // 3. XÓA BẢNG VÀ GỌI LẠI DỮ LIỆU TỪ DATABASE (Để lấy Thành Tiền tự động)
-                dgvTTChiTiet.Rows.Clear();
-                DataTable dtChiTiet = spnh.timChiTietTheoMa(txtMaNH.Text);
-
-                if (dtChiTiet != null)
+                //check nsx > hsd
+                if (dtpNgaySX.Value.Date > dtpHanSD.Value.Date)
                 {
-                    foreach (DataRow dr in dtChiTiet.Rows)
-                    {
-                        // Gọi thẳng Thành Tiền từ dr["ThanhTien"] do SQL tính toán đẩy lên
-                        dgvTTChiTiet.Rows.Add(
-                            dr["MaNH"].ToString(),
-                            dr["MaSP"].ToString(),
-                            spnh.timTenSPTheoMa(dr["MaSP"].ToString()),
-                            dr["SoLuongNhap"].ToString(),
-                            dr["GiaNhap"].ToString(),
-                            dr["ThanhTien"].ToString()
-                        );
-                    }
+                    MessageBox.Show("Ngày sản xuất phải nhỏ hơn hạn sử dụng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                // 4. Tính lại Tổng Tiền dựa trên dữ liệu mới nhất vừa được SQL trả lên
-                capNhatTongTien(txtMaNH.Text);
+                if (txtMaNH.Text == string.Empty)
+                {
+                    MessageBox.Show("Chưa chọn đơn hàng, Nếu chưa thấy đơn hàng vui lòng bấm 'Thêm đơn'", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                //check so luong input
+                if (!txtSL.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("Kiểu dữ liệu không hợp lệ, vui lòng nhập số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 1. Lấy dữ liệu thêm vào DB (SQL tự động lo cột Thành Tiền)
+                int soLuong = Convert.ToInt32(txtSL.Text);
+                int donGia = Convert.ToInt32(tachDonGia());
+
+                ET_SP_NH et = new ET_SP_NH(txtMaNH.Text, txtMaSP.Text, soLuong, donGia, dtpNgaySX.Value, dtpHanSD.Value);
+
+                // 2. Đẩy xuống Database
+                if (spnh.them(et))
+                {
+                    MessageBox.Show("Thành công");
+
+                    // 3. XÓA BẢNG VÀ GỌI LẠI DỮ LIỆU TỪ DATABASE (Để lấy Thành Tiền tự động)
+                    dgvTTChiTiet.Rows.Clear();
+                    DataTable dtChiTiet = spnh.timChiTietTheoMa(txtMaNH.Text);
+
+                    if (dtChiTiet != null)
+                    {
+                        foreach (DataRow dr in dtChiTiet.Rows)
+                        {
+                            // Gọi thẳng Thành Tiền từ dr["ThanhTien"] do SQL tính toán đẩy lên
+                            dgvTTChiTiet.Rows.Add(
+                                dr["MaNH"].ToString(),
+                                dr["MaSP"].ToString(),
+                                spnh.timTenSPTheoMa(dr["MaSP"].ToString()),
+                                dr["SoLuongNhap"].ToString(),
+                                dr["GiaNhap"].ToString(),
+                                dr["ThanhTien"].ToString()
+                            );
+                        }
+                    }
+
+                    // 4. Tính lại Tổng Tiền dựa trên dữ liệu mới nhất vừa được SQL trả lên
+                    capNhatTongTien(txtMaNH.Text);
+                }
+
+                // 5. Làm mới lại danh sách Phiếu Nhập (Để thấy Tổng Tiền và Trạng Thái cập nhật)
+                dgvTTNhapHang.Rows.Clear();
+                DataTable dtnh = nh.layTT();
+                if (dtnh != null)
+                {
+                    foreach (DataRow dr in dtnh.Rows)
+                    {
+                        if (dr["TrangThai"].ToString() == "Chưa xác nhận")
+                        {
+                            dgvTTNhapHang.Rows.Add(
+                                dr["MaNH"].ToString(),
+                                dr["MaNV"].ToString(),
+                                dr["MaKhoHang"].ToString(),
+                                dr["ThoiGianNhap"].ToString(),
+                                dr["TongTien"].ToString(),
+                                dr["TrangThai"].ToString()
+                            );
+                        }
+                    }
+                }
             }
-
-            // 5. Làm mới lại danh sách Phiếu Nhập (Để thấy Tổng Tiền và Trạng Thái cập nhật)
-            dgvTTNhapHang.Rows.Clear();
-            DataTable dtnh = nh.layTT();
-            if (dtnh != null)
+            catch
             {
-                foreach (DataRow dr in dtnh.Rows)
-                {
-                    if (dr["TrangThai"].ToString() == "Chưa xác nhận")
-                    {
-                        dgvTTNhapHang.Rows.Add(
-                            dr["MaNH"].ToString(),
-                            dr["MaNV"].ToString(),
-                            dr["MaKhoHang"].ToString(),
-                            dr["ThoiGianNhap"].ToString(),
-                            dr["TongTien"].ToString(),
-                            dr["TrangThai"].ToString()
-                        );
-                    }
-                }
+                MessageBox.Show("Thất bại, Ngày SX và Hạn SD đang là cùng 1 ngày", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void capNhatTongTien(string ma)
@@ -298,31 +324,45 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra xem người dùng có chọn đúng dòng có dữ liệu không
-            if (dgvTTNhapHang.CurrentRow == null || dgvTTNhapHang.CurrentRow.IsNewRow)
-            {
-                MessageBox.Show("Vui lòng chọn một phiếu nhập hợp lệ!");
+            //thông báo có  muốn xóa không
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa phiếu nhập này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
-            }
 
-            int dong = dgvTTNhapHang.CurrentCell.RowIndex;
-
-            string maNH = dgvTTNhapHang.Rows[dong].Cells[0].Value.ToString();
-
-            if (nh.xoaNH(maNH))
+            try
             {
-                MessageBox.Show("Đã xóa đơn thành công!");
-                load();
+                // 1. Kiểm tra xem người dùng có chọn đúng dòng có dữ liệu không
+                if (dgvTTNhapHang.CurrentRow == null || dgvTTNhapHang.CurrentRow.IsNewRow)
+                {
+                    MessageBox.Show("Vui lòng chọn một phiếu nhập hợp lệ!");
+                    return;
+                }
+
+                int dong = dgvTTNhapHang.CurrentCell.RowIndex;
+
+                string maNH = dgvTTNhapHang.Rows[dong].Cells[0].Value.ToString();
+
+                if (nh.xoaNH(maNH))
+                {
+                    MessageBox.Show("Đã xóa đơn thành công!");
+                    load();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại mã: " + maNH);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Thêm thất bại mã: " + maNH);
+                MessageBox.Show("Thất bại, Hãy xóa toàn bộ sản phẩm bên trong rồi mới xóa đơn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         //Xóa chi tiết SP
         private void btnXoaChiTiet_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
             int dong = dgvTTChiTiet.CurrentCell.RowIndex;
             string ma = dgvTTChiTiet.Rows[dong].Cells[1].Value.ToString();
 
@@ -338,11 +378,11 @@ namespace DA_UDQLCuaHangTienLoi
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
-        {            
-
+        {
+            this.Close();
         }
 
-        
+
         private void dgvTTNhapHang_Click(object sender, EventArgs e)
         {
             // 1. Khiên bảo vệ: Tránh click vào vùng trống hoặc dòng mới tự sinh

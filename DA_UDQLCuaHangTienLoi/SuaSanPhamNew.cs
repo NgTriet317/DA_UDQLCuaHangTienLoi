@@ -31,6 +31,39 @@ namespace DA_UDQLCuaHangTienLoi
             InitializeComponent();
         }
 
+        public bool kiemTraInput()
+        {
+            if (string.IsNullOrEmpty(txtMaSP.Text) ||
+                string.IsNullOrEmpty(txtTenSP.Text) ||
+                string.IsNullOrEmpty(txtSL.Text) ||
+                string.IsNullOrEmpty(txtGiaBan.Text) ||
+                string.IsNullOrEmpty(txtGiaGoc.Text) ||
+                string.IsNullOrEmpty(txtFileName.Text))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!int.TryParse(txtSL.Text, out _) || !int.TryParse(txtGiaBan.Text, out _) || !int.TryParse(txtGiaGoc.Text, out _))
+            {
+                MessageBox.Show("Số lượng và giá phải là số nguyên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        public string catChuoi(string so)
+        {
+            if (so.Contains(","))
+            {
+                return so.Split(',')[0];
+            }
+            else if (so.Contains("."))
+            {
+                return so.Split('.')[0];
+            }
+            return so;
+        }
+
         private void SuaSanPhamNew_Load(object sender, EventArgs e)
         {
             cboLSP.DataSource = lsp.layDSLSP();
@@ -51,7 +84,7 @@ namespace DA_UDQLCuaHangTienLoi
 
 
             string masp = ma;
-            string thuMucChuaAnh = @"D:\DA_UDQLCuaHangTienLoi\AnhSanPham\";
+            //string thuMucChuaAnh = @"D:\DA_UDQLCuaHangTienLoi\AnhSanPham\";
 
             DataTable dt = sp.findSPMa(masp);
 
@@ -66,8 +99,8 @@ namespace DA_UDQLCuaHangTienLoi
                 cboKM.SelectedValue = dr["MaKM"].ToString();
 
                 txtSL.Text = (dr["SoLuong"].ToString());
-                txtGiaGoc.Text = dr["GiaGoc"].ToString();
-                txtGiaBan.Text = dr["DonGia"].ToString();
+                txtGiaGoc.Text = catChuoi(dr["GiaGoc"].ToString());
+                txtGiaBan.Text = catChuoi(dr["DonGia"].ToString());
                 cboDVT.Text = dr["MaDVT"].ToString();
                 txtFileName.Text = dr["Hinh"].ToString();
                 tenAnhCu = dr["Hinh"].ToString();
@@ -94,14 +127,24 @@ namespace DA_UDQLCuaHangTienLoi
             }
         }
 
+        /*Nút xác nhận lưu dữ liệu sau khi sửa
+         * Sẽ ngưng hoạt động nếu các thông tin chưa được điền đầu đủ hoặc sai định dạng (Số lượng, Giá phải là số)
+         * Nếu update DB thành công và có thay đổi ảnh -> sẽ xử lý file ảnh (Copy ảnh mới vào thư mục, xóa ảnh cũ nếu tên khác nhau)
+         */
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!kiemTraInput()) return;
+
             // Tạo đối tượng lấy dữ liệu từ giao diện
             ET_SP et = new ET_SP(txtMaSP.Text, txtTenSP.Text, txtFileName.Text, Convert.ToInt32(txtSL.Text), cboDVT.SelectedValue.ToString(), Convert.ToInt32(txtGiaBan.Text.Split(',')[0]), Convert.ToInt32(txtGiaGoc.Text.Split(',')[0]), cboLSP.SelectedValue.ToString(), cboKM.SelectedValue.ToString(), cboNCC.SelectedValue.ToString());
 
             // 1. GỌI LỆNH UPDATE DATABASE TRƯỚC
             if (sp.suaSP(et))
             {
+
+                //xác nhận có muốn sửa hay không                
+                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa thông tin sản phẩm này không?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
                 // 2. NẾU UPDATE DB THÀNH CÔNG VÀ CÓ THAY ĐỔI ẢNH -> XỬ LÝ FILE
                 if (coThayDoiAnh == true)
                 {
@@ -135,7 +178,7 @@ namespace DA_UDQLCuaHangTienLoi
                     catch (Exception ex)
                     {
                         MessageBox.Show("Cập nhật thông tin thành công, nhưng lỗi khi xử lý file ảnh: " + ex.Message, "Cảnh báo");
-                    }
+                    }                    
                 }
 
                 MessageBox.Show("Sửa thông tin sản phẩm thành công!", "Thông báo");
@@ -146,6 +189,11 @@ namespace DA_UDQLCuaHangTienLoi
             }
 
             this.Close(); // Đóng Form Sửa lại
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

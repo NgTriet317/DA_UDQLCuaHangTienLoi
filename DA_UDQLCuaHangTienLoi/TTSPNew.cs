@@ -102,14 +102,19 @@ namespace DA_UDQLCuaHangTienLoi
 
                 item.OnXoaClicked += (sender, e) =>
                 {
-                    if (sp.xoaSP(item.MaSP_Data))
+                    //xac nhan xoa
+                    DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa sản phẩm này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
-                        MessageBox.Show("Xóa thành công");
-                        HienThiDanhSachSP(sp.layDSSP());
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa thất bại");
+                        if (sp.xoaSP(item.MaSP_Data))
+                        {
+                            MessageBox.Show("Xóa thành công");
+                            HienThiDanhSachSP(sp.layDSSP());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thất bại");
+                        }
                     }
                 };
 

@@ -16,12 +16,15 @@ namespace DA_UDQLCuaHangTienLoi
         public string TenSP { get; private set; }
         public decimal DonGia { get; private set; }
 
-        public theSanPham(string ma, string ten, decimal gia, Image hinh)
+        public string khuyenMai { get; private set; }
+
+        public theSanPham(string ma, string ten, decimal gia, Image hinh, string khuyenMai)
         {
             InitializeComponent();
             this.MaSP = ma;
             this.TenSP = ten;
             this.DonGia = gia;
+            this.khuyenMai = khuyenMai;
 
             // Hiển thị dữ liệu
             lblName.Text = ten;

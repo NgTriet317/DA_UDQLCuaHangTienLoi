@@ -51,5 +51,12 @@ namespace BUS
         {
             return tk.checkMK(pass);
         }
+
+        //cap nhat hoat dong
+        public void capNhatHoatDong(string email, string hoatDong)
+        {
+            tk.capNhatHoatDong(email, hoatDong);
+        }
+
     }
 }

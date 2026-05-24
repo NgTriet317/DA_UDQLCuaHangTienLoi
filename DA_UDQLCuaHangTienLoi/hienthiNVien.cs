@@ -75,7 +75,7 @@ namespace DA_UDQLCuaHangTienLoi
 
             foreach (DataRow dr in dtNhanVien.Rows)
             {
-
+                
 
                 dgvFakeNhanVien item = new dgvFakeNhanVien();
                 item.LoadData(
@@ -85,6 +85,7 @@ namespace DA_UDQLCuaHangTienLoi
                     nv.layCHucVu(dr["MaChucVu"].ToString())
                 );
 
+                
 
                 item.OnRowClicked += (sender, e) =>
                 {
@@ -138,6 +139,18 @@ namespace DA_UDQLCuaHangTienLoi
 
                 item.OnXoaClicked += (sender, e) =>
                 {
+                    if (dr["HoatDong"].ToString() != "Hoạt Động")
+                    {
+                        MessageBox.Show("Đối tượng đã Không còn hoạt động, không cần thao tác thêm", "Thông báo", MessageBoxButtons.OK);
+                        return;
+                    }
+
+                    if (dr["MaChucVu"].ToString() == "CV01")
+                    {
+                        MessageBox.Show("Không thể xóa quản lý, Không đủ quyền hạn","Thông báo",MessageBoxButtons.OK);
+                        return;
+                    }
+
                     DialogResult dialog = MessageBox.Show($"Bạn có chắc muốn xóa nhân viên {item.MaNV_Data} không?", "Xác nhận", MessageBoxButtons.YesNo);
                     if (dialog == DialogResult.Yes)
                     {
@@ -159,6 +172,12 @@ namespace DA_UDQLCuaHangTienLoi
 
                 item.OnUpdateClicked += (sender, e) =>
                 {
+
+                    if (dr["MaChucVu"].ToString() == "CV01")
+                    {
+                        MessageBox.Show("Không thể cập nhật thông tin của quản lý, Không đủ quyền hạn", "Thông báo", MessageBoxButtons.OK);
+                        return;
+                    }
                     SuaNhanVien.manv = item.MaNV_Data;
                     
                     SuaNhanVien snv = new SuaNhanVien();

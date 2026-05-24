@@ -80,6 +80,42 @@ namespace DA_UDQLCuaHangTienLoi
         }
         private void btnHoanThanh_Click(object sender, EventArgs e)
         {
+
+            // Kiểm tra dữ liệu nhập vào
+            if (string.IsNullOrWhiteSpace(txtHoTen.Text) ||
+                string.IsNullOrWhiteSpace(txtDiaChi.Text) ||
+                string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //check email có hợp lệ hay không
+            if (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains("."))
+            {
+                MessageBox.Show("Email không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }            
+            //Check name hợp lệ
+            if (!txtHoTen.Text.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("Họ tên không được chứa số và kí tự đặc biệt!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //check sdt có phải là số hay không
+            if (!txtSDT.Text.Any(char.IsDigit) || txtSDT.Text.Length != 10)
+            {
+                MessageBox.Show("Số điện thoại phải là số và phải đúng 10 số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //check ngày sinh có hợp lệ hay không
+            if (dtpDOB.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày sinh không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string role = "User";
             string tenFileAnh = "user.png";
             if (picHinh.Tag != null)

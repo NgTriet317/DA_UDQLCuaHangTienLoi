@@ -50,7 +50,7 @@ namespace DA_UDQLCuaHangTienLoi
                     theKhachHang card = new theKhachHang(maKH, tenKH, sdt, diemTichLuy);
 
                     // Thêm viền (tùy chọn cho giống ảnh)                    
-                    card.Margin = new Padding(5); // Tạo khoảng cách giữa các thẻ
+                    card.Margin = new Padding(2); // Tạo khoảng cách giữa các thẻ
 
                     card.SanPhamClicked += Card_Clicked;
                     // 2. Thêm thẻ vào FlowLayoutPanel
@@ -112,6 +112,21 @@ namespace DA_UDQLCuaHangTienLoi
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin khách hàng.");
                 return;
             }
+
+            //check name legit
+            if (!txtName.Text.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("Tên khách hàng không hợp lệ. Vui lòng nhập tên chỉ chứa chữ cái và khoảng trắng.");
+                return;
+            }
+
+            //check số điện thoại phải là số và có độ dài hợp lệ (ví dụ: 10 số)
+            if (!txtSDT.Text.All(char.IsDigit) || txtSDT.Text.Length != 10)
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại là kiểu số gồm 10 số.");
+                return;
+            }
+
 
             if (maKH == "")
             {

@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DAL_TK : DBConnect
     {
-        
+
         public bool checkTK(string email)
         {
             bool kq = false;
@@ -55,7 +55,7 @@ namespace DAL
                 cmd.Parameters.Add(param);
 
                 // Dùng object thay vì ép kiểu string trực tiếp để tránh lỗi NullReferenceException
-                temp = cmd.ExecuteScalar().ToString();                
+                temp = cmd.ExecuteScalar().ToString();
             }
             catch
             {
@@ -115,15 +115,40 @@ namespace DAL
                 adapter.Fill(dt);
 
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
             finally
             {
-                conn.Close( );
+                conn.Close();
             }
             return dt;
+        }
+
+        //cap nhat hoat dong tai khoan
+        public void capNhatHoatDong(string mail, string active)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_capNhatHoatDong", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter param1 = new SqlParameter("@TenTK", mail);
+                cmd.Parameters.Add(param1);
+                SqlParameter param2 = new SqlParameter("@HoatDong", active);
+                cmd.Parameters.Add(param2);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

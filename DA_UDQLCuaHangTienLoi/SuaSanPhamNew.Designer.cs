@@ -92,6 +92,7 @@
             this.btnClose.Size = new System.Drawing.Size(80, 36);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Hủy bỏ";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
@@ -396,9 +397,9 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(14, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(258, 31);
+            this.label1.Size = new System.Drawing.Size(360, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Thêm sản phẩm mới";
+            this.label1.Text = "Cập nhật thông tin sản phẩm";
             // 
             // txtFileName
             // 
@@ -448,6 +449,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(875, 502);
+            this.ControlBox = false;
             this.Controls.Add(this.btnChonFile);
             this.Controls.Add(this.picHinh);
             this.Controls.Add(this.guna2Panel2);

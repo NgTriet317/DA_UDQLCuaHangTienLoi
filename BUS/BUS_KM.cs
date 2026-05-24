@@ -29,5 +29,11 @@ namespace BUS
         {
             return km.layTenKM(ma);
         }
+
+        //lay sp theo km
+        public DataTable LaySPTheoKM(string ma)
+        {
+            return km.LaySPTheoKM(ma);
+        }
     }
 }

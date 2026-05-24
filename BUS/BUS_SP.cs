@@ -60,6 +60,11 @@ namespace BUS
         {
             return sp.findSP(name.Trim());
         }
+        // Tìm SP theo tên va loai
+        public DataTable findSPTheoTenVaLoai(string name, string maLoai)
+        {
+            return sp.findSPTheoTenVaLoai(name.Trim(), maLoai);
+        }
 
         /// <summary>
         /// Tìm SP theo mã
@@ -112,6 +117,15 @@ namespace BUS
         {
             return sp.layAllDVT();
         }
-
+        //cap nhat so luong sau khi ban
+        public bool capNhatSLSP(string ma, int soLuongBan)
+        {
+            return sp.capNhatSLSP(ma, soLuongBan);
+        }
+        //lay so luong sp theo ma
+        public int laySoLuongSP(string ma)
+        {
+            return sp.laySoLuongSP(ma);
+        }
     }
 }

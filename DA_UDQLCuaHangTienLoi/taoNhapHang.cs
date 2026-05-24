@@ -22,6 +22,14 @@ namespace DA_UDQLCuaHangTienLoi
         BUS_KHO kho = new BUS_KHO();
         private void button1_Click(object sender, EventArgs e)
         {
+            //Khong cho nhap ki tu dac biet
+            if(txtMa.Text.Any(c => !char.IsLetterOrDigit(c)))
+            {
+                MessageBox.Show("Không nhập ký tự đặc biệt", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMa.Clear();
+                return;
+            }
+
             if (nh.themNH(txtMa.Text, maNV, cboKho.SelectedValue.ToString()))
             {                
                 NhapHang frm = new NhapHang();

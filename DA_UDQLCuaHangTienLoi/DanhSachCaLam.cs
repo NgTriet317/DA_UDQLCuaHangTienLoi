@@ -149,7 +149,14 @@ namespace DA_UDQLCuaHangTienLoi
         // Sự kiện khi click vào nút "Xác nhận", thêm một ca làm mới vào cơ sở dữ liệu dựa trên thông tin đã nhập trong các control tương ứng
         private void btnXacNhan_Click(object sender, EventArgs e)
 		{
-            try
+			//khong dc chon ca lam trong qua khu
+			if(dtpNgayLam.Value.Date < DateTime.Now.Date)
+			{
+				MessageBox.Show("Không được chọn ca làm trong quá khứ", "Thông báo");
+				return;
+            }
+
+                try
 			{
 				string maNV = cboTenNV.SelectedValue == null ? "" : cboTenNV.SelectedValue.ToString();
 				string maCa = cboMaCa.SelectedValue == null ? "" : cboMaCa.SelectedValue.ToString();

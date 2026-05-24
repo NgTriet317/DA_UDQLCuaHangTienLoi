@@ -95,7 +95,10 @@ namespace DA_UDQLCuaHangTienLoi
         /// <param name="e"></param>
         private void dgvTTKho_Click(object sender, EventArgs e)
         {
-            int dong = dgvTTKho.CurrentCell.RowIndex;
+            if (dgvTTKho.CurrentRow == null || dgvTTKho.CurrentRow.IsNewRow) return;
+
+            int dong = dgvTTKho.CurrentCell.RowIndex;            
+            
             txtTenSP.Text = dgvTTKho.Rows[dong].Cells[0].Value.ToString();
             txtSLTK.Text = dgvTTKho.Rows[dong].Cells[6].Value.ToString();
             txtSLSP.Text = dgvTTKho.Rows[dong].Cells[7].Value.ToString();

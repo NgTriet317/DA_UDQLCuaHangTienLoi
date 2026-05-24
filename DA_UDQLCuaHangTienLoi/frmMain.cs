@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace DA_UDQLCuaHangTienLoi
@@ -50,40 +51,55 @@ namespace DA_UDQLCuaHangTienLoi
         //Hàm mở form con
         private void OpenChildForm(Form childForm)
         {
-            if(current_form_child!=null)
+            // 1. Ẩn tất cả các form đang hiển thị trong panel_body
+            foreach (Control ctrl in panel_body.Controls)
             {
-                current_form_child.Close();
+                ctrl.Hide();
             }
-            current_form_child = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock =DockStyle.Fill;
-            panel_body.Controls.Add(childForm);
-            panel_body.Tag = childForm;
+
+            // 2. Nếu Form này chưa từng được thêm vào panel_body thì mới cấu hình và Add vào
+            if (!panel_body.Controls.Contains(childForm))
+            {
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                panel_body.Controls.Add(childForm);
+            }
+
+            // 3. Đưa Form lên trên cùng và hiển thị
             childForm.BringToFront();
             childForm.Show();
-
         }
 
         private void panel_body_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
+        }        
+        // Khai báo các biến lưu trữ toàn cục cho tất cả các Form
+        private banHang frmBanHang = null;
+        private TTSPNew frmSP = null;
+        private ThongKeTongQuat frmThongKe = null;
+        private NhanVien frmNV = null;
+        private KhachHang frmKhach = null;
+        private KhoHang frmKho = null;
         private void btnBanHang_Click(object sender, EventArgs e)
         {
-            //Xóa màu button để đè màu mới và hiện form tương ứng
             clearColorButton();
             btnBanHang.FillColor = Color.MediumBlue;
-            OpenChildForm(new banHang());
+
+            if (frmBanHang == null || frmBanHang.IsDisposed)
+                frmBanHang = new banHang(); // Chỉ tạo mới 1 lần
+
+            OpenChildForm(frmBanHang);
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             //thoát app và đặt active = 0
             inActive = "0";
-			// 1. Yêu cầu Windows mở một phiên bản mới của chính phần mềm này
-			System.Diagnostics.Process.Start(Application.ExecutablePath);
+            tK.capNhatHoatDong(mail, "Không hoạt động");
+            // 1. Yêu cầu Windows mở một phiên bản mới của chính phần mềm này
+            System.Diagnostics.Process.Start(Application.ExecutablePath);
 
 			// 2. Ép tắt ngay lập tức phiên bản hiện tại để giải phóng toàn bộ bộ nhớ (Tránh lỗi mảng)
 			Environment.Exit(0);
@@ -93,8 +109,9 @@ namespace DA_UDQLCuaHangTienLoi
 
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            if(mail != string.Empty)
+        {            
+
+            if (mail != string.Empty)
             {
                 DataTable dt = tK.timNVOnl(mail);
 
@@ -104,12 +121,28 @@ namespace DA_UDQLCuaHangTienLoi
 
                 txtNV.Text = tenNV;
 
-                txtChucVu.Text = nv.layCHucVu(dr["MaChucVu"].ToString());
+                txtChucVu.Text = nv.layCHucVu(dr["MaChucVu"].ToString());                
+
+                if (dr["MaChucVu"].ToString() != "CV01")
+                {
+                    labelQL.Visible = false;
+                    btnNV.Visible = false;
+                    btnKhoHang.Visible = false;
+                    btnThongKe.Visible = false;
+                }
+                else
+                {
+                    labelQL.Visible = true;
+                    btnNV.Visible = true;
+                    btnKhoHang.Visible = true;
+                    btnThongKe.Visible = true;
+                }
             }
 
             if(inActive == "1")
             {
                 txtActive.Text = "Online";
+                tK.capNhatHoatDong(mail,"hoạt động");
             }
             else
             {
@@ -131,28 +164,44 @@ namespace DA_UDQLCuaHangTienLoi
         {
             clearColorButton();
             btnSP.FillColor = Color.MediumBlue;
-            OpenChildForm(new TTSPNew());
+
+            if (frmSP == null || frmSP.IsDisposed)
+                frmSP = new TTSPNew();
+
+            OpenChildForm(frmSP);
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             clearColorButton();
             btnThongKe.FillColor = Color.MediumBlue;
-            OpenChildForm(new ThongKeTongQuat());
+
+            if (frmThongKe == null || frmThongKe.IsDisposed)
+                frmThongKe = new ThongKeTongQuat();
+
+            OpenChildForm(frmThongKe);
         }
 
         private void btnNV_Click(object sender, EventArgs e)
         {
             clearColorButton();
             btnNV.FillColor = Color.MediumBlue;
-            OpenChildForm(new NhanVien());
+
+            if (frmNV == null || frmNV.IsDisposed)
+                frmNV = new NhanVien();
+
+            OpenChildForm(frmNV);
         }
 
         private void btnKhach_Click(object sender, EventArgs e)
         {
             clearColorButton();
             btnKhach.FillColor = Color.MediumBlue;
-            OpenChildForm(new KhachHang());
+
+            if (frmKhach == null || frmKhach.IsDisposed)
+                frmKhach = new KhachHang();
+
+            OpenChildForm(frmKhach);
         }
 
         private void panel3_Paint_1(object sender, PaintEventArgs e)
@@ -167,12 +216,17 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void btnKhoHang_Click(object sender, EventArgs e)
         {
-            KhoHang.maNV = maNV;
             clearColorButton();
             btnKhoHang.FillColor = Color.MediumBlue;
-            OpenChildForm(new KhoHang());
-        }
 
+            // Giữ nguyên logic truyền maNV của bạn
+            KhoHang.maNV = maNV;
+
+            if (frmKho == null || frmKho.IsDisposed)
+                frmKho = new KhoHang();
+
+            OpenChildForm(frmKho);
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 

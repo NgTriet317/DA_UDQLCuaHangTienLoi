@@ -27,7 +27,23 @@ namespace DA_UDQLCuaHangTienLoi
         }
         BUS_TK tK = new BUS_TK();        
         private void btnLogin_Click(object sender, EventArgs e)
-        {            
+        {   
+            if(frmMain.inActive == "1")
+            {
+                DialogResult result = MessageBox.Show("Tài khoản đăng nhập trên thiết bị khác, Bạn có muốn cưỡng chế đăng xuất trên thiết bị khác không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    // Cưỡng chế đăng xuất trên thiết bị khác
+                    frmMain.inActive = "0";
+                    tK.capNhatHoatDong(frmMain.mail, "Không hoạt động");
+                }
+                else
+                {
+                    return;
+                }                
+            }
+
+            //check hoat dong tai khoan
             string mail = txtMail.Text;
             string pass = txtPass.Text; 
             

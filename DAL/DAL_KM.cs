@@ -59,5 +59,30 @@ namespace DAL
             finally { conn.Close(); }
             return name;
         }
+
+        // Lấy sp theo km
+        
+        public DataTable LaySPTheoKM(string ma)
+        {
+            DataTable db = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_TimSPTheoKM", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaKM", ma);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(db);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { conn.Close(); }
+            return db;
+        }
     }
 }
