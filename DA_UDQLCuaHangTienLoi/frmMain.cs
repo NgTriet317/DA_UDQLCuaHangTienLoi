@@ -16,6 +16,7 @@ namespace DA_UDQLCuaHangTienLoi
     {
         public static string inActive = "0";
         public static string mail = "";
+        public static string chucVu = "";
 
         BUS_TK tK = new BUS_TK();
         BUS_NHANVIEN nv = new BUS_NHANVIEN();
@@ -82,6 +83,7 @@ namespace DA_UDQLCuaHangTienLoi
         private NhanVien frmNV = null;
         private KhachHang frmKhach = null;
         private KhoHang frmKho = null;
+        private ThongKe frmBaoCao = null;
         private void btnBanHang_Click(object sender, EventArgs e)
         {
             clearColorButton();
@@ -122,6 +124,7 @@ namespace DA_UDQLCuaHangTienLoi
                 txtNV.Text = tenNV;
 
                 txtChucVu.Text = nv.layCHucVu(dr["MaChucVu"].ToString());                
+                chucVu = dr["MaChucVu"].ToString();
 
                 if (dr["MaChucVu"].ToString() != "CV01")
                 {
@@ -230,6 +233,20 @@ namespace DA_UDQLCuaHangTienLoi
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            clearColorButton();
+            btnKhoHang.FillColor = Color.MediumBlue;
+
+            // Giữ nguyên logic truyền maNV của bạn
+            KhoHang.maNV = maNV;
+
+            if (frmBaoCao == null || frmBaoCao.IsDisposed)
+                frmBaoCao = new ThongKe();
+
+            OpenChildForm(frmBaoCao);
         }
     }
 }

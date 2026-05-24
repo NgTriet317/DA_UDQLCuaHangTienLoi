@@ -243,6 +243,16 @@ namespace DA_UDQLCuaHangTienLoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap file_regular {
+            get {
+                object obj = ResourceManager.GetObject("file-regular", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap filter_solid {
             get {
                 object obj = ResourceManager.GetObject("filter-solid", resourceCulture);

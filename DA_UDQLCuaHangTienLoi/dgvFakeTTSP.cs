@@ -38,7 +38,14 @@ namespace DA_UDQLCuaHangTienLoi
             lblSL.Text = sl;
             lblGia.Text = gia;
             lblHSD.Text = hsd;
+
+            if (frmMain.chucVu == "CV02")
+            {
+                btnSua.Visible = false;
+                btnXoa.Visible = false;
+            }
         }
+
 
         private void btnXem_Click(object sender, EventArgs e)
         {

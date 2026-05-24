@@ -62,6 +62,7 @@ namespace DA_UDQLCuaHangTienLoi
             int index = 0;
             foreach (DataRow dr in dtSanPham.Rows)
             {
+                
                 string imagePath = dr["Hinh"].ToString();
                 Image img = null;
 
@@ -73,6 +74,7 @@ namespace DA_UDQLCuaHangTienLoi
 
 
                 dgvFakeTTSP item = new dgvFakeTTSP();
+                
 
                 if (index % 2 == 0)
                 {
@@ -162,6 +164,11 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if(frmMain.chucVu == "CV02")
+            {
+                MessageBox.Show("Bạn không có quyền thêm sản phẩm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             ThemSanPhamNew themSPForm = new ThemSanPhamNew();
             themSPForm.ShowDialog();
