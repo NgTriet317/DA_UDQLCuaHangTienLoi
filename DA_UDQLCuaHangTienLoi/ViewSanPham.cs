@@ -77,6 +77,11 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if(frmMain.chucVu != "CV01")
+            {
+                MessageBox.Show("Bạn không có quyền sửa sản phẩm này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             SuaSanPhamNew quanLySPForm = new SuaSanPhamNew();
             SuaSanPhamNew.ma = ma;
             quanLySPForm.ShowDialog(); 
