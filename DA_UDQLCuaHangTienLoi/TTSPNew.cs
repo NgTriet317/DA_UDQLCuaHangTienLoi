@@ -188,5 +188,11 @@ namespace DA_UDQLCuaHangTienLoi
             DataTable dtKetQua = sp.timSPTheoMaLoai(maLoaiSP);
             HienThiDanhSachSP(dtKetQua);
         }
-    }
+
+		private void btnLamMoi_Click(object sender, EventArgs e)
+		{
+            DataTable dtSanPham = sp.layDSSP();
+			HienThiDanhSachSP(dtSanPham);
+		}
+	}
 }

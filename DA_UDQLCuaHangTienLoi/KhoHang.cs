@@ -130,6 +130,8 @@ namespace DA_UDQLCuaHangTienLoi
 
                 clearbang();
                 laydsTonkho();
+                clear();
+                MessageBox.Show("Xuất kho thành công", "Thông báo");
             }
             catch
             {
