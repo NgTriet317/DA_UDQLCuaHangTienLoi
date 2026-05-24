@@ -83,7 +83,7 @@
 			this.btnNhapHang.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.btnNhapHang.BackColor = System.Drawing.SystemColors.MenuHighlight;
 			this.btnNhapHang.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-			this.btnNhapHang.Location = new System.Drawing.Point(270, 12);
+			this.btnNhapHang.Location = new System.Drawing.Point(276, 12);
 			this.btnNhapHang.Margin = new System.Windows.Forms.Padding(2);
 			this.btnNhapHang.Name = "btnNhapHang";
 			this.btnNhapHang.Size = new System.Drawing.Size(109, 34);
@@ -100,7 +100,7 @@
 			this.btnDoanhThuThang.Location = new System.Drawing.Point(138, 12);
 			this.btnDoanhThuThang.Margin = new System.Windows.Forms.Padding(2);
 			this.btnDoanhThuThang.Name = "btnDoanhThuThang";
-			this.btnDoanhThuThang.Size = new System.Drawing.Size(109, 34);
+			this.btnDoanhThuThang.Size = new System.Drawing.Size(119, 34);
 			this.btnDoanhThuThang.TabIndex = 0;
 			this.btnDoanhThuThang.Text = "Doanh thu theo tháng";
 			this.btnDoanhThuThang.UseVisualStyleBackColor = false;
@@ -114,7 +114,7 @@
 			this.btnDoanhThu.Location = new System.Drawing.Point(10, 12);
 			this.btnDoanhThu.Margin = new System.Windows.Forms.Padding(2);
 			this.btnDoanhThu.Name = "btnDoanhThu";
-			this.btnDoanhThu.Size = new System.Drawing.Size(109, 34);
+			this.btnDoanhThu.Size = new System.Drawing.Size(115, 34);
 			this.btnDoanhThu.TabIndex = 0;
 			this.btnDoanhThu.Text = "Doanh thu theo ngày";
 			this.btnDoanhThu.UseVisualStyleBackColor = false;

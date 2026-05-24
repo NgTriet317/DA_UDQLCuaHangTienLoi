@@ -9407,7 +9407,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CHTL"
         "ProductCode" = "8:{00CACBCE-B7FA-4680-8A1F-0B92CB0F3488}"
-        "PackageCode" = "8:{1E69311B-CADC-4250-B6DA-3CF64E74FE6E}"
+        "PackageCode" = "8:{9E3C2966-92FC-40E0-BDC3-022A522C2250}"
         "UpgradeCode" = "8:{680DE1F4-C491-40E6-A02B-1806309C852D}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
