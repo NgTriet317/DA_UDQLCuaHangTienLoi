@@ -28,6 +28,8 @@ namespace DA_UDQLCuaHangTienLoi
         }
 
         public string MaSP_Data { get; private set; }
+
+        //constructor dung de dua data vao card
         public void loadData(string maSP, Image imgName, string TenSP, string lsp,string sl, string gia, string hsd)
         {
             this.MaSP_Data = maSP;
@@ -46,7 +48,7 @@ namespace DA_UDQLCuaHangTienLoi
             }
         }
 
-
+        //Tạo sự kiện click cho các icon
         private void btnXem_Click(object sender, EventArgs e)
         {
             if (OnViewClicked != null)

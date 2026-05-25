@@ -512,6 +512,7 @@
             this.picHinh.Location = new System.Drawing.Point(658, 278);
             this.picHinh.Name = "picHinh";
             this.picHinh.Size = new System.Drawing.Size(205, 167);
+            this.picHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHinh.TabIndex = 5;
             this.picHinh.TabStop = false;
             // 

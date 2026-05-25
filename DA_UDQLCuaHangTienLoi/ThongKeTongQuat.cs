@@ -254,6 +254,7 @@ namespace DA_UDQLCuaHangTienLoi
 			}
 		}
 
+		//Load thong tin hoa don
 		private void LoadThongTinHoaDon()
 		{
 			DataTable dt = hd.LayThongTinHoaDon();
@@ -272,6 +273,7 @@ namespace DA_UDQLCuaHangTienLoi
 			}	
 		}
 
+		//load mock data
 		private void LoadMockData()
 		{
 
@@ -452,6 +454,7 @@ namespace DA_UDQLCuaHangTienLoi
 			LoadThongTinHoaDonTuNgayDenNgay(tuNgay, denNgay);
 		}
 
+		//reload button
 		private void btnTaiLai_Click(object sender, EventArgs e)
 		{
 			LoadThongKeTongQuat();

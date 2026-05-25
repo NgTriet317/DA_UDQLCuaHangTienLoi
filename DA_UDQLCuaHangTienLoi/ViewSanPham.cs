@@ -21,6 +21,7 @@ namespace DA_UDQLCuaHangTienLoi
             InitializeComponent();
         }
 
+        //Nut dong frm
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -30,6 +31,7 @@ namespace DA_UDQLCuaHangTienLoi
         BUS_KM km = new BUS_KM();
         BUS_NCC ncc = new BUS_NCC();
 
+        //From load san pham
         private void loadSP()
         {
             DataTable dt = sp.findSPMa(ma);
@@ -70,11 +72,13 @@ namespace DA_UDQLCuaHangTienLoi
             }
         }
             
+        //load view sp
         private void ViewSanPham_Load(object sender, EventArgs e)
         {
             loadSP();
         }
 
+        //Chuyen frm update san pham
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if(frmMain.chucVu != "CV01")

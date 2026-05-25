@@ -24,7 +24,7 @@ namespace DA_UDQLCuaHangTienLoi
         {
 
         }
-
+        //close frm
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -35,6 +35,7 @@ namespace DA_UDQLCuaHangTienLoi
         BUS_NCC ncc = new BUS_NCC();
         BUS_KM km = new BUS_KM();
         
+        //frm load tt cbo
         private void ThemSanPhamNew_Load(object sender, EventArgs e)
         {
             cboLSP.DataSource = lsp.layDSLSP();
@@ -55,6 +56,7 @@ namespace DA_UDQLCuaHangTienLoi
 
         }
 
+        //check input du lieu
         public bool kiemTraInput()
         {
             if (string.IsNullOrEmpty(txtMaSP.Text) ||
@@ -75,6 +77,7 @@ namespace DA_UDQLCuaHangTienLoi
             return true;
         }
 
+        //Nut luu thong tin
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!kiemTraInput()) return;

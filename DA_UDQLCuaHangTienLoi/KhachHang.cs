@@ -179,7 +179,7 @@ namespace DA_UDQLCuaHangTienLoi
                 string diemTichLuy = row["SoDiemDaTich"].ToString();
 
                 theKhachHang card = new theKhachHang(maKH, tenKH, sdt, diemTichLuy);
-                card.Margin = new Padding(20);
+                card.Margin = new Padding(2);
                 card.SanPhamClicked += Card_Clicked;
                 flpDSKhachHang.Controls.Add(card);
             }

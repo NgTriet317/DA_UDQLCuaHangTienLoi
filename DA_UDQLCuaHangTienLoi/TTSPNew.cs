@@ -94,7 +94,7 @@ namespace DA_UDQLCuaHangTienLoi
                     sp.layHanSD(dr["MaSP"].ToString()).ToString()
                 );
 
-
+                //gan su kien vao icon view
                 item.OnViewClicked += (sender, e) =>
                 {
                     ViewSanPham viewForm = new ViewSanPham();
@@ -102,6 +102,7 @@ namespace DA_UDQLCuaHangTienLoi
                     viewForm.ShowDialog();
                 };
 
+                //gan su kien vao icon remove
                 item.OnXoaClicked += (sender, e) =>
                 {
                     //xac nhan xoa
@@ -120,7 +121,7 @@ namespace DA_UDQLCuaHangTienLoi
                     }
                 };
 
-
+                //gan su kien vao icon update
                 item.OnUpdateClicked += (sender, e) =>
                 {
                     SuaSanPhamNew quanLySPForm = new SuaSanPhamNew();
@@ -145,6 +146,7 @@ namespace DA_UDQLCuaHangTienLoi
             }
         }
 
+        //load sp moi
         private void TTSPNew_Load(object sender, EventArgs e)
         {
             
@@ -162,6 +164,7 @@ namespace DA_UDQLCuaHangTienLoi
 
         }
 
+        //Open new form Them
         private void btnThem_Click(object sender, EventArgs e)
         {
             if(frmMain.chucVu == "CV02")
@@ -175,6 +178,7 @@ namespace DA_UDQLCuaHangTienLoi
             HienThiDanhSachSP(sp.layDSSP());
         }
 
+        //Tim kiem sp theo ten
         private void txtName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -186,6 +190,7 @@ namespace DA_UDQLCuaHangTienLoi
             }
         }
 
+        //Tim kiem san pham theo loai
         private void cboLSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(!isLoaded)
@@ -196,6 +201,7 @@ namespace DA_UDQLCuaHangTienLoi
             HienThiDanhSachSP(dtKetQua);
         }
 
+        //lam moi san pham
 		private void btnLamMoi_Click(object sender, EventArgs e)
 		{
             DataTable dtSanPham = sp.layDSSP();

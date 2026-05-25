@@ -76,6 +76,7 @@
             this.btnChonFile.Size = new System.Drawing.Size(143, 36);
             this.btnChonFile.TabIndex = 36;
             this.btnChonFile.Text = "Chọn file ảnh";
+            this.btnChonFile.Click += new System.EventHandler(this.btnChonFile_Click);
             // 
             // btnClose
             // 
@@ -440,6 +441,7 @@
             this.picHinh.Location = new System.Drawing.Point(658, 278);
             this.picHinh.Name = "picHinh";
             this.picHinh.Size = new System.Drawing.Size(205, 167);
+            this.picHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHinh.TabIndex = 31;
             this.picHinh.TabStop = false;
             // 

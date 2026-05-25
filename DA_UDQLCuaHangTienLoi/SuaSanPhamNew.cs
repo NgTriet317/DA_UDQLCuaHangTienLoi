@@ -137,13 +137,17 @@ namespace DA_UDQLCuaHangTienLoi
 
             // Tạo đối tượng lấy dữ liệu từ giao diện
             ET_SP et = new ET_SP(txtMaSP.Text, txtTenSP.Text, txtFileName.Text, Convert.ToInt32(txtSL.Text), cboDVT.SelectedValue.ToString(), Convert.ToInt32(txtGiaBan.Text.Split(',')[0]), Convert.ToInt32(txtGiaGoc.Text.Split(',')[0]), cboLSP.SelectedValue.ToString(), cboKM.SelectedValue.ToString(), cboNCC.SelectedValue.ToString());
+            //xác nhận có muốn sửa hay không                
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa thông tin sản phẩm này không?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+            {
+                return; // Nếu người dùng chọn No, thoát khỏi sự kiện mà không làm gì
+            }
+
 
             // 1. GỌI LỆNH UPDATE DATABASE TRƯỚC
             if (sp.suaSP(et))
-            {
-
-                //xác nhận có muốn sửa hay không                
-                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa thông tin sản phẩm này không?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            {               
 
                 // 2. NẾU UPDATE DB THÀNH CÔNG VÀ CÓ THAY ĐỔI ẢNH -> XỬ LÝ FILE
                 if (coThayDoiAnh == true)
@@ -194,6 +198,45 @@ namespace DA_UDQLCuaHangTienLoi
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnChonFile_Click(object sender, EventArgs e)
+        {
+            Image img;
+            using (OpenFileDialog file = new OpenFileDialog())
+            {
+                file.Filter = "png file (*.png)|*.png|jpg file (*.jpg)|*.jpg";
+
+                if (file.ShowDialog() == DialogResult.OK)
+                {
+                    string tenFileAnh = file.SafeFileName;
+                    string duongDan = file.FileName;
+
+                    string duongDanDayDu = Path.Combine(Application.StartupPath, "AnhSanPham", tenFileAnh);
+                    //string thuMucĐaCo = @"D:\DA_UDQLCuaHangTienLoi\AnhSanPham";
+                    //string newDuongDan = System.IO.Path.Combine(thuMucĐaCo, tenFile);
+
+                    try
+                    {
+                        // Thực hiện copy (chép đè nếu file đã tồn tại)
+                        System.IO.File.Copy(duongDan, duongDanDayDu, true);
+
+                        // Hiển thị ảnh lên PictureBox một cách an toàn
+                        using (var fs = new System.IO.FileStream(duongDanDayDu, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                        {
+                            picHinh.Image = Image.FromStream(fs);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi copy ảnh: " + ex.Message, "Lỗi");
+                    }
+
+                    txtFileName.Text = tenFileAnh;
+                    img = Image.FromFile(duongDan);
+                    picHinh.Image = img;
+                }
+            }
         }
     }
 }
