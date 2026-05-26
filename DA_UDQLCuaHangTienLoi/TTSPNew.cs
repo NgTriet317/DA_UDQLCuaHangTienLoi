@@ -62,76 +62,78 @@ namespace DA_UDQLCuaHangTienLoi
             int index = 0;
             foreach (DataRow dr in dtSanPham.Rows)
             {
-                
-                string imagePath = dr["Hinh"].ToString();
-                Image img = null;
-
-                string fullPath = Path.Combine(Application.StartupPath, "AnhSanPham", imagePath);
-                if (File.Exists(fullPath))
+                if (dr["HoatDong"].ToString() == "Hoạt động")
                 {
-                    img = Image.FromFile(fullPath);
-                }
+                    string imagePath = dr["Hinh"].ToString();
+                    Image img = null;
 
-
-                dgvFakeTTSP item = new dgvFakeTTSP();
-                
-
-                if (index % 2 == 0)
-                {
-                    item.BackColor = Color.White;
-                }
-                else
-                {
-                    item.BackColor = Color.FromArgb(240, 240, 240);
-                }
-                item.loadData(
-                    dr["MaSP"].ToString(),
-                    img,
-                    dr["TenSP"].ToString(),
-                    lsp.layTenLoai(dr["MaLoaiSP"].ToString()),
-                    (dr["SoLuong"].ToString()),
-                    (dr["DonGia"].ToString()),
-                    sp.layHanSD(dr["MaSP"].ToString()).ToString()
-                );
-
-                //gan su kien vao icon view
-                item.OnViewClicked += (sender, e) =>
-                {
-                    ViewSanPham viewForm = new ViewSanPham();
-                    ViewSanPham.ma = item.MaSP_Data;
-                    viewForm.ShowDialog();
-                };
-
-                //gan su kien vao icon remove
-                item.OnXoaClicked += (sender, e) =>
-                {
-                    //xac nhan xoa
-                    DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa sản phẩm này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    string fullPath = Path.Combine(Application.StartupPath, "AnhSanPham", imagePath);
+                    if (File.Exists(fullPath))
                     {
-                        if (sp.xoaSP(item.MaSP_Data))
-                        {
-                            MessageBox.Show("Xóa thành công");
-                            HienThiDanhSachSP(sp.layDSSP());
-                        }
-                        else
-                        {
-                            MessageBox.Show("Xóa thất bại");
-                        }
+                        img = Image.FromFile(fullPath);
                     }
-                };
 
-                //gan su kien vao icon update
-                item.OnUpdateClicked += (sender, e) =>
-                {
-                    SuaSanPhamNew quanLySPForm = new SuaSanPhamNew();
-                    SuaSanPhamNew.ma = item.MaSP_Data;
-                    quanLySPForm.ShowDialog();
-                    HienThiDanhSachSP(sp.layDSSP());
-                };
-                flpSP.Controls.Add(item);
 
-                index++;
+                    dgvFakeTTSP item = new dgvFakeTTSP();
+
+
+                    if (index % 2 == 0)
+                    {
+                        item.BackColor = Color.White;
+                    }
+                    else
+                    {
+                        item.BackColor = Color.FromArgb(240, 240, 240);
+                    }
+                    item.loadData(
+                        dr["MaSP"].ToString(),
+                        img,
+                        dr["TenSP"].ToString(),
+                        lsp.layTenLoai(dr["MaLoaiSP"].ToString()),
+                        (dr["SoLuong"].ToString()),
+                        (dr["DonGia"].ToString()),
+                        sp.layHanSD(dr["MaSP"].ToString()).ToString()
+                    );
+
+                    //gan su kien vao icon view
+                    item.OnViewClicked += (sender, e) =>
+                    {
+                        ViewSanPham viewForm = new ViewSanPham();
+                        ViewSanPham.ma = item.MaSP_Data;
+                        viewForm.ShowDialog();
+                    };
+
+                    //gan su kien vao icon remove
+                    item.OnXoaClicked += (sender, e) =>
+                    {
+                        //xac nhan xoa
+                        DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa sản phẩm này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            if (sp.xoaSP(item.MaSP_Data))
+                            {
+                                MessageBox.Show("Xóa thành công");
+                                HienThiDanhSachSP(sp.layDSSP());
+                            }
+                            else
+                            {
+                                MessageBox.Show("Xóa thất bại");
+                            }
+                        }
+                    };
+
+                    //gan su kien vao icon update
+                    item.OnUpdateClicked += (sender, e) =>
+                    {
+                        SuaSanPhamNew quanLySPForm = new SuaSanPhamNew();
+                        SuaSanPhamNew.ma = item.MaSP_Data;
+                        quanLySPForm.ShowDialog();
+                        HienThiDanhSachSP(sp.layDSSP());
+                    };
+                    flpSP.Controls.Add(item);
+
+                    index++;
+                }
 
 
                 try
@@ -149,7 +151,7 @@ namespace DA_UDQLCuaHangTienLoi
         //load sp moi
         private void TTSPNew_Load(object sender, EventArgs e)
         {
-            
+
             cboLSP.DisplayMember = "TenLoaiSP";
             cboLSP.ValueMember = "MaLoaiSP";
             cboLSP.DataSource = lsp.layDSLSP();
@@ -167,7 +169,7 @@ namespace DA_UDQLCuaHangTienLoi
         //Open new form Them
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if(frmMain.chucVu == "CV02")
+            if (frmMain.chucVu == "CV02")
             {
                 MessageBox.Show("Bạn không có quyền thêm sản phẩm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -193,19 +195,19 @@ namespace DA_UDQLCuaHangTienLoi
         //Tim kiem san pham theo loai
         private void cboLSP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(!isLoaded)
+            if (!isLoaded)
                 return;
-           
+
             string maLoaiSP = cboLSP.SelectedValue.ToString();
             DataTable dtKetQua = sp.timSPTheoMaLoai(maLoaiSP);
             HienThiDanhSachSP(dtKetQua);
         }
 
         //lam moi san pham
-		private void btnLamMoi_Click(object sender, EventArgs e)
-		{
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
             DataTable dtSanPham = sp.layDSSP();
-			HienThiDanhSachSP(dtSanPham);
-		}
-	}
+            HienThiDanhSachSP(dtSanPham);
+        }
+    }
 }

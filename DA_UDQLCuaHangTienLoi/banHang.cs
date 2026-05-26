@@ -15,6 +15,8 @@ using System.Windows.Forms;
 
 namespace DA_UDQLCuaHangTienLoi
 {
+    // Class tạm để gom dữ liệu từ luồng ngầm đem lên UI
+   
     public partial class banHang : Form
     {
         public static string maKH;
@@ -54,58 +56,81 @@ namespace DA_UDQLCuaHangTienLoi
             cbLSP.SelectedIndex = -1;
 
         }
+
+
         private async Task LoadDanhSachSanPham()
         {
-            // Xóa các thẻ cũ nếu có để load lại từ đầu
             flowLayoutPanelSP.Controls.Clear();
             flowLayoutPanelSP.SuspendLayout();
+
             try
             {
-                BUS_SP sp = new BUS_SP();
-                DataTable dt = await Task.Run(() => sp.layDSSP());
-
-                // Duyệt qua từng dòng dữ liệu trong CSDL
-                foreach (DataRow row in dt.Rows)
+                // =========================================================================
+                // 1. CHẠY NGẦM 100%: LẤY DATA + ĐỌC ẢNH + THU NHỎ ẢNH
+                // =========================================================================
+                List<SanPhamDTO> listData = await Task.Run(() =>
                 {
+                    List<SanPhamDTO> ketQua = new List<SanPhamDTO>();
+                    BUS_SP sp = new BUS_SP();
+                    DataTable dt = sp.layDSSP(); // Lấy DB ngầm
+                    
+                    foreach (DataRow row in dt.Rows)
+                    {                        
 
-                    await Task.Delay(1);
+                            SanPhamDTO dto = new SanPhamDTO
+                            {
+                                MaSP = row["MaSP"].ToString(),
+                                TenSP = row["TenSP"].ToString(),
+                                Gia = Convert.ToDecimal(row["DonGia"]),
+                                KhuyenMai = row["MaKM"].ToString()
+                            };
 
-                    string maSP = row["MaSP"].ToString();
-                    string tenSP = row["TenSP"].ToString();
-                    decimal gia = Convert.ToDecimal(row["DonGia"]);
-                    string khuyenMai = row["MaKM"].ToString();
-                    Image img = null;
+                            string tenFileAnh = row["Hinh"].ToString();
+                            string duongDanDayDu = Path.Combine(Application.StartupPath, "AnhSanPham", tenFileAnh);
 
-                    string tenFileAnh = row["Hinh"].ToString();
-
-                    string duongDanDayDu = Path.Combine(Application.StartupPath, "AnhSanPham", tenFileAnh);
-                    // Xử lý hình ảnh từ CSDL (Giả sử bạn lưu dạng mảng byte - varbinary)
-                    //string thuMucChuaAnh = @"D:\DA_UDQLCuaHangTienLoi\AnhSanPham\";
-
-                    //string duongDanDayDu = Path.Combine(thuMucChuaAnh, tenFileAnh);
-
-                    if (File.Exists(duongDanDayDu))
-                    {
-                        img = Image.FromFile(duongDanDayDu);
+                            if (File.Exists(duongDanDayDu))
+                            {
+                                // Dùng FileStream đọc ngầm
+                                using (FileStream fs = new FileStream(duongDanDayDu, FileMode.Open, FileAccess.Read))
+                                {
+                                    using (Image imgGoc = Image.FromStream(fs))
+                                    {
+                                        // ⚠️ TUYỆT CHIÊU: Thu nhỏ ảnh gốc xuống đúng bằng kích thước cần hiển thị
+                                        // Giả sử cái PictureBox trong theSanPham của bạn là 150x150, hãy sửa số 150 ở dưới cho khớp.
+                                        // Việc này giúp giảm RAM từ vài trăm MB xuống chỉ còn vài MB!
+                                        dto.HinhAnh = new Bitmap(imgGoc, new Size(150, 150));
+                                    }
+                                }
+                            }
+                            ketQua.Add(dto);                        
                     }
+                    return ketQua;
+                });
 
-                    // 1. Tạo một thẻ sản phẩm mới (truyền cả MaSP vào để ẩn đi)
-                    theSanPham card = new theSanPham(maSP, tenSP, gia, img, khuyenMai);
-
-                    // Thêm viền (tùy chọn cho giống ảnh)
+                // =========================================================================
+                // 2. TRỞ LẠI LUỒNG UI: CHỈ KHỞI TẠO CONTROL (Cực kỳ nhanh)
+                // =========================================================================
+                List<Control> ucList = new List<Control>(listData.Count);
+                
+                foreach (var item in listData)
+                {
+                    theSanPham card = new theSanPham(item.MaSP, item.TenSP, item.Gia, item.HinhAnh, item.KhuyenMai);
                     card.BorderStyle = BorderStyle.FixedSingle;
-                    card.Margin = new Padding(5); // Tạo khoảng cách giữa các thẻ
-
+                    card.Margin = new Padding(5);
                     card.SanPhamClicked += Card_Clicked;
-                    // 2. Thêm thẻ vào FlowLayoutPanel
-                    flowLayoutPanelSP.Controls.Add(card);
-                }
-                flowLayoutPanelSP.ResumeLayout();
 
+                    ucList.Add(card);
+                }
+
+                flowLayoutPanelSP.Controls.AddRange(ucList.ToArray());
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi tải sản phẩm: " + ex.Message);
+            }
+            finally
+            {
+                flowLayoutPanelSP.ResumeLayout();
             }
         }
 
@@ -141,7 +166,7 @@ namespace DA_UDQLCuaHangTienLoi
                     break;
                 case "KM03":
                     gia = gia * 0.7m;
-                    break;                
+                    break;
                 default:
                     break;
             }
@@ -168,7 +193,7 @@ namespace DA_UDQLCuaHangTienLoi
                         soLuongHienTai = Convert.ToInt32(row.Cells["colSL"].Value);
                         soLuongMoi = soLuongHienTai + 1;
                     }
-                    
+
 
                     row.Cells["colSL"].Value = soLuongMoi;
 
@@ -193,7 +218,7 @@ namespace DA_UDQLCuaHangTienLoi
                     dgvHoaDon.Rows.Add(ten, gia, khuyenMai, 1, gia, ma);
                 }
                 // Thứ tự truyền vào phải khớp với thứ tự các cột trong DataGridView của bạn                
-                
+
             }
 
             // 3. Cập nhật dòng chữ "Tổng hóa đơn: xxx đ" ở dưới cùng
@@ -322,7 +347,7 @@ namespace DA_UDQLCuaHangTienLoi
                 // 4. Hết 5 giây, bật lại nút cho người dùng bấm
                 btnLamMoi.Enabled = true;
             }
-            
+
         }
 
         private void cbLSP_SelectedIndexChanged(object sender, EventArgs e)
@@ -833,9 +858,9 @@ namespace DA_UDQLCuaHangTienLoi
         }
 
         private void txtNhapDiem_KeyDown(object sender, KeyEventArgs e)
-        {            
+        {
             if (e.KeyCode == Keys.Enter)
-            {         
+            {
                 // Chỉ cần gọi hàm này, nó sẽ tự động lấy số tiền gốc trừ đi số trong txtNhapDiem
                 CapNhatTongTien();
 
@@ -876,7 +901,7 @@ namespace DA_UDQLCuaHangTienLoi
             }
 
             // Tính tổng tiền cuối cùng
-            int tongTienCuoiCung = tongTienGoc - soTienGiam;            
+            int tongTienCuoiCung = tongTienGoc - soTienGiam;
             // Đảm bảo tổng tiền không bị âm (nếu điểm nhập lớn hơn hoặc bằng tổng tiền)
             if (tongTienCuoiCung < 0)
             {
@@ -1031,5 +1056,13 @@ namespace DA_UDQLCuaHangTienLoi
                 flowLayoutPanelSP.Controls.Add(card);
             }
         }
+    }
+    public class SanPhamDTO
+    {
+        public string MaSP { get; set; }
+        public string TenSP { get; set; }
+        public decimal Gia { get; set; }
+        public string KhuyenMai { get; set; }
+        public Image HinhAnh { get; set; }
     }
 }
