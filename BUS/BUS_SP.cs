@@ -127,5 +127,16 @@ namespace BUS
         {
             return sp.laySoLuongSP(ma);
         }
+        //lay dssp theo trang thai
+        public DataTable layDSSPKHD()
+        {
+            return sp.layDSSPKhongHoatDong();
+        }
+
+        //tim sp khong hoat dong theo ten
+        public DataTable timSPKHDTheoTen(string name)
+        {
+            return sp.findSPKHD(name.Trim());
+        }
     }
 }

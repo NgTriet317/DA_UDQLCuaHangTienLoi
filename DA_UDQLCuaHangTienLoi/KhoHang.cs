@@ -175,5 +175,10 @@ namespace DA_UDQLCuaHangTienLoi
             clearbang();
             laydsTonkho();
         }
+
+        private void btnTraHang_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,5 +30,11 @@ namespace BUS
         {
             return ncc.layTenNCC(ma);
         }
+
+        //Thêm nhà cung cấp
+        public bool themNCC(ET_NCC et)
+        {            
+            return ncc.themNCC(et);
+        }
     }
 }

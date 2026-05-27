@@ -55,11 +55,10 @@
             this.cboDVT = new System.Windows.Forms.ComboBox();
             this.txtGiaGoc = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtGiaBan = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThemLSP = new Guna.UI2.WinForms.Guna2Button();
+            this.ThemNCC = new Guna.UI2.WinForms.Guna2Button();
+            this.ThemDVT = new Guna.UI2.WinForms.Guna2Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.picHinh = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -427,56 +426,56 @@
             this.txtGiaBan.Size = new System.Drawing.Size(254, 36);
             this.txtGiaBan.TabIndex = 2;
             // 
-            // guna2Button1
+            // btnThemLSP
             // 
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.SystemColors.MenuHighlight;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(12, 391);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(118, 36);
-            this.guna2Button1.TabIndex = 6;
-            this.guna2Button1.Text = "Thêm LoaiSP";
-            this.guna2Button1.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnThemLSP.BorderRadius = 10;
+            this.btnThemLSP.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemLSP.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemLSP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemLSP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemLSP.FillColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnThemLSP.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnThemLSP.ForeColor = System.Drawing.Color.White;
+            this.btnThemLSP.Location = new System.Drawing.Point(12, 391);
+            this.btnThemLSP.Name = "btnThemLSP";
+            this.btnThemLSP.Size = new System.Drawing.Size(118, 36);
+            this.btnThemLSP.TabIndex = 6;
+            this.btnThemLSP.Text = "Thêm LoaiSP";
+            this.btnThemLSP.Click += new System.EventHandler(this.btnThemLSP_Click);
             // 
-            // guna2Button2
+            // ThemNCC
             // 
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.SystemColors.MenuHighlight;
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(148, 391);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(118, 36);
-            this.guna2Button2.TabIndex = 6;
-            this.guna2Button2.Text = "Thêm NCC";
-            this.guna2Button2.Click += new System.EventHandler(this.btnSave_Click);
+            this.ThemNCC.BorderRadius = 10;
+            this.ThemNCC.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ThemNCC.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ThemNCC.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ThemNCC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ThemNCC.FillColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ThemNCC.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ThemNCC.ForeColor = System.Drawing.Color.White;
+            this.ThemNCC.Location = new System.Drawing.Point(148, 391);
+            this.ThemNCC.Name = "ThemNCC";
+            this.ThemNCC.Size = new System.Drawing.Size(118, 36);
+            this.ThemNCC.TabIndex = 6;
+            this.ThemNCC.Text = "Thêm NCC";
+            this.ThemNCC.Click += new System.EventHandler(this.ThemNCC_Click);
             // 
-            // guna2Button3
+            // ThemDVT
             // 
-            this.guna2Button3.BorderRadius = 10;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.SystemColors.MenuHighlight;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(282, 391);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(118, 36);
-            this.guna2Button3.TabIndex = 6;
-            this.guna2Button3.Text = "Thêm DVT";
-            this.guna2Button3.Click += new System.EventHandler(this.btnSave_Click);
+            this.ThemDVT.BorderRadius = 10;
+            this.ThemDVT.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ThemDVT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ThemDVT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ThemDVT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ThemDVT.FillColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ThemDVT.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ThemDVT.ForeColor = System.Drawing.Color.White;
+            this.ThemDVT.Location = new System.Drawing.Point(282, 391);
+            this.ThemDVT.Name = "ThemDVT";
+            this.ThemDVT.Size = new System.Drawing.Size(118, 36);
+            this.ThemDVT.TabIndex = 6;
+            this.ThemDVT.Text = "Thêm DVT";
+            this.ThemDVT.Click += new System.EventHandler(this.ThemDVT_Click);
             // 
             // label14
             // 
@@ -487,23 +486,6 @@
             this.label14.Size = new System.Drawing.Size(131, 18);
             this.label14.TabIndex = 1;
             this.label14.Text = "Bổ sung thuộc tính";
-            // 
-            // guna2Button4
-            // 
-            this.guna2Button4.BorderRadius = 10;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.SystemColors.MenuHighlight;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Location = new System.Drawing.Point(416, 391);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(118, 36);
-            this.guna2Button4.TabIndex = 6;
-            this.guna2Button4.Text = "Thêm KM";
-            this.guna2Button4.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // picHinh
             // 
@@ -524,12 +506,11 @@
             this.ClientSize = new System.Drawing.Size(875, 502);
             this.ControlBox = false;
             this.Controls.Add(this.btnChonFile);
-            this.Controls.Add(this.guna2Button4);
-            this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.ThemDVT);
             this.Controls.Add(this.picHinh);
-            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.ThemNCC);
             this.Controls.Add(this.guna2Panel2);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnThemLSP);
             this.Controls.Add(this.cboKM);
             this.Controls.Add(this.cboDVT);
             this.Controls.Add(this.cboNCC);
@@ -596,10 +577,9 @@
         private System.Windows.Forms.ComboBox cboDVT;
         private Guna.UI2.WinForms.Guna2TextBox txtGiaGoc;
         private Guna.UI2.WinForms.Guna2TextBox txtGiaBan;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button btnThemLSP;
+        private Guna.UI2.WinForms.Guna2Button ThemNCC;
+        private Guna.UI2.WinForms.Guna2Button ThemDVT;
         private System.Windows.Forms.Label label14;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
     }
 }

@@ -464,5 +464,56 @@ namespace DAL
             }
             return soLuong;
         }
+
+        //lay dssp khong hoat dong
+        public DataTable layDSSPKhongHoatDong()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_LaySPKHD", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // Kiểm tra trạng thái trước khi đóng để tránh lỗi
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return dt;
+        }
+
+        //tim sp theo ten sp khong hoat dong
+        public DataTable findSPKHD(string name)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_findSPKHD", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter param = new SqlParameter("@TenSP", "%" + name + "%");
+                cmd.Parameters.Add(param);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return dt;
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace DA_UDQLCuaHangTienLoi
         BUS_KM km = new BUS_KM();
         
         //frm load tt cbo
-        private void ThemSanPhamNew_Load(object sender, EventArgs e)
+        public void load()
         {
             cboLSP.DataSource = lsp.layDSLSP();
             cboLSP.DisplayMember = "TenLoaiSP";
@@ -53,6 +53,10 @@ namespace DA_UDQLCuaHangTienLoi
             cboDVT.DataSource = sp.layAllDVT();
             cboDVT.DisplayMember = "TenDVT";
             cboDVT.ValueMember = "MaDVT";
+        }
+        private void ThemSanPhamNew_Load(object sender, EventArgs e)
+        {
+            load();
 
         }
 
@@ -137,6 +141,27 @@ namespace DA_UDQLCuaHangTienLoi
                     picHinh.Image = img;
                 }
             }
+        }
+
+        private void btnThemLSP_Click(object sender, EventArgs e)
+        {
+            themLSP themLSPForm = new themLSP();
+            themLSPForm.ShowDialog();
+            load();
+        }
+
+        private void ThemNCC_Click(object sender, EventArgs e)
+        {
+            ThemNCC themNCCForm = new ThemNCC();
+            themNCCForm.ShowDialog();
+            load();
+        }
+
+        private void ThemDVT_Click(object sender, EventArgs e)
+        {
+            ThemDVT themDVTForm = new ThemDVT();
+            themDVTForm.ShowDialog();
+            load();
         }
     }
 }

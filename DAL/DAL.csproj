@@ -76,6 +76,7 @@
     <Compile Include="DAL_TK.cs" />
     <Compile Include="DAL__NHANVIEN.cs" />
     <Compile Include="DBConnect.cs" />
+    <Compile Include="DAL_DVT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

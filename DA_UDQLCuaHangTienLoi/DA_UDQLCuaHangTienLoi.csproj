@@ -442,6 +442,24 @@
     <Compile Include="theKhachHang.Designer.cs">
       <DependentUpon>theKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThemDVT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemDVT.Designer.cs">
+      <DependentUpon>ThemDVT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="themLSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="themLSP.Designer.cs">
+      <DependentUpon>themLSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemNCC.Designer.cs">
+      <DependentUpon>ThemNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThemNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -594,6 +612,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="theKhachHang.resx">
       <DependentUpon>theKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemDVT.resx">
+      <DependentUpon>ThemDVT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="themLSP.resx">
+      <DependentUpon>themLSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemNCC.resx">
+      <DependentUpon>ThemNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThemNhanVien.resx">
       <DependentUpon>ThemNhanVien.cs</DependentUpon>
