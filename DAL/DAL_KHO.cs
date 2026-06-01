@@ -122,7 +122,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand("sp_layDiaChi", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter paramMaKho = new SqlParameter("@MaKhoHang", maKho);               
+                SqlParameter paramMaKho = new SqlParameter("@MaKhoHang", maKho);
                 cmd.Parameters.Add(paramMaKho);
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -137,6 +137,31 @@ namespace DAL
             }
             finally { conn.Close(); }
             return diaChi;
+        }
+
+        //tim san pham trong kho theo ma
+        public DataTable timSPKho(string maSP, string maKho)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_timSPTrongKho", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter paramMaSP = new SqlParameter("@MaSP", maSP);
+                cmd.Parameters.Add(paramMaSP);
+                SqlParameter paramMaKho = new SqlParameter("@MaKhoHang", maKho);
+                cmd.Parameters.Add(paramMaKho);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { conn.Close(); }
+            return dt;
+
         }
     }
 }

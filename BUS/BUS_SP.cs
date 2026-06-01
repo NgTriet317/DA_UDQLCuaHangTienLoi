@@ -138,5 +138,16 @@ namespace BUS
         {
             return sp.findSPKHD(name.Trim());
         }
+
+        //tim sp theo ten trong tra hang
+        public DataTable timSPTheoTenTrongTraHang(string name)
+        {
+            return sp.findSPTraHang(name.Trim());
+        }
+        //tim sp theo ma trong tra hang
+        public DataTable timSPMaTrongTraHang(string ma)
+        {
+            return sp.findSPMaSPTrongTraHang(ma.Trim());
+        }
     }
 }

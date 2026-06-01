@@ -166,7 +166,14 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand("sp_findSP", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter param = new SqlParameter("@TenSP", "%" + name + "%");
+                // BƯỚC THAY ĐỔI QUAN TRỌNG: 
+                // 1. Dùng Normalize để ép về một chuẩn gõ tiếng Việt duy nhất (chống lỗi bộ gõ Unikey)
+                string safeName = name.Trim().Normalize(NormalizationForm.FormC);
+
+                // 2. Khai báo rõ ràng kiểu SqlDbType.NVarChar để SQL Server hiểu đây là chuỗi Unicode có dấu
+                SqlParameter param = new SqlParameter("@TenSP", SqlDbType.NVarChar);
+                param.Value = "%" + safeName + "%";
+
                 cmd.Parameters.Add(param);
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -500,6 +507,67 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand("sp_findSPKHD", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlParameter param = new SqlParameter("@TenSP", "%" + name + "%");
+                cmd.Parameters.Add(param);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return dt;
+        }
+
+        //tim theo ten trong tra hang
+        public DataTable findSPTraHang(string name)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_findSPTheoTenTrongTraHang", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // BƯỚC THAY ĐỔI QUAN TRỌNG: 
+                // 1. Dùng Normalize để ép về một chuẩn gõ tiếng Việt duy nhất (chống lỗi bộ gõ Unikey)
+                string safeName = name.Trim().Normalize(NormalizationForm.FormC);
+
+                // 2. Khai báo rõ ràng kiểu SqlDbType.NVarChar để SQL Server hiểu đây là chuỗi Unicode có dấu
+                SqlParameter param = new SqlParameter("@TenSP", SqlDbType.NVarChar);
+                param.Value = "%" + safeName + "%";
+
+                cmd.Parameters.Add(param);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return dt;
+        }
+
+        //tim sp theo ma sp trong tra hang
+        public DataTable findSPMaSPTrongTraHang(string ma)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_findSPMaTrongTraHang", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter param = new SqlParameter("@MaSP", ma);
                 cmd.Parameters.Add(param);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);

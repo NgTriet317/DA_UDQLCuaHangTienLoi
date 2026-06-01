@@ -34,7 +34,7 @@ namespace DAL
         }
 
         //them dvt
-        public bool themNCC(ET.ET_DVT et)
+        public bool themDVT(ET.ET_DVT et)
         {
             try
             {

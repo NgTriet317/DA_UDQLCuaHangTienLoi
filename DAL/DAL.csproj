@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL_CaLam.cs" />
+    <Compile Include="DAL_CUAHANG.cs" />
     <Compile Include="DAL_KHACHHANG.cs" />
     <Compile Include="DAL_KHO.cs" />
     <Compile Include="DAL_HoaDon.cs" />

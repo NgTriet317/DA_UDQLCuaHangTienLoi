@@ -19,7 +19,7 @@ namespace BUS
         //them dvt
         public bool them(ET.ET_DVT et)
         {
-            return dvt.themNCC(et);
+            return dvt.themDVT(et);
         }
     }
 }
