@@ -139,7 +139,7 @@ namespace DA_UDQLCuaHangTienLoi
                 cboTenNV.SelectedValue = dgvThongTin.Rows[dong].Cells[1].Value;
                 dtpNgayLam.Value = Convert.ToDateTime(dgvThongTin.Rows[dong].Cells[4].Value);
 				maCaCu = cboMaCa.SelectedValue.ToString();
-				maNVCu =cboTenNV.SelectedValue.ToString();
+				maNVCu = cboTenNV.SelectedValue.ToString();
 			}
             catch
             {
@@ -198,7 +198,13 @@ namespace DA_UDQLCuaHangTienLoi
         // Sự kiện khi click vào nút "Sửa", cập nhật thông tin của một ca làm đã tồn tại trong cơ sở dữ liệu dựa trên thông tin đã chỉnh sửa trong các control tương ứng
         private void btnSua_Click(object sender, EventArgs e)
 		{
-			try
+            //khong dc chon ca lam trong qua khu
+            if (dtpNgayLam.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Không được chọn ca làm trong quá khứ", "Thông báo");
+                return;
+            }
+            try
 			{
 				string maNVMoi = cboTenNV.SelectedValue == null ? "" : cboTenNV.SelectedValue.ToString();
 				string maCaMoi = cboMaCa.SelectedValue == null ? "" : cboMaCa.SelectedValue.ToString();

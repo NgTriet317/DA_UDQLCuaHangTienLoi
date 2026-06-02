@@ -41,7 +41,8 @@ namespace DA_UDQLCuaHangTienLoi
             btnBaoCao.FillColor = SystemColors.MenuHighlight;
             btnNV.FillColor = SystemColors.MenuHighlight;
             btnKhach.FillColor = SystemColors.MenuHighlight;
-        }
+            btnLuongBong.FillColor = SystemColors.MenuHighlight;
+		}
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
@@ -85,7 +86,8 @@ namespace DA_UDQLCuaHangTienLoi
         private KhachHang frmKhach = null;
         private KhoHang frmKho = null;
         private ThongKe frmBaoCao = null;
-        private void btnBanHang_Click(object sender, EventArgs e)
+        private LuongBong frmLuongBong = null;
+		private void btnBanHang_Click(object sender, EventArgs e)
         {
             clearColorButton();
             btnBanHang.FillColor = Color.MediumBlue;
@@ -252,5 +254,17 @@ namespace DA_UDQLCuaHangTienLoi
         {
 
         }
-    }
+
+		private void btnLuongBong_Click(object sender, EventArgs e)
+		{
+			clearColorButton();
+			btnLuongBong.FillColor = Color.MediumBlue;
+
+
+			if (frmLuongBong == null || frmLuongBong.IsDisposed)
+				frmLuongBong = new LuongBong();
+
+			OpenChildForm(frmLuongBong);
+		}
+	}
 }

@@ -83,5 +83,10 @@ namespace BUS
             return nv.layTTNhanVienCalam();
         }
 
+        //Lấy nhân viên còn hoạt động
+        public DataTable layDSNhanVienHoatDong()
+        {
+            return nv.layDSNhanVienHoatDong();
+        }
     } 
 }

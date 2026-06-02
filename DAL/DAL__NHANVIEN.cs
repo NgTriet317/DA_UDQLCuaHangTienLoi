@@ -346,5 +346,25 @@ namespace DAL
             finally { conn.Close(); }
             return dt;
         }
-    } 
+
+        //Lấy nhân viên còn hoạt động
+        public DataTable layDSNhanVienHoatDong()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_LayDSNhanVienHD", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { conn.Close(); }
+            return dt;
+        }
+    }
 }
