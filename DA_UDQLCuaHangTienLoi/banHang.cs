@@ -155,7 +155,7 @@ namespace DA_UDQLCuaHangTienLoi
             string khuyenMai = clickedCard.khuyenMai;
 
             bool daCoTrongHoaDon = false;
-
+            
             switch (khuyenMai)
             {
                 case "KM01":

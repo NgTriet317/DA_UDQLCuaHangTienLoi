@@ -70,6 +70,9 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
+            this.pnTrangThai = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTrangThai = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel13.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
@@ -92,9 +95,12 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 1;
+            this.guna2Panel1.Controls.Add(this.pnTrangThai);
+            this.guna2Panel1.Controls.Add(this.lblDVT);
             this.guna2Panel1.Controls.Add(this.guna2Panel13);
             this.guna2Panel1.Controls.Add(this.guna2Panel6);
             this.guna2Panel1.Controls.Add(this.guna2Panel5);
+            this.guna2Panel1.Controls.Add(this.lblTrangThai);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.picHinh);
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
@@ -114,7 +120,7 @@
             this.guna2Panel13.Controls.Add(this.label2);
             this.guna2Panel13.Controls.Add(this.lblNSX);
             this.guna2Panel13.FillColor = System.Drawing.SystemColors.Control;
-            this.guna2Panel13.Location = new System.Drawing.Point(27, 337);
+            this.guna2Panel13.Location = new System.Drawing.Point(27, 365);
             this.guna2Panel13.Name = "guna2Panel13";
             this.guna2Panel13.Size = new System.Drawing.Size(211, 84);
             this.guna2Panel13.TabIndex = 2;
@@ -164,9 +170,9 @@
             this.guna2Panel6.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel6.BorderRadius = 15;
             this.guna2Panel6.BorderThickness = 1;
-            this.guna2Panel6.Controls.Add(this.lblDVT);
+            this.guna2Panel6.Controls.Add(this.label6);
             this.guna2Panel6.FillColor = System.Drawing.SystemColors.Control;
-            this.guna2Panel6.Location = new System.Drawing.Point(27, 268);
+            this.guna2Panel6.Location = new System.Drawing.Point(27, 309);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(211, 50);
             this.guna2Panel6.TabIndex = 2;
@@ -174,12 +180,13 @@
             // lblDVT
             // 
             this.lblDVT.AutoSize = true;
+            this.lblDVT.BackColor = System.Drawing.SystemColors.Control;
             this.lblDVT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDVT.Location = new System.Drawing.Point(48, 10);
+            this.lblDVT.Location = new System.Drawing.Point(153, 324);
             this.lblDVT.Name = "lblDVT";
-            this.lblDVT.Size = new System.Drawing.Size(112, 25);
+            this.lblDVT.Size = new System.Drawing.Size(41, 25);
             this.lblDVT.TabIndex = 1;
-            this.lblDVT.Text = "DonViTinh";
+            this.lblDVT.Text = "dvt";
             this.lblDVT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel5
@@ -596,6 +603,38 @@
             this.btnUpdate.Text = "Sửa thông tin";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // pnTrangThai
+            // 
+            this.pnTrangThai.BorderColor = System.Drawing.Color.Lime;
+            this.pnTrangThai.BorderRadius = 10;
+            this.pnTrangThai.BorderThickness = 1;
+            this.pnTrangThai.FillColor = System.Drawing.Color.Lime;
+            this.pnTrangThai.Location = new System.Drawing.Point(41, 275);
+            this.pnTrangThai.Name = "pnTrangThai";
+            this.pnTrangThai.Size = new System.Drawing.Size(22, 22);
+            this.pnTrangThai.TabIndex = 3;
+            // 
+            // lblTrangThai
+            // 
+            this.lblTrangThai.AutoSize = true;
+            this.lblTrangThai.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrangThai.Location = new System.Drawing.Point(69, 275);
+            this.lblTrangThai.Name = "lblTrangThai";
+            this.lblTrangThai.Size = new System.Drawing.Size(165, 25);
+            this.lblTrangThai.TabIndex = 1;
+            this.lblTrangThai.Text = "Đang hoạt động";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(9, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(114, 25);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Đơn vị tính";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ViewSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -685,5 +724,8 @@
         private System.Windows.Forms.Label lblHSD;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Panel pnTrangThai;
+        private System.Windows.Forms.Label lblTrangThai;
+        private System.Windows.Forms.Label label6;
     }
 }

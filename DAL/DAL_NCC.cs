@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
     public class DAL_NCC : DBConnect
-    {        
+    {
         /// <summary>
         /// lấy ds ncc
         /// </summary>
@@ -22,14 +22,15 @@ namespace DAL
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_layNCC",conn);
+                SqlCommand cmd = new SqlCommand("sp_layNCC", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
 
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -60,5 +61,26 @@ namespace DAL
             finally { conn.Close(); }
             return name;
         }
-    }    
+
+        //them ncc 
+        public bool themNCC(ET_NCC et)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_themNCC", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaNCC", et.MaNCC);
+                cmd.Parameters.AddWithValue("@TenNCC", et.TenNCC);
+                cmd.Parameters.AddWithValue("@DiaChi", et.DiaChiNCC);
+                cmd.Parameters.AddWithValue("@SDT", et.TongDai);
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { conn.Close(); }
+        }
+    }   
 }

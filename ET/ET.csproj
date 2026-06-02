@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ET_CaLam.cs" />
+    <Compile Include="ET_CUAHANG.cs" />
+    <Compile Include="ET_DVT.cs" />
     <Compile Include="ET_HoaDon.cs" />
     <Compile Include="ET_KHACHHANG.cs" />
     <Compile Include="ET_KhenThuong.cs" />

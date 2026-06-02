@@ -14,12 +14,16 @@ namespace DA_UDQLCuaHangTienLoi
 {
     public partial class frmMain : Form
     {
+        public static string maCH = "CH01";
         public static string inActive = "0";
         public static string mail = "";
         public static string chucVu = "";
+        public static string chiNhanh = "";
 
         BUS_TK tK = new BUS_TK();
         BUS_NHANVIEN nv = new BUS_NHANVIEN();
+
+
         public frmMain()
         {
             InitializeComponent();            
@@ -112,9 +116,12 @@ namespace DA_UDQLCuaHangTienLoi
 
         public static string maNV = "";
 
-
+        BUS_CUAHANG ch = new BUS_CUAHANG();
         private void Form1_Load(object sender, EventArgs e)
-        {            
+        {
+            DataRow drc = ch.layTTCuaHang(maCH).Rows[0];
+             
+            chiNhanh = drc["DiaChi"].ToString();
 
             if (mail != string.Empty)
             {

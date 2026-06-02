@@ -127,5 +127,27 @@ namespace BUS
         {
             return sp.laySoLuongSP(ma);
         }
+        //lay dssp theo trang thai
+        public DataTable layDSSPKHD()
+        {
+            return sp.layDSSPKhongHoatDong();
+        }
+
+        //tim sp khong hoat dong theo ten
+        public DataTable timSPKHDTheoTen(string name)
+        {
+            return sp.findSPKHD(name.Trim());
+        }
+
+        //tim sp theo ten trong tra hang
+        public DataTable timSPTheoTenTrongTraHang(string name)
+        {
+            return sp.findSPTraHang(name.Trim());
+        }
+        //tim sp theo ma trong tra hang
+        public DataTable timSPMaTrongTraHang(string ma)
+        {
+            return sp.findSPMaSPTrongTraHang(ma.Trim());
+        }
     }
 }

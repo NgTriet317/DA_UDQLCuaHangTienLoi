@@ -38,6 +38,18 @@ namespace DA_UDQLCuaHangTienLoi
 
             foreach (DataRow dr in dt.Rows)
             {
+                if (dr["HoatDong"].ToString() == "Hoạt động")
+                {
+                    pnTrangThai.FillColor = Color.Lime;
+                    pnTrangThai.BorderColor = Color.Lime;
+                    lblTrangThai.Text = "Đang hoạt động";
+                }
+                else{
+                    pnTrangThai.FillColor = Color.Red;
+                    pnTrangThai.BorderColor = Color.Red;
+                    lblTrangThai.Text = "Không hoạt động";
+                }
+
                 Image img = null;
                 string imageName = dr["Hinh"]?.ToString();
                 string full = Path.Combine(Application.StartupPath, "AnhSanPham", imageName ?? "");

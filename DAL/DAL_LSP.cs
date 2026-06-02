@@ -88,5 +88,29 @@ namespace DAL
             finally { conn.Close(); }
             return name;
         }
+
+        //them loai sp
+        public bool themLSP(string ma, string ten)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_themLSP", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaLSP", ma);
+                cmd.Parameters.AddWithValue("@TenLSP", ten);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0; // Trả về true nếu có ít nhất 1 dòng bị ảnh hưởng
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
     }
 }

@@ -175,5 +175,14 @@ namespace DA_UDQLCuaHangTienLoi
             clearbang();
             laydsTonkho();
         }
+
+        private void btnTraHang_Click(object sender, EventArgs e)
+        {
+            frmTraHang traHang = new frmTraHang();
+            traHang.ShowDialog();
+            clear();
+            clearbang();
+            laydsTonkho();
+        }
     }
 }

@@ -41,5 +41,11 @@ namespace BUS
         {
             return lsp.layTenLSP(ma);
         }
+
+        //them loai sp
+        public bool themLSP(string ma, string ten)
+        {
+            return lsp.themLSP(ma, ten);
+        }
     }
 }

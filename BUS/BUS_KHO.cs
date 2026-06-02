@@ -51,6 +51,12 @@ namespace BUS
         {
             return kho.layDiaChiKho(maKho);
         }
+
+        //tim san pham trong kho theo ma
+        public DataTable timSPKho(string maSP, string maKho)
+        {
+            return kho.timSPKho(maSP, maKho);
+        }
     }
 
 }
