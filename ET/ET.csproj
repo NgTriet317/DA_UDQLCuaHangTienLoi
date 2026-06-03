@@ -65,10 +65,12 @@
     <Compile Include="ET_DVT.cs" />
     <Compile Include="ET_HoaDon.cs" />
     <Compile Include="ET_KHACHHANG.cs" />
+    <Compile Include="ET_KhenThuong.cs" />
     <Compile Include="ET_KHO.cs" />
     <Compile Include="ET_KM.cs" />
     <Compile Include="ET_LichLam.cs" />
     <Compile Include="ET_LSP.cs" />
+    <Compile Include="ET_BangLuong.cs" />
     <Compile Include="ET_NCC.cs" />
     <Compile Include="ET_NHANVIEN.cs" />
     <Compile Include="ET_NHAPHANG.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="ET_SPHD.cs" />
     <Compile Include="ET_TK.cs" />
     <Compile Include="ET_TRAHANGNCC.cs" />
+    <Compile Include="ET_KyLuat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ET_SP_NH.cs" />
   </ItemGroup>

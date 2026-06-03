@@ -27,7 +27,10 @@ namespace DA_UDQLCuaHangTienLoi
 			LoadThongKeTongQuat();
 			LoadThongTinHoaDon();
 			LoadMockData();
-		}
+			dtpNgayTu.Value = DateTime.Now;
+			dtpNgayDen.Value = DateTime.Now;
+
+        }
 		BUS_HoaDon hd = new BUS_HoaDon();
 
 		private void LoadThongKeTongQuat()

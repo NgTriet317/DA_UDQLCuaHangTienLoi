@@ -19,7 +19,7 @@ namespace DA_UDQLCuaHangTienLoi
             // 1. HAI DÒNG NÀY BẮT BUỘC PHẢI Ở TRÊN CÙNG
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new TTSPNew());
+            //Application.Run(new LuongBong());
 
             openDongGoi();
            
@@ -43,7 +43,7 @@ namespace DA_UDQLCuaHangTienLoi
             //Đọc chuỗi kết nối từ cấu hình App.config
             //string chuoiConfig = ConfigurationManager.ConnectionStrings["MyDbConnection"].ConnectionString;
 
-            string chuoiConfig = "Data Source=MSI;Initial Catalog=QLCHTL;Integrated Security=True;";
+            string chuoiConfig = "Data Source=DESKTOP-C9VCE8A;Initial Catalog=QLCHTL;Integrated Security=True;";
 
             // TRUYỀN CHO THẰNG CHA ĐÚNG 1 LẦN DUY NHẤT!
             DAL.DBConnect.ChuoiKetNoi = chuoiConfig;
@@ -67,7 +67,7 @@ namespace DA_UDQLCuaHangTienLoi
             {
                 // Lấy connection string từ App.config
                 //string connString = ConfigurationManager.ConnectionStrings["MyDbConnection"].ConnectionString;
-                string connString = "Data Source=MSI;Initial Catalog=QLCHTL;Integrated Security=True;";
+                string connString = "Data Source=DESKTOP-C9VCE8A;Initial Catalog=QLCHTL;Integrated Security=True;";
 
                 if (string.IsNullOrEmpty(connString)) return false;
 

@@ -61,12 +61,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_BangLuong.cs" />
     <Compile Include="DAL_CaLam.cs" />
     <Compile Include="DAL_CUAHANG.cs" />
     <Compile Include="DAL_KHACHHANG.cs" />
+    <Compile Include="DAL_KhenThuong.cs" />
     <Compile Include="DAL_KHO.cs" />
     <Compile Include="DAL_HoaDon.cs" />
     <Compile Include="DAL_KM.cs" />
+    <Compile Include="DAL_KyLuat.cs" />
     <Compile Include="DAL_LichLam.cs" />
     <Compile Include="DAL_LSP.cs" />
     <Compile Include="DAL_NCC.cs" />
