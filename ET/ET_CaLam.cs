@@ -11,19 +11,19 @@ namespace ET
 		private string maCa;
 		private DateTime gioBatDau;
 		private DateTime gioKetThuc;
-		private int tienPhuCap;
+		private int giaCa;
 
-		public ET_CaLam(string maCa, DateTime gioBatDau, DateTime gioKetThuc, int tienPhuCap)
+		public ET_CaLam(string maCa, DateTime gioBatDau, DateTime gioKetThuc, int giaCa)
 		{
 			this.MaCa = maCa;
 			this.GioBatDau = gioBatDau;
 			this.GioKetThuc = gioKetThuc;
-			this.TienPhuCap = tienPhuCap;
+			this.GiaCa = giaCa;
 		}
 
 		public string MaCa { get => maCa; set => maCa = value; }
 		public DateTime GioBatDau { get => gioBatDau; set => gioBatDau = value; }
 		public DateTime GioKetThuc { get => gioKetThuc; set => gioKetThuc = value; }
-		public int TienPhuCap { get => tienPhuCap; set => tienPhuCap = value; }
+		public int GiaCa { get => giaCa; set => giaCa = value; }
 	}
 }
