@@ -452,7 +452,8 @@ namespace DA_UDQLCuaHangTienLoi
                     ET_KHACHHANG et = new ET_KHACHHANG(maKH, diemDaTich, Convert.ToInt32(lblDiemDaDung.Text), diemHienTai);
                     //Cập nhật điểm
                     Kh.capNhatDiem(et);
-
+                    //Cập nhật rank
+                    Kh.CapNhatRank(maKH, diemDaTich);
                     if (dgvHoaDon.Rows.Count < 1)
                     {
                         MessageBox.Show("Không tìm thấy sản phẩm để tạo hóa đơn", "Thông báo");

@@ -45,12 +45,14 @@ namespace DA_UDQLCuaHangTienLoi
                     string tenKH = row["HoTenKH"].ToString();
                     string sdt = row["SDT"].ToString();
                     string diemTichLuy = row["SoDiemDaTich"].ToString();
+                    string diemHienTai = row["SoDiemHienTai"].ToString();
+                    string tenRank = row["TenRank"].ToString();
 
                     // 1. Tạo một thẻ khách hàng mới (truyền cả MaKH vào để ẩn đi)
-                    theKhachHang card = new theKhachHang(maKH, tenKH, sdt, diemTichLuy);
+                    theKhachHang card = new theKhachHang(maKH, tenKH, sdt, diemTichLuy, diemHienTai, tenRank);
 
                     // Thêm viền (tùy chọn cho giống ảnh)                    
-                    card.Margin = new Padding(2); // Tạo khoảng cách giữa các thẻ
+                    card.Margin = new Padding(20); // Tạo khoảng cách giữa các thẻ
 
                     card.SanPhamClicked += Card_Clicked;
                     // 2. Thêm thẻ vào FlowLayoutPanel
@@ -177,8 +179,10 @@ namespace DA_UDQLCuaHangTienLoi
                 string tenKH = row["HoTenKH"].ToString();
                 string sdt = row["SDT"].ToString();
                 string diemTichLuy = row["SoDiemDaTich"].ToString();
+                string diemHienTai = row["SoDiemHienTai"].ToString();
+                string tenRank = row["TenRank"].ToString();
 
-                theKhachHang card = new theKhachHang(maKH, tenKH, sdt, diemTichLuy);
+                theKhachHang card = new theKhachHang(maKH, tenKH, sdt, diemTichLuy, diemHienTai, tenRank);
                 card.Margin = new Padding(2);
                 card.SanPhamClicked += Card_Clicked;
                 flpDSKhachHang.Controls.Add(card);

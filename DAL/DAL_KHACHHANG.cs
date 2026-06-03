@@ -198,5 +198,34 @@ namespace DAL
                 conn.Close();
             }
         }
+
+        public bool CapNhatRank(string maKH, int soDiemMoi)
+        {
+            bool kt = false;
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_CapNhatRank", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter[] paras = {
+                    new SqlParameter("@MaKH", maKH),
+                    new SqlParameter("@SoDiemMoi", soDiemMoi)
+                };
+                cmd.Parameters.AddRange(paras);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    kt = true;
+                }    
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi DAL: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return kt;
+        }
     }
 }
