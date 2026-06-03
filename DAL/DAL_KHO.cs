@@ -150,7 +150,7 @@ namespace DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlParameter paramMaSP = new SqlParameter("@MaSP", maSP);
                 cmd.Parameters.Add(paramMaSP);
-                SqlParameter paramMaKho = new SqlParameter("@MaKhoHang", maKho);
+                SqlParameter paramMaKho = new SqlParameter("@MaKho", maKho);
                 cmd.Parameters.Add(paramMaKho);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);

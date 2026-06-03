@@ -15,6 +15,7 @@ namespace DA_UDQLCuaHangTienLoi
     public partial class KhoHang : Form
     {
         public static string maNV;
+        public static string maKho;
         public KhoHang()
         {
             InitializeComponent();
@@ -24,6 +25,9 @@ namespace DA_UDQLCuaHangTienLoi
         BUS_SP sp = new BUS_SP();
         private void KhoHang_Load(object sender, EventArgs e)
         {
+
+            maKho = kho.layKho().Rows[0]["MaKhoHang"].ToString();
+
             cboKhoHang.DataSource = kho.layKho();
             cboKhoHang.DisplayMember = "TenKho";
             cboKhoHang.ValueMember = "MaKhoHang";
@@ -34,7 +38,7 @@ namespace DA_UDQLCuaHangTienLoi
 
         //Hàm lấy địa chỉ kho
         public void layDiaChiKho()
-        {                        
+        {
             //DataTable dt = kho.layKho();
 
             //foreach (DataRow dr in dt.Rows)
@@ -73,7 +77,7 @@ namespace DA_UDQLCuaHangTienLoi
             {
                 maKho = dr["MaKhoHang"].ToString();
                 if (maKho == cboKhoHang.SelectedValue.ToString())
-                {                    
+                {
                     maSP = dr["MaSP"].ToString();
                     tenSP = dr["TenSP"].ToString();
                     loaiSP = dr["MaLoaiSP"].ToString();
@@ -97,8 +101,8 @@ namespace DA_UDQLCuaHangTienLoi
         {
             if (dgvTTKho.CurrentRow == null || dgvTTKho.CurrentRow.IsNewRow) return;
 
-            int dong = dgvTTKho.CurrentCell.RowIndex;            
-            
+            int dong = dgvTTKho.CurrentCell.RowIndex;
+
             txtTenSP.Text = dgvTTKho.Rows[dong].Cells[0].Value.ToString();
             txtSLTK.Text = dgvTTKho.Rows[dong].Cells[6].Value.ToString();
             txtSLSP.Text = dgvTTKho.Rows[dong].Cells[7].Value.ToString();
@@ -115,7 +119,7 @@ namespace DA_UDQLCuaHangTienLoi
 
         }
 
-        
+
         private void btnXuatKho_Click(object sender, EventArgs e)
         {
             try
@@ -137,7 +141,7 @@ namespace DA_UDQLCuaHangTienLoi
             {
                 MessageBox.Show("Hãy chọn 1 hàng trước khi thêm");
             }
-            
+
         }
 
         //Clear nội dung
@@ -175,10 +179,19 @@ namespace DA_UDQLCuaHangTienLoi
             clearbang();
             laydsTonkho();
         }
-
+        BUS_TRAHANGNCC BUStraHang = new BUS_TRAHANGNCC();
         private void btnTraHang_Click(object sender, EventArgs e)
         {
+            DataTable dt = BUStraHang.layAllTT();
+
+            int count = dt.Rows.Count;
+
+            BUStraHang.taoPhieuTraHang($"MTNCC{(count + 1):D2}");            
+
+            DataTable dtAfter = BUStraHang.layAllTT();
+
             frmTraHang traHang = new frmTraHang();
+            frmTraHang.maTraNCC = dtAfter.Rows[0]["MaTraNCC"].ToString();
             traHang.ShowDialog();
             clear();
             clearbang();

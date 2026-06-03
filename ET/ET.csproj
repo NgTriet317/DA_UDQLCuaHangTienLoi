@@ -74,6 +74,7 @@
     <Compile Include="ET_SP.cs" />
     <Compile Include="ET_SPHD.cs" />
     <Compile Include="ET_TK.cs" />
+    <Compile Include="ET_TRAHANGNCC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ET_SP_NH.cs" />
   </ItemGroup>

@@ -75,6 +75,7 @@
     <Compile Include="DAL_SPHD.cs" />
     <Compile Include="DAL_SP_NH.cs" />
     <Compile Include="DAL_TK.cs" />
+    <Compile Include="DAL_TRAHANG.cs" />
     <Compile Include="DAL__NHANVIEN.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="DAL_DVT.cs" />

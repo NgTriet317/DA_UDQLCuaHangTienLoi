@@ -13,6 +13,7 @@ namespace DA_UDQLCuaHangTienLoi
 {
     public partial class frmTraHang : Form
     {
+        public static string maTraNCC;
         public frmTraHang()
         {
             InitializeComponent();
@@ -37,6 +38,8 @@ namespace DA_UDQLCuaHangTienLoi
 
         private void frmTraHang_Load(object sender, EventArgs e)
         {
+            lblMaPhieu.Text = maTraNCC;
+
             txtKho.Text = frmMain.chiNhanh;
 
             txtNVName.Text = nv.layNVTheoMa(frmMain.maNV).Rows[0]["HoTenNV"].ToString();
@@ -77,6 +80,7 @@ namespace DA_UDQLCuaHangTienLoi
                 string maSP = drSanPham["MaSP"].ToString();
                 string tenSP = drSanPham["TenSP"].ToString();
                 string DVT = drSanPham["MaDVT"].ToString();
+                string slKho = kho.timSPKho(maSP, KhoHang.maKho).Rows[0]["SoLuongTonKho"].ToString();
                 decimal giaGoc = Convert.ToDecimal(drSanPham["GiaGoc"]);
 
                 // LẤY TÊN NHÀ CUNG CẤP
@@ -118,7 +122,7 @@ namespace DA_UDQLCuaHangTienLoi
                 {
                     int slMacDinh = 1;
                     decimal thanhTienMacDinh = slMacDinh * giaGoc;
-                    dgvTTPhieuXuat.Rows.Add(maSP, tenSP, DVT, 0, slMacDinh, giaGoc, thanhTienMacDinh);
+                    dgvTTPhieuXuat.Rows.Add(maSP, tenSP, DVT, slKho, slMacDinh, giaGoc, thanhTienMacDinh);
                 }
 
                 txtSearch.Clear();
@@ -142,7 +146,7 @@ namespace DA_UDQLCuaHangTienLoi
                         string maSP = dr["MaSP"].ToString();
 
                         // Tìm thông tin chi tiết sản phẩm dựa theo mã (Hàm này cũng bắt buộc phải JOIN lấy TenNCC)
-                        DataTable dtsp = sp.findSPMa(maSP);
+                        DataTable dtsp = sp.timSPMaTrongTraHang(maSP);
                         if (dtsp.Rows.Count == 0) continue;
 
                         DataRow drSpChiTiet = dtsp.Rows[0];
@@ -171,6 +175,7 @@ namespace DA_UDQLCuaHangTienLoi
                     MessageBox.Show("Vui lòng nhập mã sản phẩm hoặc chọn một phiếu nhập cụ thể!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+            TinhTongTienPhieu();            
         }
 
         private void ResetForm()
@@ -230,13 +235,23 @@ namespace DA_UDQLCuaHangTienLoi
         private void TinhTongTienPhieu()
         {
             decimal tongTien = 0;
+            int tongSoSP = 0;
+            int SoLuong = 0;
 
             // Duyệt qua tất cả các dòng hiện có trên DataGridView
             foreach (DataGridViewRow row in dgvTTPhieuXuat.Rows)
             {
+                tongSoSP++;
                 // Bỏ qua dòng trống (nếu có)
                 if (!row.IsNewRow)
                 {
+                    int tongSoLuongSP = 0;
+                    if (row.Cells["colSL"].Value != null)
+                    {
+                        int.TryParse(row.Cells["colSL"].Value.ToString(), out tongSoLuongSP);
+                    }
+                    SoLuong += tongSoLuongSP;
+
                     decimal thanhTienDong = 0;
                     if (row.Cells["colThanhTien"].Value != null)
                     {
@@ -247,6 +262,8 @@ namespace DA_UDQLCuaHangTienLoi
             }
 
             // Hiển thị ra một Label hoặc TextBox Tổng Tiền trên giao diện
+            lblSLMH.Text = tongSoSP.ToString();
+            lblSLXuatTra.Text = SoLuong.ToString();
             lblTongTienHoan.Text = tongTien.ToString("N0") + " VNĐ";
         }
     }
