@@ -52,5 +52,11 @@ namespace BUS
         {
             return kh.capNhatDiem(et);
         }
+
+        //Cập nhật rank
+        public bool CapNhatRank(string maKH, int soDiemMoi)
+        {
+            return kh.CapNhatRank(maKH, soDiemMoi);
+        }
     } 
 }

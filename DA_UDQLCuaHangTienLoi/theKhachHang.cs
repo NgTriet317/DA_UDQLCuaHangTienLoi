@@ -17,8 +17,10 @@ namespace DA_UDQLCuaHangTienLoi
         public string TenKH { get; private set; }
         public string SDT { get; private set; }
         public string DiemTichLuy { get; private set; }
+        public string DiemHienTai { get; private set; }
+        public string TenRank { get; private set; }
 
-        public theKhachHang(string ma, string ten, string sdt, string diemTichLuy)
+        public theKhachHang(string ma, string ten, string sdt, string diemTichLuy, string diemHienTai, string tenRank)
         {
             InitializeComponent();
 
@@ -31,11 +33,15 @@ namespace DA_UDQLCuaHangTienLoi
             this.TenKH = ten;
             this.SDT = sdt;
             this.DiemTichLuy = diemTichLuy;
+            this.DiemHienTai = diemHienTai;
+            this.TenRank = tenRank;
 
             // Hiển thị dữ liệu
             lblHoTen.Text = ten;
             lblSDT.Text = sdt;
-            lblPoint.Text = diemTichLuy;
+            lblDiemDaTich.Text = diemTichLuy;
+            lblDiemHienTai.Text = diemHienTai;
+            lblRank.Text = tenRank;
 
             // GÁN SỰ KIỆN CLICK CHO TẤT CẢ THÀNH PHẦN CON
             this.Click += Control_Click;
@@ -62,7 +68,7 @@ namespace DA_UDQLCuaHangTienLoi
             guna2Panel1.Click += Control_Click;
             lblHoTen.Click += Control_Click;
             lblSDT.Click += Control_Click;
-            lblPoint.Click += Control_Click;
+            lblDiemDaTich.Click += Control_Click;
 
             guna2Panel1.MouseEnter += theKhachHang_MouseEnter;
             guna2Panel1.MouseLeave += theKhachHang_MouseLeave;
@@ -71,8 +77,8 @@ namespace DA_UDQLCuaHangTienLoi
             panel1.MouseEnter += theKhachHang_MouseEnter;
             lblSDT.MouseEnter += theKhachHang_MouseEnter;
             lblSDT.MouseLeave += theKhachHang_MouseLeave;
-            lblPoint.MouseEnter += theKhachHang_MouseEnter;
-            lblPoint.MouseLeave += theKhachHang_MouseLeave;
+            lblDiemDaTich.MouseEnter += theKhachHang_MouseEnter;
+            lblDiemDaTich.MouseLeave += theKhachHang_MouseLeave;
         }
 
         private void theKhachHang_MouseEnter(object sender, EventArgs e)
