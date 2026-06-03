@@ -57,6 +57,12 @@ namespace BUS
         {
             return kho.timSPKho(maSP, maKho);
         }
+
+        //lay ma kho tu ten kho
+        public string layMaKho(string tenKho)
+        {
+            return kho.layMaKho(tenKho);
+        }
     }
 
 }

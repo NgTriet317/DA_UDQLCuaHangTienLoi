@@ -163,5 +163,24 @@ namespace DAL
             return dt;
 
         }
+        //lay ma kho theo ten chi nhanh
+        public string layMaKho(string ten)
+        {
+            string ma = "";
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand($"SELECT MaKhoHang FROM KHOHANG where TenKho = N'{ten.Trim()}'", conn);
+                cmd.CommandType = CommandType.Text;
+                ma = (string)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { conn.Close(); }
+            return ma;
+        }
     }
+    
 }

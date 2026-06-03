@@ -14,8 +14,8 @@ namespace DA_UDQLCuaHangTienLoi
 {
     public partial class KhoHang : Form
     {
-        public static string maNV;
-        public static string maKho;
+        public static string maNV = "";
+        public static string maKho = "";
         public KhoHang()
         {
             InitializeComponent();
@@ -181,21 +181,11 @@ namespace DA_UDQLCuaHangTienLoi
         }
         BUS_TRAHANGNCC BUStraHang = new BUS_TRAHANGNCC();
         private void btnTraHang_Click(object sender, EventArgs e)
-        {
-            DataTable dt = BUStraHang.layAllTT();
-
-            int count = dt.Rows.Count;
-
-            BUStraHang.taoPhieuTraHang($"MTNCC{(count + 1):D2}");            
-
-            DataTable dtAfter = BUStraHang.layAllTT();
-
-            frmTraHang traHang = new frmTraHang();
-            frmTraHang.maTraNCC = dtAfter.Rows[0]["MaTraNCC"].ToString();
-            traHang.ShowDialog();
-            clear();
-            clearbang();
-            laydsTonkho();
+        {                        
+            ViewPhieuTraHang view = new ViewPhieuTraHang();
+            ViewPhieuTraHang.TenKho = cboKhoHang.Text;
+            view.ShowDialog();
+            btnLamMoi.PerformClick();
         }
     }
 }
