@@ -201,6 +201,8 @@ namespace DA_UDQLCuaHangTienLoi
             txtTongTienLuong.Clear();
             txtNgayChotLuong.Clear();
             txtThucLanh.Clear();
+            dtpNgayChotLuong.Value = DateTime.Now;
+            cboHoTenNV.SelectedIndex = 0;
         }
 
         private void btnLocTheoThangNam_Click(object sender, EventArgs e)
