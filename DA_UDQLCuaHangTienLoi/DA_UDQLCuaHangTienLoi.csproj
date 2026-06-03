@@ -532,6 +532,12 @@
     <Compile Include="TTSPNew.Designer.cs">
       <DependentUpon>TTSPNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewPhieuTraHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPhieuTraHang.Designer.cs">
+      <DependentUpon>ViewPhieuTraHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -681,6 +687,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TTSPNew.resx">
       <DependentUpon>TTSPNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPhieuTraHang.resx">
+      <DependentUpon>ViewPhieuTraHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewSanPham.resx">
       <DependentUpon>ViewSanPham.cs</DependentUpon>

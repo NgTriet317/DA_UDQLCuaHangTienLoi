@@ -50,13 +50,13 @@
             this.txtSLTK = new System.Windows.Forms.TextBox();
             this.txtTenSP = new System.Windows.Forms.TextBox();
             this.btnXuatKho = new System.Windows.Forms.Button();
+            this.btnTraHang = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnNhapKho = new System.Windows.Forms.Button();
             this.lblTenKho = new System.Windows.Forms.Label();
             this.lblDiaChiKho = new System.Windows.Forms.Label();
             this.cboKhoHang = new System.Windows.Forms.ComboBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.btnTraHang = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTTKho)).BeginInit();
             this.panel2.SuspendLayout();
@@ -70,7 +70,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1198, 56);
             this.panel1.TabIndex = 0;
@@ -107,7 +107,7 @@
             this.slTonKho,
             this.SoLuong});
             this.dgvTTKho.Location = new System.Drawing.Point(37, 98);
-            this.dgvTTKho.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTTKho.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTTKho.Name = "dgvTTKho";
             this.dgvTTKho.ReadOnly = true;
             this.dgvTTKho.RowHeadersWidth = 51;
@@ -185,7 +185,7 @@
             this.panel2.Controls.Add(this.btnNhapKho);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1038, 56);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(160, 722);
             this.panel2.TabIndex = 2;
@@ -205,7 +205,7 @@
             this.panel3.Controls.Add(this.txtTenSP);
             this.panel3.Controls.Add(this.btnXuatKho);
             this.panel3.Location = new System.Drawing.Point(9, 368);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(142, 344);
             this.panel3.TabIndex = 1;
@@ -270,7 +270,7 @@
             // 
             this.txtSoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoLuong.Location = new System.Drawing.Point(12, 252);
-            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(2);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(108, 26);
             this.txtSoLuong.TabIndex = 2;
@@ -279,7 +279,7 @@
             // 
             this.txtSLSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSLSP.Location = new System.Drawing.Point(13, 184);
-            this.txtSLSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSLSP.Margin = new System.Windows.Forms.Padding(2);
             this.txtSLSP.Name = "txtSLSP";
             this.txtSLSP.ReadOnly = true;
             this.txtSLSP.Size = new System.Drawing.Size(108, 32);
@@ -289,7 +289,7 @@
             // 
             this.txtSLTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSLTK.Location = new System.Drawing.Point(12, 115);
-            this.txtSLTK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSLTK.Margin = new System.Windows.Forms.Padding(2);
             this.txtSLTK.Name = "txtSLTK";
             this.txtSLTK.ReadOnly = true;
             this.txtSLTK.Size = new System.Drawing.Size(108, 32);
@@ -299,7 +299,7 @@
             // 
             this.txtTenSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenSP.Location = new System.Drawing.Point(12, 47);
-            this.txtTenSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTenSP.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenSP.Name = "txtTenSP";
             this.txtTenSP.ReadOnly = true;
             this.txtTenSP.Size = new System.Drawing.Size(108, 32);
@@ -309,7 +309,7 @@
             // 
             this.btnXuatKho.BackColor = System.Drawing.Color.SpringGreen;
             this.btnXuatKho.Location = new System.Drawing.Point(12, 290);
-            this.btnXuatKho.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXuatKho.Margin = new System.Windows.Forms.Padding(2);
             this.btnXuatKho.Name = "btnXuatKho";
             this.btnXuatKho.Size = new System.Drawing.Size(107, 42);
             this.btnXuatKho.TabIndex = 0;
@@ -317,12 +317,27 @@
             this.btnXuatKho.UseVisualStyleBackColor = false;
             this.btnXuatKho.Click += new System.EventHandler(this.btnXuatKho_Click);
             // 
+            // btnTraHang
+            // 
+            this.btnTraHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnTraHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraHang.ForeColor = System.Drawing.Color.Black;
+            this.btnTraHang.Location = new System.Drawing.Point(9, 182);
+            this.btnTraHang.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTraHang.Name = "btnTraHang";
+            this.btnTraHang.Size = new System.Drawing.Size(135, 76);
+            this.btnTraHang.TabIndex = 0;
+            this.btnTraHang.Text = "Quản lý trả hàng";
+            this.btnTraHang.UseVisualStyleBackColor = false;
+            this.btnTraHang.Click += new System.EventHandler(this.btnTraHang_Click);
+            // 
             // btnLamMoi
             // 
             this.btnLamMoi.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLamMoi.Location = new System.Drawing.Point(9, 102);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(2);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(135, 76);
             this.btnLamMoi.TabIndex = 0;
@@ -333,8 +348,9 @@
             // btnNhapKho
             // 
             this.btnNhapKho.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnNhapKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhapKho.Location = new System.Drawing.Point(9, 22);
-            this.btnNhapKho.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNhapKho.Margin = new System.Windows.Forms.Padding(2);
             this.btnNhapKho.Name = "btnNhapKho";
             this.btnNhapKho.Size = new System.Drawing.Size(135, 76);
             this.btnNhapKho.TabIndex = 0;
@@ -372,7 +388,7 @@
             this.cboKhoHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoHang.FormattingEnabled = true;
             this.cboKhoHang.Location = new System.Drawing.Point(117, 75);
-            this.cboKhoHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboKhoHang.Margin = new System.Windows.Forms.Padding(2);
             this.cboKhoHang.Name = "cboKhoHang";
             this.cboKhoHang.Size = new System.Drawing.Size(144, 21);
             this.cboKhoHang.TabIndex = 4;
@@ -384,24 +400,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiaChi.Location = new System.Drawing.Point(393, 75);
-            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(2);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.ReadOnly = true;
             this.txtDiaChi.Size = new System.Drawing.Size(626, 20);
             this.txtDiaChi.TabIndex = 5;
-            // 
-            // btnTraHang
-            // 
-            this.btnTraHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnTraHang.ForeColor = System.Drawing.Color.Black;
-            this.btnTraHang.Location = new System.Drawing.Point(9, 182);
-            this.btnTraHang.Margin = new System.Windows.Forms.Padding(2);
-            this.btnTraHang.Name = "btnTraHang";
-            this.btnTraHang.Size = new System.Drawing.Size(135, 76);
-            this.btnTraHang.TabIndex = 0;
-            this.btnTraHang.Text = "Trả hàng";
-            this.btnTraHang.UseVisualStyleBackColor = false;
-            this.btnTraHang.Click += new System.EventHandler(this.btnTraHang_Click);
             // 
             // KhoHang
             // 
@@ -415,7 +418,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvTTKho);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "KhoHang";
             this.Text = "KhoHang";
             this.Load += new System.EventHandler(this.KhoHang_Load);

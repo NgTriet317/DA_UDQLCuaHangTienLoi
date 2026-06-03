@@ -36,5 +36,10 @@ namespace BUS
         {            
             return ncc.themNCC(et);
         }
+        //lay ma ncc tu ten ncc
+        public string layMaNCC(string ten)
+        {
+            return ncc.layMaNCC(ten);
+        }
     }
 }

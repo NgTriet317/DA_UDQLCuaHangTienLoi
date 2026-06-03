@@ -78,6 +78,7 @@
     <Compile Include="BUS_SPHD.cs" />
     <Compile Include="BUS_SPNH.cs" />
     <Compile Include="BUS_TK.cs" />
+    <Compile Include="BUS_TRAHANGNCC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

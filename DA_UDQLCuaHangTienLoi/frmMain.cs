@@ -18,7 +18,7 @@ namespace DA_UDQLCuaHangTienLoi
         public static string inActive = "0";
         public static string mail = "";
         public static string chucVu = "";
-        public static string chiNhanh = "";
+        public static string chiNhanh = "";        
 
         BUS_TK tK = new BUS_TK();
         BUS_NHANVIEN nv = new BUS_NHANVIEN();

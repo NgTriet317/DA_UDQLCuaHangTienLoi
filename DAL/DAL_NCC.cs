@@ -82,5 +82,23 @@ namespace DAL
             }
             finally { conn.Close(); }
         }
-    }   
+        //lay ma ncc tu ten ncc
+        public string layMaNCC(string ten)
+        {
+            string ma = "";
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand($"SELECT MaNCC FROM NHACUNGCAP where TenNCC = N'{ten.Trim()}'", conn);
+                cmd.CommandType = CommandType.Text;
+                ma = (string)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { conn.Close(); }
+            return ma;
+        }
+    }
 }
