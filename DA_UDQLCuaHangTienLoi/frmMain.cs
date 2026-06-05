@@ -142,6 +142,7 @@ namespace DA_UDQLCuaHangTienLoi
                     btnNV.Visible = false;
                     btnKhoHang.Visible = false;
                     btnThongKe.Visible = false;
+                    btnLuongBong.Visible = false;
                 }
                 else
                 {
