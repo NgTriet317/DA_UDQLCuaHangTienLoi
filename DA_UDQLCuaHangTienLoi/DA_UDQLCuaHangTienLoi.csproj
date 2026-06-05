@@ -296,6 +296,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsNhapHangDB.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmConfigNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfigNew.Designer.cs">
+      <DependentUpon>frmConfigNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -555,6 +561,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dgvFakeTTSP.resx">
       <DependentUpon>dgvFakeTTSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfigNew.resx">
+      <DependentUpon>frmConfigNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
