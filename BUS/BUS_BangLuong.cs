@@ -21,5 +21,14 @@ namespace BUS
         {
             return bl.TongHopLuongThang(maNV, thang, nam, ngayChot);
         }
+        public DataTable LocBangLuongTheoThangNam(int thang, int nam)
+        {
+            return bl.LocBangLuongTheoThangNam(thang, nam);
+        }
+
+        public DataTable LocBangLuongTheoTenNV(string tenNV)
+        {
+            return bl.LocBangLuongTheoTenNV(tenNV);
+        }
     }
 }

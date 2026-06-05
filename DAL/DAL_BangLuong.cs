@@ -61,5 +61,60 @@ namespace DAL
             }
             return dt;
         }
+
+        public DataTable LocBangLuongTheoThangNam(int thang, int nam)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmmd = new SqlCommand("sp_LocBangLuongTheoThangNam", conn);
+                cmmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter[] para = new SqlParameter[]
+                {
+                    new SqlParameter("@Thang", thang),
+                    new SqlParameter("@Nam", nam)
+                };
+                cmmd.Parameters.AddRange(para);
+                SqlDataAdapter da = new SqlDataAdapter(cmmd);
+                da.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public DataTable LocBangLuongTheoTenNV(string tenNV)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn.Open();
+                SqlCommand cmmd = new SqlCommand("sp_LocBangLuongTheoTenNV", conn);
+                cmmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter[] para = new SqlParameter[]
+                {
+                    new SqlParameter("@HoTenNV", tenNV)
+                };
+                cmmd.Parameters.AddRange(para);
+                SqlDataAdapter da = new SqlDataAdapter(cmmd);
+                da.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
     }
 }

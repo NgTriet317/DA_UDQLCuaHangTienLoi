@@ -140,7 +140,11 @@ namespace DA_UDQLCuaHangTienLoi
             DateTime ngayChot = dtpNgayChotLuong.Value;
             int thang = ngayChot.Month;
             int nam = ngayChot.Year;
-
+            if (ngayChot < DateTime.Now)
+            {
+                MessageBox.Show("Ngày chốt lương phải là ngày hiện tại hoặc tương lai!", "Lỗi ngày chốt", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }    
             try
             {
                 // 1. Gọi tầng BLL để chạy Stored Procedure và hứng kết quả trả về DataTable
@@ -179,6 +183,82 @@ namespace DA_UDQLCuaHangTienLoi
             catch (Exception ex)
             {
                 MessageBox.Show("Thông báo hệ thống: " + ex.Message, "Lỗi tính lương", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            LoadLichSuBangLuong();
+            txtMaBangLuong.Clear();
+            txtMaLuongThang.Clear();
+            txtHoTenNV.Clear();
+            txtLuongCoBan.Clear();
+            txtTongSoCa.Clear();
+            txtTongTienCa.Clear();
+            txtTienPhuCap.Clear();
+            txtTongTienThuong.Clear();
+            txtTongTienPhat.Clear();
+            txtTongTienLuong.Clear();
+            txtNgayChotLuong.Clear();
+            txtThucLanh.Clear();
+            dtpNgayChotLuong.Value = DateTime.Now;
+            cboHoTenNV.SelectedIndex = 0;
+        }
+
+        private void btnLocTheoThangNam_Click(object sender, EventArgs e)
+        {
+            int thang = dtpNgayChotLuong.Value.Month;
+            int nam = dtpNgayChotLuong.Value.Year;
+            DataTable dt = bl.LocBangLuongTheoThangNam(thang, nam);
+            if (dt != null)
+            {
+                dgvBangLuong.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    dgvBangLuong.Rows.Add(
+                        row["MaBangLuong"].ToString(),
+                        row["HoTenNV"].ToString(),
+
+                        // Ép kiểu trực tiếp từ object và định dạng hiển thị tiền tệ (ví dụ: 500,000)
+                        row["TongThuong"] != DBNull.Value ? Convert.ToDecimal(row["TongThuong"]).ToString("N0") : "0",
+                        row["TongPhat"] != DBNull.Value ? Convert.ToDecimal(row["TongPhat"]).ToString("N0") : "0",
+                        row["TongTienLuong"] != DBNull.Value ? Convert.ToDecimal(row["TongTienLuong"]).ToString("N0") : "0",
+
+                        // Định dạng lại ngày tháng chốt lương
+                        row["NgayChotLuong"] != DBNull.Value ? Convert.ToDateTime(row["NgayChotLuong"]).ToString("dd/MM/yyyy") : "",
+
+                        // Cột Thực lĩnh cuối cùng
+                        row["ThucLanh"] != DBNull.Value ? Convert.ToDecimal(row["ThucLanh"]).ToString("N0") : "0"
+                    );
+                }
+            }    
+        }
+
+        private void btnLocTheoTenNV_Click(object sender, EventArgs e)
+        {
+            string tenNV = cboHoTenNV.Text;
+            DataTable dt = bl.LocBangLuongTheoTenNV(tenNV);
+            if (dt != null)
+            {
+                dgvBangLuong.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    dgvBangLuong.Rows.Add(
+                        row["MaBangLuong"].ToString(),
+                        row["HoTenNV"].ToString(),
+
+                        // Ép kiểu trực tiếp từ object và định dạng hiển thị tiền tệ (ví dụ: 500,000)
+                        row["TongThuong"] != DBNull.Value ? Convert.ToDecimal(row["TongThuong"]).ToString("N0") : "0",
+                        row["TongPhat"] != DBNull.Value ? Convert.ToDecimal(row["TongPhat"]).ToString("N0") : "0",
+                        row["TongTienLuong"] != DBNull.Value ? Convert.ToDecimal(row["TongTienLuong"]).ToString("N0") : "0",
+
+                        // Định dạng lại ngày tháng chốt lương
+                        row["NgayChotLuong"] != DBNull.Value ? Convert.ToDateTime(row["NgayChotLuong"]).ToString("dd/MM/yyyy") : "",
+
+                        // Cột Thực lĩnh cuối cùng
+                        row["ThucLanh"] != DBNull.Value ? Convert.ToDecimal(row["ThucLanh"]).ToString("N0") : "0"
+                    );
+                }
             }
         }
     }
